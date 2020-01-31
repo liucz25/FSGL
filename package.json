@@ -1,0 +1,17 @@
+{
+  "name": "fsgl",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "art-template": "^4.13.2",
+    "jquery": "^3.4.1",
+    "sql.js": "^1.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "lcz",
+  "license": "ISC"
+}

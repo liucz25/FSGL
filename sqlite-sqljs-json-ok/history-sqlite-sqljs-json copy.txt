@@ -1,0 +1,83 @@
+C:\Users\liuch
+λ d:
+
+
+D:\code\fsgl\node
+λ ls
+demo1/  HumanResourcesManager.s3db  sql-wasm.js  资料/
+
+D:\code\fsgl\node
+λ node
+> var initSql=require('sql.js');
+undefined
+> initSql()
+Promise {
+  <pending>,
+  domain:
+   Domain {
+     domain: null,
+     _events:
+      [Object: null prototype] {
+        removeListener: [Function: updateExceptionCapture],
+        newListener: [Function: updateExceptionCapture],
+        error: [Function: debugDomainError] },
+     _eventsCount: 3,
+     _maxListeners: undefined,
+     members: [],
+     [Symbol(kWeak)]: W
+     eakReference {} } }
+> var fs=require('fs');
+undefined
+
+> var fb=fs.readFileSync('HumanResourcesManager.s3db');
+undefined
+> var db=new SQL.Database(fb);
+undefined
+> sqlstr="select * from RankScore";
+'select * from RankScore'
+
+> var res =db.exec(sqlstr);
+undefined
+> res
+[ { columns: [ 'RSid', 'PersonId', 'TypeId', 'TotalScore' ],
+    values: [ [Array], [Array], [Array] ] } ]
+
+> res.values()
+Object [Array Iterator] {}
+
+> JSON.stringify(res);
+'[{"columns":["RSid","PersonId","TypeId","TotalScore"],"values":[[1,1,1,null],[2,1,4,null],[3,2,1,null]]}]'
+> js=JSON.stringify(res);
+'[{"columns":["RSid","PersonId","TypeId","TotalScore"],"values":[[1,1,1,null],[2,1,4,null],[3,2,1,null]]}]'
+
+> js.valueOf()
+'[{"columns":["RSid","PersonId","TypeId","TotalScore"],"values":[[1,1,1,null],[2,1,4,null],[3,2,1,null]]}]'
+
+> b=JSON.parse(js);
+[ { columns: [ 'RSid', 'PersonId', 'TypeId', 'TotalScore' ],
+    values: [ [Array], [Array], [Array] ] } ]
+
+> b.values()
+Object [Array Iterator] {}
+> b
+[ { columns: [ 'RSid', 'PersonId', 'TypeId', 'TotalScore' ],
+    values: [ [Array], [Array], [Array] ] } ]
+
+> b[0]
+{ columns: [ 'RSid', 'PersonId', 'TypeId', 'TotalScore' ],
+  values: [ [ 1, 1, 1, null ], [ 2, 1, 4, null ], [ 3, 2, 1, null ] ] }
+
+
+> c=b[0]
+{ columns: [ 'RSid', 'PersonId', 'TypeId', 'TotalScore' ],
+  values: [ [ 1, 1, 1, null ], [ 2, 1, 4, null ], [ 3, 2, 1, null ] ] }
+> c.columns
+[ 'RSid', 'PersonId', 'TypeId', 'TotalScore' ]
+> c.value
+undefined
+> c.values
+[ [ 1, 1, 1, null ], [ 2, 1, 4, null ], [ 3, 2, 1, null ] ]
+> c.values[1]
+[ 2, 1, 4, null ]
+> c.values[1][1]
+1

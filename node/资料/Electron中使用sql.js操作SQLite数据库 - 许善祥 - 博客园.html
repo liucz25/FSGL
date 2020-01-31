@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<!-- saved from url=(0048)https://www.cnblogs.com/xusx2014/p/11955398.html -->
+<html lang="zh-cn"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="origin">
+    <meta property="og:description" content="推荐sql.js——一款纯js的sqlite工具。 一、关于sql.js sql.js（https://github.com/kripken/sql.js）通过使用Emscripten编译SQLite">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Electron中使用sql.js操作SQLite数据库 - 许善祥 - 博客园</title>
+    
+    <link rel="stylesheet" href="./Electron中使用sql.js操作SQLite数据库 - 许善祥 - 博客园_files/blog-common.min.css">
+    <link id="MainCss" rel="stylesheet" href="./Electron中使用sql.js操作SQLite数据库 - 许善祥 - 博客园_files/bundle-simplememory.min.css">
+    
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="./Electron中使用sql.js操作SQLite数据库 - 许善祥 - 博客园_files/bundle-SimpleMemory-mobile.min.css">
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/xusx2014/rss">
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/xusx2014/rsd.xml">
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/xusx2014/wlwmanifest.xml">
+    <script src="./Electron中使用sql.js操作SQLite数据库 - 许善祥 - 博客园_files/pubads_impl_rendering_2020011301.js.下载"></script><script async="" src="./Electron中使用sql.js操作SQLite数据库 - 许善祥 - 博客园_files/analytics.js.下载"></script><script src="./Electron中使用sql.js操作SQLite数据库 - 许善祥 - 博客园_files/jquery-2.2.0.min.js.下载"></script>
+    <script src="./Electron中使用sql.js操作SQLite数据库 - 许善祥 - 博客园_files/blog-common.min.js.下载"></script>
+    <script>
+        var currentBlogId = 205730;
+        var currentBlogApp = 'xusx2014';
+        var cb_enable_mathjax = false;
+        var isLogined = false;
+    </script>
+    
+    
+    
+<link rel="preload" href="./Electron中使用sql.js操作SQLite数据库 - 许善祥 - 博客园_files/f.txt" as="script"><script type="text/javascript" src="./Electron中使用sql.js操作SQLite数据库 - 许善祥 - 博客园_files/f.txt"></script><script src="./Electron中使用sql.js操作SQLite数据库 - 许善祥 - 博客园_files/pubads_impl_2020011301.js.下载" async=""></script><link rel="prefetch" href="https://tpc.googlesyndication.com/safeframe/1-0-37/html/container.html"></head>
+<body>
+    <a name="top"></a>
+    
+    
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/xusx2014/"><img id="blogLogo" src="./Electron中使用sql.js操作SQLite数据库 - 许善祥 - 博客园_files/logo.gif" alt="返回主页"></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/xusx2014/">xusx</a>
+</h1>
+<h2>
+
+</h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/xusx2014/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/%E8%AE%B8%E5%96%84%E7%A5%A5">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="https://www.cnblogs.com/xusx2014/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			
+			<span id="stats_post_count">随笔 - 
+18&nbsp; </span>
+<span id="stats_article_count">文章 - 
+0&nbsp; </span>
+<span id="stats-comment_count">评论 - 
+4</span>
+
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="post_detail">
+    <!--done-->
+    <div id="topics">
+        <div class="post">
+            <h1 class="postTitle">
+                
+<a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/xusx2014/p/11955398.html">Electron中使用sql.js操作SQLite数据库</a>
+
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                
+<div id="cnblogs_post_body" class="blogpost-body ">
+    <blockquote class="wp-block-quote">
+<p>推荐sql.js——一款纯js的sqlite工具。</p>
+</blockquote>
+<div class="wp-block-image"><img style="display: block; margin-left: auto; margin-right: auto;" src="./Electron中使用sql.js操作SQLite数据库 - 许善祥 - 博客园_files/695215-20191129015019462-314666666.jpg" alt=""></div>
+<h2>一、关于sql.js</h2>
+<p>sql.js（https://github.com/kripken/sql.js）通过使用Emscripten编译SQLite C代码，将SQLite移植到Webassembly。 它使用存储在内存中的虚拟数据库文件，因此不会保留对数据库所做的更改。 但是，它允许您导入任何现有的sqlite文件，并将创建的数据库导出为JavaScript类型的数组。</p>
+<p>这里没有C绑定或node-gyp编译，sql.js是一个简单的JavaScript文件，可以像任何传统的JavaScript库一样使用。 如果您正在JavaScript中构建本机应用程序（例如，使用<code><a href="https://xushanxiang.com/category/electron">Electron</a></code>），或者在node.js中工作，则您可能更喜欢使用SQLite与JavaScript的本地绑定（https://www.npmjs.com/package/sqlite3）。</p>
+<p>SQLite是公共领域，sql.js是MIT许可的。</p>
+<p>Sql.js早于WebAssembly，因此从asm.js项目开始。 它仍然支持asm.js以实现向后兼容。</p>
+<h2>二、为什么要用sql.js</h2>
+<p>在开发electron应用的时候如果想要使用sqlite3，步骤上除了npm安装以外还要rebuild，比较麻烦，参见electron官方文档之使用 Node 原生模块（https://electronjs.org/docs/tutorial/using-native-node-modules）。</p>
+<p>如果你想找一个开箱即用的sql库，那么sql.js将是个不错的选择。sql.js是sqlite的Webassembly版，使用上和sqlite基本没有区别。sql.js支持浏览器端直接引入cdn，或者下载sql-wasm.js和sql-wasm.wasm到本地后引入，也支持npm导入。</p>
+<h2>三、在Electron项目中安装sql.js</h2>
+<p>1、假设我们已经搭建好了Electron的一个hello world项目，如<a href="https://xushanxiang.com/2019/11/installing-electron.html">https://xushanxiang.com/2019/11/installing-electron.html</a></p>
+<p>2、安装sql.js</p>
+<pre class="wp-block-code"><code class="hljs sql">cnpm <span class="hljs-keyword">install</span> sql.js <span class="hljs-comment">--save</span></code></pre>
+<p>安装完后，查看目录结构：</p>
+<pre class="wp-block-code"><code class="hljs dos"><span class="hljs-built_in">tree</span> node_modules/sql.js -L <span class="hljs-number">2</span></code></pre>
+<pre class="wp-block-preformatted">node_modules/sql.js<br> ├── AUTHORS<br> ├── GUI<br> │&nbsp;&nbsp; └── index.html<br> ├── LICENSE<br> ├── Makefile<br> ├── README.md<br> ├── cache<br> │&nbsp;&nbsp; ├── check.txt<br> │&nbsp;&nbsp; ├── extension-functions.c<br> │&nbsp;&nbsp; └── sqlite-amalgamation-3280000.zip<br> ├── dist<br> │&nbsp;&nbsp; ├── sql-asm-debug.js<br> │&nbsp;&nbsp; ├── sql-asm-memory-growth.js<br> │&nbsp;&nbsp; ├── sql-asm.js<br> │&nbsp;&nbsp; ├── sql-wasm-debug.js<br> │&nbsp;&nbsp; ├── sql-wasm-debug.wasm<br> │&nbsp;&nbsp; ├── sql-wasm.js<br> │&nbsp;&nbsp; ├── sql-wasm.wasm<br> │&nbsp;&nbsp; ├── worker.sql-asm-debug.js<br> │&nbsp;&nbsp; ├── worker.sql-asm.js<br> │&nbsp;&nbsp; ├── worker.sql-wasm-debug.js<br> │&nbsp;&nbsp; └── worker.sql-wasm.js<br> ├── examples<br> │&nbsp;&nbsp; ├── GUI<br> │&nbsp;&nbsp; ├── README.md<br> │&nbsp;&nbsp; ├── persistent.html<br> │&nbsp;&nbsp; ├── repl.html<br> │&nbsp;&nbsp; ├── requireJS.html<br> │&nbsp;&nbsp; ├── simple.html<br> │&nbsp;&nbsp; └── start_local_server.py<br> ├── index.html<br> ├── out<br> │&nbsp;&nbsp; ├── api.js<br> │&nbsp;&nbsp; ├── extension-functions.bc<br> │&nbsp;&nbsp; ├── sqlite3.bc<br> │&nbsp;&nbsp; └── worker.js<br> ├── package.json<br> ├── sqlite-src<br> │&nbsp;&nbsp; └── sqlite-amalgamation-3280000<br> └── src<br>     ├── api-data.coffee<br>     ├── api.coffee<br>     ├── exported_functions.json<br>     ├── exported_runtime_methods.json<br>     ├── exports.coffee<br>     ├── output-post.js<br>     ├── output-pre.js<br>     ├── shell-post.js<br>     ├── shell-pre.js<br>     └── worker.coffee<br> 9 directories, 41 files</pre>
+<blockquote class="wp-block-quote">
+<p>dist目录文件说明详见 https://github.com/kripken/sql.js#versions-of-sqljs-included-in-the-distributed-artifacts</p>
+</blockquote>
+<h2>四、在Electron项目中，如何使用sql.js操作SQLite数据库</h2>
+<h3>1、创建一个SQLite数据库</h3>
+<p>我们可以在命令行中创建，也可以通过在线SQL解释器（http://kripken.github.io/sql.js/examples/GUI/）创建并下载一个。</p>
+<blockquote class="wp-block-quote">
+<p>写代码时，大家可以参考由源代码中的注释生成的完整文档——http://kripken.github.io/sql.js/documentation/#http://kripken.github.io/sql.js/documentation/class/Database.html</p>
+</blockquote>
+<p>我们使用后者下载一个数据库 sql.db 放到项目根目录。再看一下我们当前的项目文件结构：</p>
+<pre class="wp-block-preformatted">d tree  -L 1<br> .<br> ├── index.html<br> ├── main.js<br> ├── node_modules<br> ├── package.json<br> └── sql.db<br> 1 directory, 4 files</pre>
+<p>当然，我们也可以在项目运行时，动态创建一个，不过先创建静态文件目录，拷贝相关文件到静态文件目录。</p>
+<pre class="wp-block-code"><code class="hljs groovy">→ mkdir -p <span class="hljs-keyword">static</span>/js
+→ cp node_modules<span class="hljs-regexp">/sql.js/</span>dist<span class="hljs-regexp">/sql-wasm.* static/</span>js/
+→ ls <span class="hljs-keyword">static</span><span class="hljs-regexp">/js/</span>
+  sql-wasm.js   sql-wasm.wasm</code></pre>
+<p>再改动 index.html 文件内容：</p>
+<pre class="wp-block-code"><code class="hljs xml"><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"UTF-8"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>create the database<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"result"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">'./static/js/sql-wasm.js'</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br>    <span class="hljs-comment">&lt;!--如果在主进程中，则用var initSqlJs=require('sql-wasm.js')--&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+      <span class="hljs-keyword">var</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">"fs"</span>);
+      <span class="hljs-keyword">var</span> config = {
+        <span class="hljs-comment">// 指定加载sql-wasm.wasm文件的位置</span>
+        locateFile: <span class="hljs-function"><span class="hljs-params">filename</span> =&gt;</span> <span class="hljs-string">`./static/js/<span class="hljs-subst">${filename}</span>`</span> 
+      };
+      initSqlJs(config).then(<span class="hljs-function"><span class="hljs-params">SQL</span> =&gt;</span> {
+        <span class="hljs-comment">// 创建数据库</span>
+        <span class="hljs-keyword">var</span> db = <span class="hljs-keyword">new</span> SQL.Database();
+        <span class="hljs-comment">// 运行查询而不读取结果</span>
+        db.run(<span class="hljs-string">"CREATE TABLE test (col1, col2);"</span>);
+        <span class="hljs-comment">// 插入两行：(1,111) and (2,222)</span>
+        db.run(<span class="hljs-string">"INSERT INTO test VALUES (?,?), (?,?)"</span>, [<span class="hljs-number">1</span>,<span class="hljs-number">111</span>,<span class="hljs-number">2</span>,<span class="hljs-number">222</span>]);
+        <span class="hljs-comment">// 将数据库导出到包含SQLite数据库文件的Uint8Array</span>
+        <span class="hljs-comment">// export() 返回值: ( Uint8Array ) — SQLite3数据库文件的字节数组</span>
+        <span class="hljs-keyword">var</span> data = db.export();
+        <span class="hljs-comment">// 由于安全性和可用性问题，不建议使用Buffer()和new Buffer()构造函数</span>
+        <span class="hljs-comment">// 改用new Buffer.alloc()、Buffer.allocUnsafe()或Buffer.from()构造方法</span>
+        <span class="hljs-comment">// var buffer = new Buffer(data);</span>
+        <span class="hljs-keyword">var</span> buffer = Buffer.from(data, <span class="hljs-string">'binary'</span>);
+        <span class="hljs-comment">// 被创建数据库名称</span>
+        <span class="hljs-keyword">var</span> filename = <span class="hljs-string">"d.sqlite"</span>;
+        fs.writeFileSync(filename, buffer);
+        <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'#result'</span>).innerHTML = filename + <span class="hljs-string">"Created successfully."</span>;
+      });
+    </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre>
+<p>如果你没有安装SQLiteStudio之类的软件，可以把上面动态创建的数据库文件载入http://kripken.github.io/sql.js/examples/GUI/，再执行下面SQL语句得到下面表格结果。</p>
+<pre class="wp-block-code"><code class="hljs sql"><span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> <span class="hljs-keyword">test</span></code></pre>
+<table class="wp-block-table aligncenter has-fixed-layout is-style-regular">
+<thead>
+<tr><th>col1</th><th>col2</th></tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>111</td>
+</tr>
+<tr>
+<td>2</td>
+<td>222</td>
+</tr>
+</tbody>
+</table>
+<h3 id="mce_43">2、对SQLite数据库进行查询操作</h3>
+<p>替换 index.html 文件内容如下：</p>
+<pre class="wp-block-code"><code class="hljs xml"><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"UTF-8"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Execute SELECT sql<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"result"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">'./static/js/sql-wasm.js'</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+      <span class="hljs-keyword">var</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">"fs"</span>);
+      <span class="hljs-keyword">var</span> filebuffer = fs.readFileSync(<span class="hljs-string">'d.sqlite'</span>);
+      <span class="hljs-keyword">var</span> config = {
+        <span class="hljs-comment">// 指定加载sql-wasm.wasm文件的位置</span>
+        locateFile: <span class="hljs-function"><span class="hljs-params">filename</span> =&gt;</span> <span class="hljs-string">`./static/js/<span class="hljs-subst">${filename}</span>`</span> 
+      };
+      initSqlJs(config).then(<span class="hljs-function"><span class="hljs-params">SQL</span> =&gt;</span> {
+        <span class="hljs-comment">// 加载数据库到内存中</span>
+        <span class="hljs-keyword">var</span> db = <span class="hljs-keyword">new</span> SQL.Database(filebuffer);
+        <span class="hljs-keyword">var</span> res = db.exec(<span class="hljs-string">"SELECT * FROM test"</span>);
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">JSON</span>.stringify(res));
+        <span class="hljs-comment">// [{"columns":["col1","col2"],"values":[[1,111],[2,222]]}]</span>
+      });
+    </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre>
+<h3 id="mce_45">3、对SQLite数据库进行增、改、删操作</h3>
+<p>替换 index.html 文件内容如下：</p>
+<pre class="wp-block-code"><code class="hljs xml"><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"UTF-8"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Execute SELECT sql<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"result"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">'./static/js/sql-wasm.js'</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+      <span class="hljs-keyword">var</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">"fs"</span>);
+      <span class="hljs-keyword">var</span> filebuffer = fs.readFileSync(<span class="hljs-string">'d.sqlite'</span>);
+      <span class="hljs-keyword">var</span> config = {
+        <span class="hljs-comment">// 指定加载sql-wasm.wasm文件的位置</span>
+        locateFile: <span class="hljs-function"><span class="hljs-params">filename</span> =&gt;</span> <span class="hljs-string">`./static/js/<span class="hljs-subst">${filename}</span>`</span> 
+      };
+      initSqlJs(config).then(<span class="hljs-function"><span class="hljs-params">SQL</span> =&gt;</span> {
+        <span class="hljs-comment">// 加载数据库到内存中</span>
+        <span class="hljs-keyword">var</span> db = <span class="hljs-keyword">new</span> SQL.Database(filebuffer);
+
+        <span class="hljs-comment">// 插入两行：(1,111) and (2,222)</span>
+        db.run(<span class="hljs-string">"INSERT INTO test VALUES (?,?), (?,?)"</span>, [<span class="hljs-number">3</span>,<span class="hljs-number">333</span>,<span class="hljs-number">4</span>,<span class="hljs-number">444</span>]);
+        <span class="hljs-keyword">var</span> res = db.exec(<span class="hljs-string">"SELECT * FROM test"</span>);
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">JSON</span>.stringify(res));
+        <span class="hljs-comment">// [{"columns":["col1","col2"],"values":[[1,111],[2,222],[3,333],[4,444]]}]</span>
+
+        <span class="hljs-comment">// 修改一行</span>
+        db.run(<span class="hljs-string">"UPDATE test SET col2=(?) WHERE col1=(?)"</span>, [<span class="hljs-number">3333</span>,<span class="hljs-number">3</span>]);
+        res = db.exec(<span class="hljs-string">"SELECT * FROM test"</span>);
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">JSON</span>.stringify(res));
+        <span class="hljs-comment">// [{"columns":["col1","col2"],"values":[[1,111],[2,222],[3,3333],[4,444]]}]</span>
+
+        <span class="hljs-comment">// 删除一行</span>
+        db.run(<span class="hljs-string">"DELETE FROM test WHERE col1=(?)"</span>, [<span class="hljs-number">4</span>]);
+        res = db.exec(<span class="hljs-string">"SELECT * FROM test"</span>);
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">JSON</span>.stringify(res));
+        <span class="hljs-comment">// [{"columns":["col1","col2"],"values":[[1,111],[2,222],[3,3333]]}]</span>
+
+        <span class="hljs-comment">// 注意：上面的增、改、删都只是对载入内存中的数据进行变更，我们需要把内存中的数据再存入磁盘文件中，不然一切皆枉然。</span>
+        <span class="hljs-keyword">var</span> data = db.export();
+        <span class="hljs-keyword">var</span> buffer = Buffer.from(data, <span class="hljs-string">'binary'</span>);
+        fs.writeFileSync(<span class="hljs-string">"d.sqlite"</span>, buffer);
+        <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'#result'</span>).innerHTML = <span class="hljs-string">"SQLite database changed."</span>;
+      });
+    </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre>
+<p>原文：<a href="https://xushanxiang.com/2019/11/electron-sql-js-sqlite.html">https://xushanxiang.com/2019/11/electron-sql-js-sqlite.html</a></p>
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+<div id="EntryTag">
+    标签: 
+            <a href="https://www.cnblogs.com/xusx2014/tag/electron/">electron</a>,             <a href="https://www.cnblogs.com/xusx2014/tag/sqlite/">sqlite</a></div>
+
+    <div id="blog_post_info">
+<div id="green_channel">
+        <a href="javascript:void(0);" id="green_channel_digg" onclick="DiggIt(11955398,cb_blogId,1);green_channel_success(this,&#39;谢谢推荐！&#39;);">好文要顶</a>
+        <a id="green_channel_follow" onclick="follow(&#39;be4a4d2e-2b71-e411-b908-9dcfd8948a71&#39;);" href="javascript:void(0);">关注我</a>
+    <a id="green_channel_favorite" onclick="AddToWz(cb_entryId);return false;" href="javascript:void(0);">收藏该文</a>
+    <a id="green_channel_weibo" href="javascript:void(0);" title="分享至新浪微博" onclick="ShareToTsina()"><img src="./Electron中使用sql.js操作SQLite数据库 - 许善祥 - 博客园_files/icon_weibo_24.png" alt=""></a>
+    <a id="green_channel_wechat" href="javascript:void(0);" title="分享至微信" onclick="shareOnWechat()"><img src="./Electron中使用sql.js操作SQLite数据库 - 许善祥 - 博客园_files/wechat.png" alt=""></a>
+</div>
+<div id="author_profile">
+    <div id="author_profile_info" class="author_profile_info">
+        <div id="author_profile_detail" class="author_profile_info">
+            <a href="https://home.cnblogs.com/u/xusx2014/">许善祥</a><br>
+            <a href="https://home.cnblogs.com/u/xusx2014/followees/">关注 - 0</a><br>
+            <a href="https://home.cnblogs.com/u/xusx2014/followers/">粉丝 - 1</a>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div id="author_profile_honor"></div>
+    <div id="author_profile_follow">
+                <a href="javascript:void(0);" onclick="follow(&#39;be4a4d2e-2b71-e411-b908-9dcfd8948a71&#39;);return false;">+加关注</a>
+    </div>
+</div>
+<div id="div_digg">
+    <div class="diggit" onclick="votePost(11955398,&#39;Digg&#39;)">
+        <span class="diggnum" id="digg_count">0</span>
+    </div>
+    <div class="buryit" onclick="votePost(11955398,&#39;Bury&#39;)">
+        <span class="burynum" id="bury_count">0</span>
+    </div>
+    <div class="clear"></div>
+    <div class="diggword" id="digg_tips">
+    </div>
+</div>
+
+<script type="text/javascript">
+    currentDiggType = 0;
+</script></div>
+    <div class="clear"></div>
+    <div id="post_next_prev">
+
+    <a href="https://www.cnblogs.com/xusx2014/p/11948813.html" class="p_n_p_prefix">« </a> 上一篇：    <a href="https://www.cnblogs.com/xusx2014/p/11948813.html" title="发布于 2019-11-28 11:34">Scrcpy用电脑控制Android手机(支持Windows/macOS/Linux)</a>
+    <br>
+    <a href="https://www.cnblogs.com/xusx2014/p/11967789.html" class="p_n_p_prefix">» </a> 下一篇：    <a href="https://www.cnblogs.com/xusx2014/p/11967789.html" title="发布于 2019-12-01 21:25">Electron存储简单数据和用户首选项推荐用electron-store</a>
+
+</div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date">2019-11-29 01:50</span>&nbsp;
+<a href="https://www.cnblogs.com/xusx2014/">许善祥</a>&nbsp;
+阅读(<span id="post_view_count">339</span>)&nbsp;
+评论(<span id="post_comment_count">0</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=11955398" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(11955398);return false;">收藏</a></div>
+        </div>
+	    
+	    
+    </div><!--end: topics 文章、评论容器-->
+</div>
+<script src="./Electron中使用sql.js操作SQLite数据库 - 许善祥 - 博客园_files/highlight.min.js.下载"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 205730, cb_blogApp = 'xusx2014', cb_blogUserGuid = 'be4a4d2e-2b71-e411-b908-9dcfd8948a71';
+    var cb_entryId = 11955398, cb_entryCreatedDate = '2019-11-29 01:50', cb_postType = 1; 
+    loadViewCount(cb_entryId);
+</script><a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<script>
+    var commentManager = new blogCommentManager();
+    commentManager.renderComments(0);
+</script>
+
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="https://www.cnblogs.com/xusx2014/p/11955398.html#" onclick="return RefreshPage();">刷新页面</a><a href="https://www.cnblogs.com/xusx2014/p/11955398.html#top">返回顶部</a></div>
+    <div id="comment_form_container"><div class="login_tips">
+    注册用户登录后才能发表评论，请 
+    <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return login(&#39;commentform&#39;);">登录</a>
+     或 
+    <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return register();">注册</a>，
+    <a href="https://www.cnblogs.com/">访问</a> 网站首页。
+</div></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"><a href="http://www.ucancode.com/index.htm" target="_blank" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Link&#39;, &#39;click&#39;, &#39;T2-ucancode&#39;)">【推荐】超50万行VC++源码: 大型组态工控、电力仿真CAD与GIS源码库</a><br><a href="http://click.aliyun.com/m/1000081987/" target="_blank" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Link&#39;, &#39;click&#39;, &#39;T2-阿里云&#39;)">【推荐】阿里云双11返场来袭，热门产品低至一折等你来抢！</a><br><a href="https://cloud.tencent.com/act/developer?fromSource=gwzcw.3196335.3196335.3196335&amp;utm_medium=cpc&amp;utm_id=gwzcw.3196335.3196335.3196335" target="_blank" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Link&#39;, &#39;click&#39;, &#39;T2-腾讯云&#39;)">【活动】开发者上云必备，腾讯云1核4G 2M云服务器11元/月起</a><br><a href="https://cloud.baidu.com/campaign/Promotion-20191111/index.html?track=cp:dsp|pf:pc|pp:chui-bokeyuan-huodong-19shuangshiyiganenji-BCC-cpaxingshi-191210|pu:cpa-xingshi|ci:2019syj|kw:2172212" target="_blank" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Link&#39;, &#39;click&#39;, &#39;T2-百度云&#39;)">【推荐】百度智能云岁末感恩季，明星产品低至1元新老用户畅享</a><br><a href="https://www.jdcloud.com/cn/activity/newUser?utm_source=DMT_cnblogs&amp;utm_medium=CH&amp;utm_campaign=09vm&amp;utm_term=Virtual-Machines" target="_blank" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Link&#39;, &#39;click&#39;, &#39;T2-京东云&#39;)">【活动】京东云限时优惠1.5折购云主机，最高返价值1000元礼品！</a><br></div>
+    <div id="opt_under_post"></div>
+    <script async="async" src="./Electron中使用sql.js操作SQLite数据库 - 许善祥 - 博客园_files/gpt.js.下载"></script>
+    <script>
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+    </script>
+    <script>
+        googletag.cmd.push(function () {
+            googletag.defineSlot("/1090369/C1", [300, 250], "div-gpt-ad-1546353474406-0").addService(googletag.pubads());
+            googletag.defineSlot("/1090369/C2", [468, 60], "div-gpt-ad-1539008685004-0").addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+        });
+    </script>
+    <div id="cnblogs_c1" class="c_ad_block" style="">
+        <div id="div-gpt-ad-1546353474406-0" style="height: 250px; width: 300px;"><div id="google_ads_iframe_/1090369/C1_0__container__" style="border: 0pt none; width: 300px; height: 250px;"></div></div>
+    </div>
+    <div id="under_post_news"></div>
+    <div id="cnblogs_c2" class="c_ad_block" style="">
+        <div id="div-gpt-ad-1539008685004-0" style="height: 60px; width: 468px;">
+            <script>
+                if (new Date() >= new Date(2018, 9, 13)) {
+                    googletag.cmd.push(function () { googletag.display("div-gpt-ad-1539008685004-0"); });
+                }
+            </script>
+        <div id="google_ads_iframe_/1090369/C2_0__container__" style="border: 0pt none; width: 468px; height: 60px;"></div></div>
+    </div>
+    <div id="under_post_kb">
+<div class="itnews c_ad_block">
+    <b>最新 IT 新闻</b>:
+    <br>
+ ·              <a href="https://news.cnblogs.com/n/653926/" target="_blank">可防可控，武汉市就新型冠状病毒感染的肺炎综合防控工作答记者问</a>
+            <br>
+ ·              <a href="https://news.cnblogs.com/n/653925/" target="_blank">三星S20 Ultra一亿相机半秒出片 机身重量不到200克</a>
+            <br>
+ ·              <a href="https://news.cnblogs.com/n/653924/" target="_blank">外媒：英特尔7nm工艺理论上不会受到10nm延迟影响</a>
+            <br>
+ ·              <a href="https://news.cnblogs.com/n/653923/" target="_blank">性能提升23%  金山云第四代云服务器正式发布</a>
+            <br>
+ ·              <a href="https://news.cnblogs.com/n/653922/" target="_blank">2万机架，14.5亿投资，国家健康医疗大数据北方中心主体落成</a>
+            <br>
+    » <a href="https://news.cnblogs.com/" title="IT 新闻" target="_blank">更多新闻...</a>
+</div></div>
+    <div id="HistoryToday" class="c_ad_block"></div>
+    <script type="text/javascript">
+        fixPostBody();
+        setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+        deliverAdT2();
+        deliverAdC1();
+        deliverAdC2();
+        loadNewsAndKb();
+        loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);        LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+        GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+        loadOptUnderPost();
+        GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<div id="sidebar_news" class="newsItem"><!--done-->
+<h3 class="catListTitle">公告</h3>
+
+<div id="blog-news">
+    
+    <div id="profile_block">
+        昵称：
+        <a href="https://home.cnblogs.com/u/xusx2014/">
+            许善祥
+        </a>
+        <br>
+        园龄：
+        <a href="https://home.cnblogs.com/u/xusx2014/" title="入园时间：2014-11-21">
+            5年1个月
+        </a>
+        <br>
+        粉丝：
+        <a href="https://home.cnblogs.com/u/xusx2014/followers/">
+            1
+        </a>
+        <br>
+        关注：
+        <a href="https://home.cnblogs.com/u/xusx2014/followees/">
+            0
+        </a>
+        <div id="p_b_follow">
+<a href="javascript:void(0)" onclick="follow(&#39;be4a4d2e-2b71-e411-b908-9dcfd8948a71&#39;)">+加关注</a></div>
+        <script>getFollowStatus('be4a4d2e-2b71-e411-b908-9dcfd8948a71');</script>
+    </div>
+</div>
+
+</div>
+
+			<div id="blog-calendar" style="">
+
+<table id="blogCalendar" class="Cal" cellspacing="0" cellpadding="0" title="Calendar" border="0">
+    <tbody>
+        <tr>
+            <td colspan="7">
+                <table class="CalTitle" cellspacing="0" border="0">
+                    <tbody>
+                        <tr>
+                            <td class="CalNextPrev">
+                                <a href="javascript:void(0);" onclick="loadBlogCalendar(&#39;2019/12/19&#39;); return false;">&lt;</a>
+                            </td>
+                            <td align="center">2020年1月</td>
+                            <td align="right" class="CalNextPrev">
+                                <a href="javascript:void(0);" onclick="loadBlogCalendar(&#39;2020/02/19&#39;); return false;">&gt;</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+        <tr>
+                    <th class="CalDayHeader" align="center" abbr="日" scope="col">日</th>
+                    <th class="CalDayHeader" align="center" abbr="一" scope="col">一</th>
+                    <th class="CalDayHeader" align="center" abbr="二" scope="col">二</th>
+                    <th class="CalDayHeader" align="center" abbr="三" scope="col">三</th>
+                    <th class="CalDayHeader" align="center" abbr="四" scope="col">四</th>
+                    <th class="CalDayHeader" align="center" abbr="五" scope="col">五</th>
+                    <th class="CalDayHeader" align="center" abbr="六" scope="col">六</th>
+        </tr>
+            <tr>
+                            <td class="CalOtherMonthDay" align="center">29</td>
+                            <td class="CalOtherMonthDay" align="center">30</td>
+                            <td class="CalOtherMonthDay" align="center">31</td>
+                        <td class="" align="center">
+                            1
+                        </td>
+                        <td class="" align="center">
+                            2
+                        </td>
+                        <td class="" align="center">
+                            3
+                        </td>
+                    <td class="CalWeekendDay" align="center">
+                        4
+                    </td>
+            </tr>
+                <tr>
+                        <td class="CalWeekendDay" align="center">
+                            5
+                        </td>
+                            <td class="" align="center">
+                                6
+                            </td>
+                            <td class="" align="center">
+                                7
+                            </td>
+                            <td class="" align="center">
+                                8
+                            </td>
+                            <td class="" align="center">
+                                9
+                            </td>
+                            <td class="" align="center">
+                                10
+                            </td>
+                        <td class="CalWeekendDay" align="center">
+                            11
+                        </td>
+                </tr>
+                <tr>
+                        <td class="CalWeekendDay" align="center">
+                            <a href="https://www.cnblogs.com/xusx2014/archive/2020/01/12.html"><u>12</u></a>
+                        </td>
+                            <td class="" align="center">
+                                13
+                            </td>
+                            <td class="" align="center">
+                                14
+                            </td>
+                            <td class="" align="center">
+                                15
+                            </td>
+                            <td class="" align="center">
+                                16
+                            </td>
+                            <td class="" align="center">
+                                17
+                            </td>
+                        <td class="CalWeekendDay" align="center">
+                            18
+                        </td>
+                </tr>
+                <tr>
+                        <td class="CalTodayDay" align="center">
+                            19
+                        </td>
+                            <td class="" align="center">
+                                20
+                            </td>
+                            <td class="" align="center">
+                                21
+                            </td>
+                            <td class="" align="center">
+                                22
+                            </td>
+                            <td class="" align="center">
+                                23
+                            </td>
+                            <td class="" align="center">
+                                24
+                            </td>
+                        <td class="CalWeekendDay" align="center">
+                            25
+                        </td>
+                </tr>
+                <tr>
+                        <td class="CalWeekendDay" align="center">
+                            26
+                        </td>
+                            <td class="" align="center">
+                                27
+                            </td>
+                            <td class="" align="center">
+                                28
+                            </td>
+                            <td class="" align="center">
+                                29
+                            </td>
+                            <td class="" align="center">
+                                30
+                            </td>
+                            <td class="" align="center">
+                                31
+                            </td>
+                        <td class="CalOtherMonthDay" align="center">
+                            1
+                        </td>
+                </tr>
+                <tr>
+                        <td class="CalOtherMonthDay" align="center">
+                            2
+                        </td>
+                            <td class="CalOtherMonthDay" align="center">
+                                3
+                            </td>
+                            <td class="CalOtherMonthDay" align="center">
+                                4
+                            </td>
+                            <td class="CalOtherMonthDay" align="center">
+                                5
+                            </td>
+                            <td class="CalOtherMonthDay" align="center">
+                                6
+                            </td>
+                            <td class="CalOtherMonthDay" align="center">
+                                7
+                            </td>
+                        <td class="CalOtherMonthDay" align="center">
+                            8
+                        </td>
+                </tr>
+    </tbody>
+</table></div><script>loadBlogDefaultCalendar();</script>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn">
+<!-- 搜索 -->
+<div id="sidebar_search" class="sidebar-block">
+    <div id="sidebar_search" class="mySearch">
+        <h3 class="catListTitle">搜索</h3>
+        <div id="sidebar_search_box">
+            <div id="widget_my_zzk" class="div_my_zzk">
+                <input type="text" id="q" onkeydown="return zzk_go_enter(event);" class="input_my_zzk">&nbsp;<input onclick="zzk_go()" type="button" value="找找看" id="btnZzk" class="btn_my_zzk">
+            </div>
+            <div id="widget_my_google" class="div_my_zzk">
+                <input type="text" name="google_q" id="google_q" onkeydown="return google_go_enter(event);" class="input_my_zzk">&nbsp;<input onclick="google_go()" type="button" value="谷歌搜索" class="btn_my_zzk">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 常用链接 -->
+<div id="sidebar_shortcut" class="sidebar-block">
+    <div class="catListLink">
+<h3 class="catListTitle">
+常用链接
+</h3>
+<ul>
+		<li>
+
+<a href="https://www.cnblogs.com/xusx2014/p/" title="我的博客的随笔列表">我的随笔</a>
+</li>
+		<li>
+
+<a href="https://www.cnblogs.com/xusx2014/MyComments.html" title="我的发表过的评论列表">我的评论</a>
+</li>
+		<li>
+
+<a href="https://www.cnblogs.com/xusx2014/OtherPosts.html" title="我评论过的随笔列表">我的参与</a>
+</li>
+		<li>
+
+<a href="https://www.cnblogs.com/xusx2014/RecentComments.html" title="我的博客的评论列表">最新评论</a>
+</li>
+		<li>
+
+<a href="https://www.cnblogs.com/xusx2014/tag/" title="我的博客的标签列表">我的标签</a>
+</li>
+
+</ul>
+<div id="itemListLin_con" style="display:none;">
+<ul>
+
+</ul>
+</div>
+</div>
+
+
+</div>
+
+<!-- 最新随笔 -->
+
+
+
+<!-- 我的标签 -->
+<div id="sidebar_toptags" class="sidebar-block">
+    <div class="catListTag">
+<h3 class="catListTitle">我的标签</h3>
+<ul>
+
+        <li>
+            <a href="https://www.cnblogs.com/xusx2014/tag/electron/">electron</a>(2)
+        </li>
+        <li>
+            <a href="https://www.cnblogs.com/xusx2014/tag/MySQL/">MySQL</a>(2)
+        </li>
+        <li>
+            <a href="https://www.cnblogs.com/xusx2014/tag/npm/">npm</a>(1)
+        </li>
+        <li>
+            <a href="https://www.cnblogs.com/xusx2014/tag/php/">php</a>(1)
+        </li>
+        <li>
+            <a href="https://www.cnblogs.com/xusx2014/tag/sqlite/">sqlite</a>(1)
+        </li>
+        <li>
+            <a href="https://www.cnblogs.com/xusx2014/tag/SVN/">SVN</a>(1)
+        </li>
+        <li>
+            <a href="https://www.cnblogs.com/xusx2014/tag/%E9%9D%A2%E8%AF%95/">面试</a>(1)
+        </li>
+        <li>
+            <a href="https://www.cnblogs.com/xusx2014/tag/%E8%A7%86%E9%A2%91/">视频</a>(1)
+        </li>
+        <li>
+            <a href="https://www.cnblogs.com/xusx2014/tag/%E6%8A%95%E5%B1%8F/">投屏</a>(1)
+        </li>
+        <li>
+            <a href="https://www.cnblogs.com/xusx2014/tag/Excel/">Excel</a>(1)
+        </li>
+            <li>
+                <a href="https://www.cnblogs.com/xusx2014/tag/">更多</a>
+            </li>
+
+</ul>
+</div>
+
+
+</div>
+
+<!-- 积分与排名 -->
+
+
+<!-- 随笔分类、随笔档案、文章分类、新闻分类、相册、链接 -->
+<div id="sidebar_categories">
+    
+        <div id="sidebar_postarchive" class="catListPostArchive sidebar-block">
+            <h3 class="catListTitle">
+                
+
+随笔档案
+
+
+
+            </h3>
+
+
+            <ul>
+
+                        <li>
+                            
+<a href="https://www.cnblogs.com/xusx2014/archive/2020/01.html" rel="" target="">
+    2020年1月(1)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/xusx2014/archive/2019/12.html" rel="" target="">
+    2019年12月(9)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/xusx2014/archive/2019/11.html" rel="" target="">
+    2019年11月(6)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/xusx2014/archive/2014/12.html" rel="" target="">
+    2014年12月(1)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/xusx2014/archive/2014/11.html" rel="" target="">
+    2014年11月(1)
+</a>
+ 
+
+                        </li>
+
+            </ul>
+
+
+        </div>
+        <div id="sidebar_articlecategory" class="catListArticleCategory sidebar-block">
+            <h3 class="catListTitle">
+                
+
+文章分类
+
+
+
+            </h3>
+
+
+            <ul>
+
+                        <li>
+                            
+<a href="https://www.cnblogs.com/xusx2014/category/636475.html" rel="" target="">
+    Linux(1)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/xusx2014/category/632893.html" rel="" target="">
+    MySQL
+</a>
+ 
+
+                        </li>
+
+            </ul>
+
+
+        </div>
+
+</div>
+
+<!-- 最新评论 -->
+<div id="sidebar_recentcomments" class="sidebar-block">
+    <div class="catListComment">
+<h3 class="catListTitle">最新评论</h3>
+
+	<div class="RecentCommentBlock">
+        <ul>
+                    <li class="recent_comment_title"><a href="https://www.cnblogs.com/xusx2014/p/11941987.html#4448591">1. Re:中国银行、光大银行西联收款需要提供证明怎么办？</a></li>
+                    <li class="recent_comment_body">你好，我也是做谷歌的，也是取不了西联，而且我的帮助中心里，没有给他们发邮件的选项，这样就没办法和他们联系要合同了，请问下你收到的邮箱回复里有没有Email地址，能不能发个给我，我好联系他们，谢谢！另外...</li>
+                    <li class="recent_comment_author">--zhchc2004</li>
+                    <li class="recent_comment_title"><a href="https://www.cnblogs.com/xusx2014/p/11941987.html#4447782">2. Re:中国银行、光大银行西联收款需要提供证明怎么办？</a></li>
+                    <li class="recent_comment_body">可能是调整或关闭了在线提交问题。<br>钱收不到，3个月后返回账户。<br>需要邮箱的我给你私信。</li>
+                    <li class="recent_comment_author">--许善祥</li>
+                    <li class="recent_comment_title"><a href="https://www.cnblogs.com/xusx2014/p/11941987.html#4447399">3. Re:中国银行、光大银行西联收款需要提供证明怎么办？</a></li>
+                    <li class="recent_comment_body">你好，我也是做谷歌的，也是取不了西联，而且我的帮助中心里，没有给他们发邮件的选项，这样就没办法和他们联系要合同了，请问下你收到的邮箱回复里有没有Email地址，能不能发个给我，我好联系他们，另外，你收...</li>
+                    <li class="recent_comment_author">--tcylovezb</li>
+                    <li class="recent_comment_title"><a href="https://www.cnblogs.com/xusx2014/p/11967789.html#4446720">4. Re:Electron存储简单数据和用户首选项推荐用electron-store</a></li>
+                    <li class="recent_comment_body">支持支持</li>
+                    <li class="recent_comment_author">--牛腩</li>
+        </ul>
+    </div>
+</div>
+
+
+</div>
+
+
+
+<!-- 阅读排行榜 -->
+<div id="sidebar_topviewedposts" class="sidebar-block">
+    <div class="catListView">
+<h3 class="catListTitle">阅读排行榜</h3>
+	<div id="TopViewPostsBlock">
+        <ul style="word-break:break-all">
+                    <li>
+                        <a href="https://www.cnblogs.com/xusx2014/p/11941987.html">
+                            1. 中国银行、光大银行西联收款需要提供证明怎么办？(406)
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.cnblogs.com/xusx2014/p/11955398.html">
+                            2. Electron中使用sql.js操作SQLite数据库(338)
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.cnblogs.com/xusx2014/p/11967789.html">
+                            3. Electron存储简单数据和用户首选项推荐用electron-store(317)
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.cnblogs.com/xusx2014/p/11948813.html">
+                            4. Scrcpy用电脑控制Android手机(支持Windows/macOS/Linux)(314)
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.cnblogs.com/xusx2014/p/11986276.html">
+                            5. 这7个npm命令将帮助您节省时间(78)
+                        </a>
+                    </li>
+        </ul>
+    </div>
+</div>
+
+
+</div>
+
+<!-- 评论排行榜 -->
+<div id="sidebar_topcommentedposts" class="sidebar-block">
+    <div class="catListFeedback">
+<h3 class="catListTitle">评论排行榜</h3>
+	<div id="TopFeedbackPostsBlock">
+        <ul style="word-break:break-all">
+                    <li>
+                        <a href="https://www.cnblogs.com/xusx2014/p/11941987.html">
+                            1. 中国银行、光大银行西联收款需要提供证明怎么办？(3)
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.cnblogs.com/xusx2014/p/11967789.html">
+                            2. Electron存储简单数据和用户首选项推荐用electron-store(1)
+                        </a>
+                    </li>
+        </ul>
+    </div>
+</div>
+
+
+</div>
+
+<!-- 推荐排行榜 -->
+<div id="sidebar_topdiggedposts" class="sidebar-block">
+    
+</div></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright © 2020 许善祥
+<br><span id="poweredby">Powered by .NET Core 3.1.0 on Linux</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    
+
+</body></html>

@@ -1,0 +1,20 @@
+var initSql=require('sql.js');
+var fs=require('fs');
+initSql()
+
+var fb=fs.readFileSync('HumanResourcesManager.s3db');
+var db=new SQL.Database(fb);
+sqlstr="select * from RankScore";
+var res =db.exec(sqlstr);
+
+js=JSON.stringify(res);
+
+b=JSON.parse(js);
+
+
+c=b[0]
+c.columns
+
+c.values
+c.values[1]
+c.values[1][1]

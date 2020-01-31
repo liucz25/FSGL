@@ -1,0 +1,6 @@
+
+        <span>{{data.name}}</span>
+        <span>{{data.age}}</span>
+
+        <span>{{name}}</span>
+        <span>{{age}}</span>
