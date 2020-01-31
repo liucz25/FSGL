@@ -20,7 +20,6 @@
     <% for (var j=0;j<data.values[i].length;j++){%>
         <td><%=data.values[i][j]%></td>
     <%}%>
-    <td><a>修改</a><button>保存</button><a>提交</a></td>
     </tr>
 <%}%>
 </table>

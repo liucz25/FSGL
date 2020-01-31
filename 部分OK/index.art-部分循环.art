@@ -3,7 +3,7 @@
 
 {{each data}}
 <li>
-{{$data}}
+{{data}}
 </li>
 {{/each}}
 </ul>
