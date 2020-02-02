@@ -1,0 +1,2 @@
+npm init
+npm install art-template sqljs moment jquery bootstrap

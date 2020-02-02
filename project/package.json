@@ -1,0 +1,18 @@
+{
+  "name": "fsgl",
+  "version": "1.0.0",
+  "description": "",
+  "main": "http.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "art-template": "^4.13.2",
+    "bootstrap": "^4.4.1",
+    "jquery": "^3.4.1",
+    "moment": "^2.24.0",
+    "sqljs": "0.0.0-6"
+  }
+}
