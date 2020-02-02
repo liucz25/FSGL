@@ -42,12 +42,32 @@
             </ul>
         </div>
     </nav>
-    <div>
-        <h1>{{data}}</h1>
-        <h1>{{data}}</h1>
-        <h1>{{data}}</h1>
-        <h1>{{data}}</h1>
-    </div>
+
+    <div class="container">
+        <h2>表格</h2>
+
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered">
+                <thead>
+                    <tr class="bg-primary">
+                        <% for (var i=0;i<data.columns.length;i++){%>
+                            <th>
+                                <%=data.columns[i]%>
+                            </th>
+                            <%}%>
+                    </tr>
+                    <% for (var i=0;i<data.values.length;i++){%>
+                        <tr>
+                            <% for (var j=0;j<data.values[i].length;j++){%>
+                                <td>
+                                    <%=data.values[i][j]%>
+                                </td>
+                                <%}%>
+                                    <td><a href="#">修改</a><button>保存</button><a>提交</a></td>
+                        </tr>
+                        <%}%>
+            </table>
+        </div>
 
 </body>
 
