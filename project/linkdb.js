@@ -2,7 +2,7 @@ var initSqlJs = require('sql.js');
 var fs = require('fs');
 var path = require('path');
 
-const LocalDB = path.join(__dirname, "/../", 'HumanResourcesManager.s3db');
+const LocalDB = path.join(__dirname, 'rygl.db');
 
 module.exports.getdata = function(sqlstr, call) {
     initSqlJs().then(SQL => {
