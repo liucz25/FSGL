@@ -1,0 +1,57 @@
+{{extend './index.html'}} {{block 'add'}}
+
+<form class="form-inline" role="form">
+    <div class="form-group">
+        <label class="sr-only" for="name">姓名</label>
+        <input type="text" class="form-control" id="name" placeholder="请输入姓名">
+    </div>
+    <div class="form-group">
+        <div class="form-group">
+            <label for="roletype">工作内容:</label>
+            <select class="form-control" id="roletype">     
+                <option value="医师">医师</option>
+                <option value="护士">护士</option>
+                <option value="技师">技师</option>
+            </select>
+        </div>
+        <div class="checkbox">
+            <label><input type="checkbox" id="atwok">上班</label>
+        </div>
+        <div class="checkbox">
+            <label><input type="checkbox" id="canyufenpei">参与分配</label>
+        </div>
+        <div class="radio">
+            <label><input type="radio" name="fenpei" id="junfen">均分</label>
+        </div>
+        <div class="radio">
+            <label><input type="radio" name="fenpei" id="workloadfenpei">工作量分配</label>
+        </div>
+        <div class="checkbox">
+            <label><input type="checkbox" id="atnight">上夜班</label>
+        </div>
+        <div class="checkbox">
+            <label><input type="checkbox" id="athealth">参与体检</label>
+        </div>
+        <div class="checkbox">
+            <label><input type="checkbox" id="atmri">核磁</label>
+        </div>
+        <div class="checkbox">
+            <label><input type="checkbox" id="atyilianti">医联体</label>
+        </div>
+        <div class="form-group">
+            <label class="sr-only" for="zhiwujintie">职务津贴</label>
+            <input type="text" class="form-control" id="zhiwujintie" placeholder="请输入项目职务津贴">
+        </div>
+        <div class="form-group">
+            <label class="sr-only" for="jianzhi">兼职津贴</label>
+            <input type="text" class="form-control" id="jianzhi" placeholder="请输入项兼职津贴">
+        </div>
+        <div class="form-group">
+            <label class="sr-only" for="canhui">参会津贴</label>
+            <input type="text" class="form-control" id="canhui" placeholder="参会津贴注意负值">
+        </div>
+
+
+        <button type="submit" class="btn btn-default">提交</button>
+</form>
+{{/block}}

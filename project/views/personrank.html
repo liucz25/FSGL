@@ -1,0 +1,42 @@
+{{extend './index.html'}} {{block 'add'}}
+
+<form class="form-inline" role="form">
+    <div class="form-group">
+        <label class="sr-only" for="name">姓名</label>
+        <label class="sr-only" for="name">{{name}}</label>
+    </div>
+    <div class="form-group">
+        <div class="form-group">
+            <label for="roletype">工作内容:</label>
+            <select class="form-control" id="roletype">     
+                <option value="医师">医师</option>
+                <option value="护士">护士</option>
+                <option value="技师">技师</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="roletype">等级:</label>
+            <select class="form-control" id="roletype">     
+                <option value="医师">主治</option>
+                <option value="护士">主任</option>
+                <option value="技师">等</option>
+            </select>
+        </div>
+        <label class="sr-only" for="name">分值</label>
+        <label class="sr-only" for="name">{{name}}</label>
+        <div class="form-group">
+            <label for="roletype">附加项:</label>
+            <select class="form-control" id="roletype">     
+                <option value="医师">组长</option>
+                <option value="护士">助理</option>
+                <option value="技师">等</option>
+            </select>
+        </div>
+        <label class="sr-only" for="name">分值</label>
+        <label class="sr-only" for="name">{{name}}</label>
+        <label class="sr-only" for="name">总分值</label>
+        <label class="sr-only" for="name">{{name}}</label>
+
+        <button type="submit" class="btn btn-default">提交</button>
+</form>
+{{/block}}
