@@ -1,7 +1,7 @@
 var template = require('art-template');
 var linkdb = require('./linkdb');
 template.defaults.root = './';
-var sqlstr = "select * from worktype";
+var sqlstr = "select * from personworkload";
 
 linkdb.getdata(sqlstr, function(datas) {
     module.exports.data = template('./views/nav.html', { data: datas[0] });
