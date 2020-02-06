@@ -1,17 +1,14 @@
-var yewu = require('./yewu');
-var fs = require('fs')
-module.exports.bind = function(server) {
-    server.on('request', function(request, response) {
-        var urls = request.url;
-        if (urls == '/') {
-            // console.log(yewu.data);
-            // return;
-            response.end(yewu.data);
-        } else {
-            fs.readFile('.' + urls, function(err, data) {
-                response.end(data);
-            })
-        }
+const express = require('express');
+const yewu = require('./yewu');
+const router = express.Router();
+router.get('/', (req, res) => {
+    yewu.getall(req, res);
 
-    })
-}
+});
+router.get('/getone', yewu.getone) //简写
+
+router.post('/', (req, res) => {
+    yewu.table(req, res);
+});
+
+module.exports = router;
