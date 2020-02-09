@@ -1,9 +1,9 @@
-var template = require('art-template');
+const template = require('art-template');
 const url = require('url');
 
 const qureystring = require('querystring');
-
-var linkdb = require('./linkdb');
+const linkdb = require('./linkdb');
+const mandb = require('./mandb');
 template.defaults.root = './';
 var sqlstr = "select * from personworkload";
 var sqlstr1 = "select * from workload";
@@ -49,7 +49,10 @@ module.exports = {
         });
         req.on('end', function() {
             var data_obj = qureystring.parse(data);
-            sqlstr = linkdb.insert(data_obj);
+            var insert_data = linkdb.dataformat(data_obj);
+            var sqlstr = mandb.table("person").insert(insert_data);
+            // console.log(sqlstr);
+
             linkdb.runsql(sqlstr, function(datas) {
                 res.end(data);
             })

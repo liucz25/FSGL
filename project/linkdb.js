@@ -1,10 +1,8 @@
+const db = require('./mandb');
 var initSqlJs = require('sql.js');
 var fs = require('fs');
 var path = require('path');
-
 const LocalDB = path.join(__dirname, 'rygl.db');
-
-
 module.exports = {
     getdata: function(sqlstr, call) {
         initSqlJs().then(SQL => {
@@ -40,36 +38,14 @@ module.exports = {
         console.log(sql);
 
     },
-    insert: function(data) {
+    dataformat: function(data) {
         var column = '(';
         var values = 'VALUES (';
         for (i in data) {
             column += i + ',';
             values += "'" + data[i] + "'" + ','
         }
-        set = column.slice(0, column.length - 1) + ')' + values.slice(0, values.length - 1) + ');';
-        var sql = "insert into person " + set;
-        // console.log(sql);
-        return sql;
-
-
-
-    },
-    where: function(wh) {
-        this.wh = wh;
-        return this;
-    },
-    select: function() {
-        if (wh = undefined) {
-            var sqlstr = "select * from "
-        } else {
-            var sqlstr = "select * from     where " + this.wh;
-        }
-        this.wh = undefined;
-
-
-
-
+        data = column.slice(0, column.length - 1) + ')' + values.slice(0, values.length - 1) + ');';
+        return data;
     }
-
 }
