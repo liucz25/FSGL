@@ -1,7 +1,9 @@
 {{extend './index.html'}} {{block 'add'}}
 <div style="margin:0 auto;width:720px;text-align:left;font-size: x-large;">
-    <form class="form-inline" role="form" action="update_post" method="POST">
-
+    <form class="form-inline" role="form" action="insert_post" method="POST">
+        <!--
+         update  <form class="form-inline" role="form" action="update_post?id=data[0].id" method="POST">
+        -->
         <div class="form-group">
             <label for="name">姓名</label>
             <input type="text" class="form-control" name="name" placeholder="请输入姓名">
@@ -18,30 +20,38 @@
             </div>
             <br>
             <div class="checkbox">
-                <label><input type="checkbox" style="zoom: 150%;" name="atwok">上班</label>
+                <label><input type="checkbox" style="zoom: 150%;" name="atwok" value="1">上班</label>
             </div>
             <br>
             <div class="checkbox">
-                <label><input type="checkbox" style="zoom: 150%;" name="canyufenpei">参与分配</label>
+                <label><input type="checkbox" style="zoom: 150%;" name="canyufenpei" value="1">参与分配</label>
+            </div>
+            <!--
+            <div class="radio">
+                <label><input type="radio" style="zoom: 150%;" name="fenpei" value="junfen">均分</label>
             </div>
             <div class="radio">
-                <label><input type="radio" style="zoom: 150%;" name="fenpei" name="junfen">均分</label>
+                <label><input type="radio" style="zoom: 150%;" name="fenpei" value="workloadfenpei">工作量分配</label>
+            </div>
+            -->
+            <div class="radio">
+                <label><input type="checkbox" style="zoom: 150%;" name="junfen" value="1">均分</label>
             </div>
             <div class="radio">
-                <label><input type="radio" style="zoom: 150%;" name="fenpei" name="workloadfenpei">工作量分配</label>
+                <label><input type="checkbox" style="zoom: 150%;" name="workloadfenpei" value="1">工作量分配</label>
             </div>
             <br>
             <div class="checkbox">
-                <label><input type="checkbox" style="zoom: 150%;" name="atnight">上夜班</label>
+                <label><input type="checkbox" style="zoom: 150%;" name="atnight" value="1">上夜班</label>
             </div>
             <div class="checkbox">
-                <label><input type="checkbox" style="zoom: 150%;" name="athealth">参与体检</label>
+                <label><input type="checkbox" style="zoom: 150%;" name="athealth" value="1">参与体检</label>
             </div>
             <div class="checkbox">
-                <label><input type="checkbox" style="zoom: 150%;" name="atmri">核磁</label>
+                <label><input type="checkbox" style="zoom: 150%;" name="atmri" value="1">核磁</label>
             </div>
             <div class="checkbox">
-                <label><input type="checkbox" style="zoom: 150%;" name="atyilianti">医联体</label>
+                <label><input type="checkbox" style="zoom: 150%;" name="atyilianti" value="1">医联体</label>
             </div>
             <br>
             <div class="form-group">

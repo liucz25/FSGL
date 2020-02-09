@@ -845,3 +845,8 @@ IncomingMessage {
   route:
    Route { path: '/update', stack: [ [Layer] ], methods: { post: true } } }
 t?name=lcz&roletype=医师&atwok=on&canyufenpei=on&fenpei=on&atnight=on&athealth=on&atmri=on&atyilianti=on&zhiwujintie=111&jianzhi=222&canhui+=333
+
+
+
+
+ insert into personname='国讯',roletype='医师',atwok='1',canyufenpei='1',ju  nfen='1',workloadfenpei='1',atnight='1',athealth='1',atmri='1',atyilianti='1',zhiwujintie='111',jianzhi='222',canhui='333'
