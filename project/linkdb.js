@@ -4,6 +4,7 @@ var path = require('path');
 
 const LocalDB = path.join(__dirname, 'rygl.db');
 
+
 module.exports = {
     getdata: function(sqlstr, call) {
         initSqlJs().then(SQL => {
@@ -11,6 +12,20 @@ module.exports = {
             var fb = fs.readFileSync(LocalDB);
             var db = new SQL.Database(fb);
             var res = db.exec(sqlstr);
+            call(res);
+        })
+    },
+    runsql: function(sqlstr, call) {
+        initSqlJs().then(SQL => {
+
+            var fb = fs.readFileSync(LocalDB);
+            var db = new SQL.Database(fb);
+            var res = db.exec(sqlstr);
+            var data = db.export();
+            var buffer = new Buffer(data);
+            fs.writeFileSync(LocalDB, buffer);
+
+
             call(res);
         })
     },
@@ -26,16 +41,16 @@ module.exports = {
 
     },
     insert: function(data) {
-        var set = '';
+        var column = '(';
+        var values = 'VALUES (';
         for (i in data) {
-            set += (i + "='" + data[i] + "',");
+            column += i + ',';
+            values += "'" + data[i] + "'" + ','
         }
-        set = set.slice(0, set.length - 1);
+        set = column.slice(0, column.length - 1) + ')' + values.slice(0, values.length - 1) + ');';
         var sql = "insert into person " + set;
-        console.log(sql);
-        // var fb = fs.readFileSync(LocalDB);
-        // var db = new SQL.Database(fb);
-        // var res = db.exec(sqlstr);
+        // console.log(sql);
+        return sql;
 
 
 

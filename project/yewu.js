@@ -49,7 +49,10 @@ module.exports = {
         });
         req.on('end', function() {
             var data_obj = qureystring.parse(data);
-            linkdb.insert(data_obj);
+            sqlstr = linkdb.insert(data_obj);
+            linkdb.runsql(sqlstr, function(datas) {
+                res.end(data);
+            })
             res.end();
         });
 
