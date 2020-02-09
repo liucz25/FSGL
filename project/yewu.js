@@ -18,6 +18,9 @@ module.exports = {
         linkdb.getdata(sqlstr1, function(datas) {
             res.render('./table.html', { data: datas[0] }); //express 框架的render方法
         })
+    },
+    update: function(req, res) {
+
     }
 
 }
