@@ -3,7 +3,7 @@ const url = require('url');
 
 const qureystring = require('querystring');
 const linkdb = require('./linkdb');
-const mandb = require('./mandb');
+const mansql = require('./mansql');
 template.defaults.root = './';
 var sqlstr = "select * from personworkload";
 var sqlstr1 = "select * from workload";
@@ -37,7 +37,10 @@ module.exports = {
             var data_obj = qureystring.parse(data);
             console.log(data_obj);
             var urlobj = url.parse(req.url, true);
-            linkdb.where("id=" + urlobj.query.id).update(data_obj);
+            var sqlstr = mansql.where("id=" + urlobj.query.id).update(data_obj);
+            linkdb.runsql(sqlstr, function(datas) {
+                res.end(data);
+            })
             res.end();
         });
     },
@@ -49,8 +52,8 @@ module.exports = {
         });
         req.on('end', function() {
             var data_obj = qureystring.parse(data);
-            var insert_data = linkdb.dataformat(data_obj);
-            var sqlstr = mandb.table("person").insert(insert_data);
+            var insert_data = mansql.dataformat(data_obj);
+            var sqlstr = mansql.table("person").insert(insert_data);
             // console.log(sqlstr);
 
             linkdb.runsql(sqlstr, function(datas) {

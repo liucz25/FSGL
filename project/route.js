@@ -13,7 +13,7 @@ router.post('/', (req, res) => {
     console.log(url.parse(req.url, true))
 });
 router.get('/addperson', yewu.addperson);
-router.get('/update_get', yewu.update_get);
-router.post('/update_post', yewu.update_post);
+// router.get('/update_get', yewu.update_get);
+// router.post('/update_post', yewu.update_post);
 router.post('/insert_post', yewu.insert_post);
 module.exports = router;
