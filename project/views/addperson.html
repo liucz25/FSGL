@@ -1,10 +1,10 @@
-{extend './index.html'}} {{block 'add'}}
+{{extend './index.html'}} {{block 'add'}}
 <div style="margin:0 auto;width:720px;text-align:left;font-size: x-large;">
-    <form class="form-inline" role="form" action="addperson" method="post">
+    <form class="form-inline" role="form" action="update" method="POST">
 
         <div class="form-group">
             <label for="name">姓名</label>
-            <input type="text" class="form-control" id="name" placeholder="请输入姓名">
+            <input type="text" class="form-control" id="name" name="name" placeholder="请输入姓名">
         </div>
         <br>
         <div class="form-group">
@@ -18,7 +18,7 @@
             </div>
             <br>
             <div class="checkbox">
-                <label><input type="checkbox" style="zoom: 150%;"id="atwok">上班</label>
+                <label><input type="checkbox" style="zoom: 150%;"id="atwok" name="atwok">上班</label>
             </div>
             <br>
             <div class="checkbox">

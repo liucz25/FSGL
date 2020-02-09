@@ -4,7 +4,7 @@ var template = require('art-template');
 var linkdb = require('./linkdb');
 template.defaults.root = './';
 var sqlstr = "select * from personworkload";
-var sqlstr1 = "select * from worktype";
+var sqlstr1 = "select * from workload";
 
 module.exports = {
     getall: function(req, res) {
@@ -19,8 +19,13 @@ module.exports = {
             res.render('./table.html', { data: datas[0] }); //express 框架的render方法
         })
     },
+    addperson: function(req, res) {
+        res.render('./addperson.html');
+    },
     update: function(req, res) {
 
-    }
+        console.log(require('querystring').parse(req));
+        res.end("req");
 
+    }
 }

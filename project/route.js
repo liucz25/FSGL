@@ -6,11 +6,13 @@ router.get('/', (req, res) => {
     yewu.getall(req, res);
 
 });
-router.get('/getone', yewu.getone) //简写
+router.get('/getone', yewu.getone); //简写
 
 router.post('/', (req, res) => {
     yewu.updata(req, res);
     console.log(url.parse(req.url, true))
 });
-
+router.get('/addperson', yewu.addperson);
+router.get('/update', yewu.update);
+router.post('/update', yewu.update);
 module.exports = router;
