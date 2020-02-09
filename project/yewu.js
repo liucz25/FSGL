@@ -1,5 +1,7 @@
 var template = require('art-template');
+const url = require('url');
 
+const qurey = require('querystring');
 
 var linkdb = require('./linkdb');
 template.defaults.root = './';
@@ -22,10 +24,22 @@ module.exports = {
     addperson: function(req, res) {
         res.render('./addperson.html');
     },
-    update: function(req, res) {
+    update_get: function(req, res) {
 
-        console.log(require('querystring').parse(req));
-        res.end("req");
+        // console.log(require('querystring').parse(req));
+        res.end("require('querystring').parse(req)");
+
+    },
+    update_post: function(req, res) {
+
+        var data = '';
+        req.on('data', function(che) {
+            data += che;
+        });
+        req.on('end', function() {
+            console.log(qurey.parse(data));
+            res.end(data);
+        });
 
     }
 }
