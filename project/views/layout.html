@@ -1,0 +1,19 @@
+<!-- layout.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8"> {{ block 'head'}}{{ /block }}
+</head>
+
+<body>
+    {{include './header.html'}} {{block 'content'}}
+    <h1>默认内容</h1>
+    {{/block}} {{include './footer.html'}}
+    <script src="/node_modules/jquery/dist/jquery.js"></script>
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.js"></script>
+
+    {{ block 'script'}}{{ /block }}
+</body>
+
+</html>

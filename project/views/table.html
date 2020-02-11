@@ -1,6 +1,7 @@
 {{extend './index.html'}} {{block 'table'}}
 <div class="container">
-    <h2>表格</h2>
+    <h2>表格</h2>{{block 'add'}}{{/block}}
+
     <div class=table-responsive>
         <table class="table table-striped table-bordered">
             <thead class="bg-primary">
@@ -20,6 +21,7 @@
                             </td>
                             <%}%>
                                 <td><a href="#"> 添加 </a><a href="#">  修改 </a><a href="#"> 删除 </a></td>
+                                <td>{{block 'manage'}}{{/block}}</td>
                     </tr>
                     <%}%>
             </tbody>

@@ -5,14 +5,14 @@ const qureystring = require('querystring');
 const linkdb = require('./linkdb');
 const mansql = require('./mansql');
 template.defaults.root = './';
-var sqlstr = "select * from personworkload";
+var sqlstr = "select * from person";
 var sqlstr1 = "select * from workload";
 
 module.exports = {
     getall: function(req, res) {
         linkdb.getdata(sqlstr, function(datas) {
-            var html = template('./views/index.html', { data: datas[0] });
-            html += template('./views/table.html', { data: datas[0] });
+            // var html = template('./views/index.html', { data: datas[0] });
+            var html = template('./views/persontable.html', { data: datas[0] });
             res.end(html);
         })
     },
