@@ -1,42 +1,52 @@
 module.exports = {
     wh: undefined,
-    table: undefined,
+    tb: undefined,
     where: function(wh) {
         this.wh = wh;
         return this;
     },
     table: function(table) {
-        this.table = table;
+        this.tb = table;
         return this;
     },
     select: function() {
-        if (wh = undefined) {
-            var sqlstr = "select * from "
+        if (table = undefined) {
+            return "请输入表名，qingshurubiaoming";
         } else {
-            var sqlstr = "select * from     where " + this.wh;
+            if (wh = undefined) {
+                var sqlstr = "select * from " + this.tb;
+            } else {
+                var sqlstr = "select * from  " + this.tb + " where " + this.wh;
+            }
         }
+        this.tb = undefined;
         this.wh = undefined;
+        return sqlstr;
     },
     insert: function(data) {
         if (table = undefined) {
             var sqlstr = "select * from "
         } else {
-            var sqlstr = "insert into  " + this.table + ' ' + data;
+            var sqlstr = "insert into  " + this.tb + ' ' + data;
+            this.tb = undefined;
             return sqlstr;
         }
-        this.table = undefined;
     },
-    // 可能用不上了
     update: function(data) {
         var set = '';
         for (i in data) {
             set += (i + "='" + data[i] + "',");
         }
         set = set.slice(0, set.length - 1);
-        var sql = "updata users set " + set + ' where ' + this.wh;
+        if (table = undefined) {
+            return "请输入表名，qingshurubiaoming";
+        } else {
 
-        console.log(sql);
-
+            var sql = "update " + this.tb + " set " + set + ' where ' + this.wh;
+        }
+        // console.log(sql);
+        this.tb = undefined;
+        return sql;
     },
     dataformat: function(data) {
         var column = '(';
@@ -47,5 +57,21 @@ module.exports = {
         }
         data = column.slice(0, column.length - 1) + ')' + values.slice(0, values.length - 1) + ');';
         return data;
+    },
+    datatojson: function(data) {
+        var js = "{"
+        for (i in (data[0].values)[0]) {
+
+            js += '"' + data[0].columns[i] + '":"' + data[0].values[0][i] + '",';
+
+
+        }
+        js = js.slice(0, js.length - 1);
+        js += "}";
+        // console.log(js);
+        var jsn = JSON.parse(js);
+        // console.log(jsn);
+        // data = column.slice(0, column.length - 1) + ')' + values.slice(0, values.length - 1) + ');';
+        return jsn;
     }
 }

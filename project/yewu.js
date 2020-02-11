@@ -5,7 +5,7 @@ const qureystring = require('querystring');
 const linkdb = require('./linkdb');
 const mansql = require('./mansql');
 template.defaults.root = './';
-var sqlstr = "select * from worktype";
+var sqlstr = "select * from person";
 var sqlstr1 = "select * from workload";
 
 module.exports = {
@@ -24,15 +24,35 @@ module.exports = {
     addperson: function(req, res) {
         res.render('./addperson.html');
     },
-    editperson: function(req, res) {
-        res.render('./editperson.html', {
-            data: {
-                id: 22,
-                name: 'sadfa',
-                age: 11
-            }
+    editperson_get: function(req, res) {
+
+        var urlobj = url.parse(req.url, true);
+        var sqlstr = mansql.table('person').where("PersonID=" + urlobj.query.id).select();
+        linkdb.runsql(sqlstr, function(datas) {
+            da = mansql.datatojson(datas);
+            res.render('./editperson.html', { data: da });
         });
     },
+    editperson_post: function(req, res) {
+
+        var data = '';
+        req.on('data', function(che) {
+            data += che;
+        });
+        req.on('end', function() {
+            var data_obj = qureystring.parse(data);
+            var urlobj = url.parse(req.url, true);
+            var sqlstr = mansql.where("PersonID=" + urlobj.query.id).table("person").update(data_obj);
+            linkdb.runsql(sqlstr, function(datas) {
+                    res.end(data);
+                    //成功提醒
+                })
+                //页面跳转
+            res.end();
+        });
+
+    },
+
     update_get: function(req, res) {
         // console.log(require('querystring').parse(req));
         res.end("require('querystring').parse(req)");
@@ -44,7 +64,6 @@ module.exports = {
         });
         req.on('end', function() {
             var data_obj = qureystring.parse(data);
-            console.log(data_obj);
             var urlobj = url.parse(req.url, true);
             var sqlstr = mansql.where("id=" + urlobj.query.id).update(data_obj);
             linkdb.runsql(sqlstr, function(datas) {
@@ -54,7 +73,6 @@ module.exports = {
         });
     },
     insert_post: function(req, res) {
-
         var data = '';
         req.on('data', function(che) {
             data += che;

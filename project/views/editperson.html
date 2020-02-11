@@ -1,8 +1,10 @@
 {{extend './person.html'}} {{block 'personhead'}}
-<form class="form-inline" role="form" action="update_post?id={{data.id}}" method="POST">
+<form class="form-inline" role="form" action="editperson?id={{data.personID}}" method="POST">
+
     <div class="form-group">
-        <label for="name">ID</label>
-        <lable name="id">{{data.id}}
-        </lable>
+        <label for="PersonID">ID{{data}}</label>
+
+        <input type="text" class="form-control" name="PersonID" value={{data.name}} disabled>
     </div>
-    <br /> {{/block}} {{block 'p-atwork'}}{{if data.age==1}} checked {{/if}}{{/block}} {{block 'p-canyufenpei'}}{{if data.age==1}} checked {{/if}}{{/block}}
+    <br /> {{/block}} {{block 'p-atwork'}}{{if data.atwork==1}} checked {{/if}}{{/block}} {{block 'p-canyufenpei'}}{{if data.age==1}} checked {{/if}}{{/block}}
+    <p>//weiwancheng未完成
