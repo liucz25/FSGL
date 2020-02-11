@@ -848,5 +848,11 @@ t?name=lcz&roletype=医师&atwok=on&canyufenpei=on&fenpei=on&atnight=on&athealth
 
 
 
+<!-- <a href="/manperson?id=" +<%=data.values[i][0]%> > 修改 </a><a href="/delperson?id=" +<%=data.values[i][0]%>> 删除 </a> -->
+
+
+                                    <a href="/" +{{block 'href'}}{{/block}}+ "?id=" " +<%=data.values[i][0]%> > 修改 </a>
+                                    <a href="/ "+{{block 'href'}}{{/block}}+"?id=" +<%=data.values[i][0]%>> 删除 </a>
+
 
  insert into person name='国讯',roletype='医师',atwok='1',canyufenpei='1',ju  nfen='1',workloadfenpei='1',atnight='1',athealth='1',atmri='1',atyilianti='1',zhiwujintie='111',jianzhi='222',canhui='333'

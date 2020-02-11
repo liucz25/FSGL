@@ -1,0 +1,8 @@
+{{extend './person.html'}} {{block 'personhead'}}
+<form class="form-inline" role="form" action="update_post?id={{data.id}}" method="POST">
+    <div class="form-group">
+        <label for="name">ID</label>
+        <lable name="id">{{data.id}}
+        </lable>
+    </div>
+    <br /> {{/block}}

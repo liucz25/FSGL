@@ -5,7 +5,7 @@ const qureystring = require('querystring');
 const linkdb = require('./linkdb');
 const mansql = require('./mansql');
 template.defaults.root = './';
-var sqlstr = "select * from person";
+var sqlstr = "select * from worktype";
 var sqlstr1 = "select * from workload";
 
 module.exports = {
@@ -23,6 +23,15 @@ module.exports = {
     },
     addperson: function(req, res) {
         res.render('./addperson.html');
+    },
+    editperson: function(req, res) {
+        res.render('./editperson.html', {
+            data: {
+                id: 22,
+                name: 'sadfa',
+                age: 45
+            }
+        });
     },
     update_get: function(req, res) {
         // console.log(require('querystring').parse(req));

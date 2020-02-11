@@ -13,7 +13,8 @@ router.post('/', (req, res) => {
     console.log(url.parse(req.url, true))
 });
 router.get('/addperson', yewu.addperson);
+router.get('/editperson', yewu.editperson);
 // router.get('/update_get', yewu.update_get);
 // router.post('/update_post', yewu.update_post);
-router.post('/insert_post', yewu.insert_post);
+router.post('/insert_post', yewu.insert_post); //添加人员 路由需要更改
 module.exports = router;

@@ -10,7 +10,7 @@
                         <%=data.columns[i]%>
                     </th>
                     <%}%>
-                        <th>管理</th>
+                        <th>管 理</th>
             </thead>
             <tbody>
                 <% for (var i=0;i<data.values.length;i++){%>
@@ -20,8 +20,12 @@
                                 <%=data.values[i][j]%>
                             </td>
                             <%}%>
-                                <td><a href="#"> 添加 </a><a href="#">  修改 </a><a href="#"> 删除 </a></td>
-                                <td>{{block 'manage'}}{{/block}}</td>
+
+                                <td>
+                                    <a href={{block "edithref"}}{{/block}}?id=<%=data.values[i][0]%>> 修改 </a>
+                                    <a href={{block "delhref"}}{{/block}}?id=<%=data.values[i][0]%> > 删除</a>
+
+                                </td>
                     </tr>
                     <%}%>
             </tbody>
