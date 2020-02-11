@@ -1,8 +1,10 @@
-完成从数据库查询一条信息
-	完成editperson，addperson，person三个页面的关系
-渲染到页面
-实现更新数据库一条记录
+OK完成从数据库查询一条信息
+OK	完成editperson，addperson，person三个页面的关系
+OK渲染到页面
+OK实现更新数据库一条记录
 
+
+修改页面editperson 需要完善，业务editperson——post 成功提醒及跳转需要完成
 实现删除一条记录并提示及跳转页面
 
 实现更改数据库任意一个表格的记录方法 即mandb的table能有值
