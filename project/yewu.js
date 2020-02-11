@@ -29,7 +29,7 @@ module.exports = {
             data: {
                 id: 22,
                 name: 'sadfa',
-                age: 45
+                age: 11
             }
         });
     },

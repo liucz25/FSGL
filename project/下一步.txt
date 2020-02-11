@@ -1,4 +1,5 @@
 完成从数据库查询一条信息
+	完成editperson，addperson，person三个页面的关系
 渲染到页面
 实现更新数据库一条记录
 
