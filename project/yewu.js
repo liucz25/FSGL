@@ -5,7 +5,7 @@ const qureystring = require('querystring');
 const linkdb = require('./linkdb');
 const mansql = require('./mansql');
 template.defaults.root = './';
-var sqlstr = "select * from person";
+var sqlstr = "SELECT Person.personID AS id,    Person.name,    Person.roletype AS '类别',    Person.canyufenpei AS '分配',   Person.junfen AS '均分',Person.workloadfenpei AS '工作量',    Person.rankscore AS '职称',   Person.atwork AS '班',    Person.atnight AS '夜',    Person.athealth AS '体检',Person.atmri AS MRI,    Person.atyilianti AS '外院',Person.zhiwujintie AS '职务津贴',    Person.jianzhi AS '兼职',Person.canhui AS '参会' FROM Person ";
 var sqlstr1 = "select * from workload";
 
 module.exports = {
@@ -23,6 +23,25 @@ module.exports = {
     },
     addperson: function(req, res) {
         res.render('./addperson.html');
+    },
+    addperson_post: function(req, res) {
+        var data = '';
+        req.on('data', function(che) {
+            data += che;
+        });
+        req.on('end', function() {
+            var data_obj = qureystring.parse(data);
+            var insert_data = mansql.dataformat(data_obj);
+            var sqlstr = mansql.table("person").insert(insert_data);
+            console.log(sqlstr);
+
+            linkdb.runsql(sqlstr, function(datas) {
+                var backstr = "<script>alert('添加成功');window.location.href='/'</script>";
+                res.setHeader('content-type', 'text/html;charset=utf-8');
+                console.log(backstr);
+                res.end(backstr);
+            })
+        });
     },
     editperson_get: function(req, res) {
 
@@ -53,46 +72,16 @@ module.exports = {
         });
 
     },
-
-    update_get: function(req, res) {
-        // console.log(require('querystring').parse(req));
-        res.end("require('querystring').parse(req)");
-    },
-    update_post: function(req, res) {
-        var data = '';
-        req.on('data', function(che) {
-            data += che;
-        });
-        req.on('end', function() {
-            var data_obj = qureystring.parse(data);
-            var urlobj = url.parse(req.url, true);
-            var sqlstr = mansql.where("id=" + urlobj.query.id).update(data_obj);
-            linkdb.runsql(sqlstr, function(datas) {
-                res.end(data);
-            })
-            res.end();
-        });
-    },
-    insert_post: function(req, res) {
-        var data = '';
-        req.on('data', function(che) {
-            data += che;
-        });
-        req.on('end', function() {
-            var data_obj = qureystring.parse(data);
-            var insert_data = mansql.dataformat(data_obj);
-            var sqlstr = mansql.table("person").insert(insert_data);
-            // console.log(sqlstr);
-
-            linkdb.runsql(sqlstr, function(datas) {
-                var backstr = "<script>alert('添加成功');window.location.href='/'</script>";
-                res.setHeader('content-type', 'text/html;charset=utf-8');
-                // console.log(backstr);
-                res.end(backstr);
-
-            })
-            res.end();
-        });
-
+    delperson: function(req, res) {
+        var urlobj = url.parse(req.url, true);
+        var sqlstr = mansql.where("personID=" + urlobj.query.id).table("person").delect();
+        // console.log(sqlstr);
+        linkdb.runsql(sqlstr, function(datas) {
+            var backstr = "<script>alert('删除成功');window.location.href='/'</script>";
+            res.setHeader('content-type', 'text/html;charset=utf-8');
+            // console.log(backstr);
+            res.end(backstr);
+        })
     }
+
 }

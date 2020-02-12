@@ -1,9 +1,7 @@
 {{extend './person.html'}} {{block 'personhead'}}
-<form class="form-inline" role="form" action="insert_post" method="POST">{{/block}}{{block 'p-at'}}
+<form class="form-inline" role="form" action="addperson_post" method="POST">{{/block}}{{block 'p-at'}}
     <div class="checkbox">
-        <label><input type="checkbox" style="zoom: 150%;" name="atwork" value='1'   {{block "p-atwork"}}{{/block}} >
-            <input type="checkbox" style="zoom: 150%;" name="atwork" value='0'>上班
-            <input type="checkbox" style="zoom: 150%;" name="atwork" value='0'></label>
+        <label><input type="checkbox" style="zoom: 150%;" name="atwork" value='1' >上班 </label>
     </div>
     <br>
     <div class="checkbox">

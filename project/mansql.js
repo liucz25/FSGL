@@ -48,6 +48,21 @@ module.exports = {
         this.tb = undefined;
         return sql;
     },
+    delect: function() {
+
+        if (table = undefined) {
+            return "请输入表名，qingshurubiaoming";
+        } else {
+            if (wh = undefined) {
+                return "请输入where，qingshuruWhere";
+            }
+
+            var sql = "delete from " + this.tb + ' where ' + this.wh;
+        }
+        // console.log(sql);
+        this.tb = undefined;
+        return sql;
+    },
     dataformat: function(data) {
         var column = '(';
         var values = 'VALUES (';

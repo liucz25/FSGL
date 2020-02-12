@@ -10,7 +10,7 @@
                         <%=data.columns[i]%>
                     </th>
                     <%}%>
-                        <th>管 理</th>
+                        <th>管 理 操 作</th>
             </thead>
             <tbody>
                 <% for (var i=0;i<data.values.length;i++){%>
@@ -22,8 +22,8 @@
                             <%}%>
 
                                 <td>
-                                    <a href={{block "edithref"}}{{/block}}?id=<%=data.values[i][0]%>> 修改 </a>
-                                    <a href={{block "delhref"}}{{/block}}?id=<%=data.values[i][0]%> > 删除</a>
+                                    <a href={{block "edithref"}}{{/block}}?id=<%=data.values[i][0]%> type='button'> 修改 </a>
+                                    <a href={{block "delhref"}}{{/block}}?id=<%=data.values[i][0]%> class='btn'> 删除</a>
 
                                 </td>
                     </tr>

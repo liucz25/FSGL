@@ -8,14 +8,12 @@ router.get('/', (req, res) => {
 });
 router.get('/getone', yewu.getone); //简写
 
-router.post('/', (req, res) => {
-    yewu.updata(req, res);
-    console.log(url.parse(req.url, true))
-});
+
 router.get('/addperson', yewu.addperson);
+router.post('/addperson_post', yewu.addperson_post)
 router.post('/editperson', yewu.editperson_post);
 router.get('/editperson', yewu.editperson_get);
-// router.get('/update_get', yewu.update_get);
-// router.post('/update_post', yewu.update_post);
-router.post('/insert_post', yewu.insert_post); //添加人员 路由需要更改
+router.get('/delperson', yewu.delperson);
+
+
 module.exports = router;
