@@ -1,2 +1,39 @@
 {{extend './person.html'}} {{block 'personhead'}}
-<form class="form-inline" role="form" action="insert_post" method="POST">{{/block}}
+<form class="form-inline" role="form" action="insert_post" method="POST">{{/block}}{{block 'p-at'}}
+    <div class="checkbox">
+        <label><input type="checkbox" style="zoom: 150%;" name="atwork" value='1'   {{block "p-atwork"}}{{/block}} >
+            <input type="checkbox" style="zoom: 150%;" name="atwork" value='0'>上班
+            <input type="checkbox" style="zoom: 150%;" name="atwork" value='0'></label>
+    </div>
+    <br>
+    <div class="checkbox">
+        <label><input type="checkbox" style="zoom: 150%;" name="canyufenpei" value="1"  >参与分配</label>
+    </div>
+    <!--
+        <div class="radio">
+            <label><input type="radio" style="zoom: 150%;" name="fenpei" value="junfen">均分</label>
+        </div>
+        <div class="radio">
+            <label><input type="radio" style="zoom: 150%;" name="fenpei" value="workloadfenpei">工作量分配</label>
+        </div>
+        -->
+    <div class="radio">
+        <label><input type="checkbox" style="zoom: 150%;" name="junfen" value="1" >均分</label>
+    </div>
+    <div class="radio">
+        <label><input type="checkbox" style="zoom: 150%;" name="workloadfenpei" value="1" >工作量分配</label>
+    </div>
+    <br>
+    <div class="checkbox">
+        <label><input type="checkbox" style="zoom: 150%;" name="atnight" value="1" >上夜班</label>
+    </div>
+    <div class="checkbox">
+        <label><input type="checkbox" style="zoom: 150%;" name="athealth" value="1">参与体检</label>
+    </div>
+    <div class="checkbox">
+        <label><input type="checkbox" style="zoom: 150%;" name="atmri" value="1" >核磁</label>
+    </div>
+    <div class="checkbox">
+        <label><input type="checkbox" style="zoom: 150%;" name="atyilianti" value="1">医联体</label>
+    </div>
+    {{/block}}

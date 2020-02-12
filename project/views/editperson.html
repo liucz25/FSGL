@@ -6,17 +6,48 @@
 
         <input type="text" class="form-control" name="PersonID" value={{data.personID}} disabled>
     </div>
-    <br /> {{/block}};
-     {{block 'name'}}{{data.name}}{{/block}}; 
-     {{block 'p-atwork'}}{{if data.atwork==1}} checked {{/if}}{{/block}} ; 
-     {{block 'p-canyufenpei'}}{{if data.canyufenpei==1}} checked {{/if}}{{/block}};
-     {{block 'p-junfen'}}{{if data.junfen==1}} checked    {{/if}}{{/block}}; 
-     {{block 'p-workloadfenpei'}}{{if data.workloadfenpei==1}} checked {{/if}}{{/block}};
-     {{block 'p-atnight'}}{{if data.atnight>=1}} checked {{/if}}{{/block}}; 
-     {{block 'p-athealth'}}{{if data.athealth==1}} checked {{/if}}{{/block}}; 
-     {{block    'p-atmri'}}{{if data.atmri==1}} checked {{/if}}{{/block}}; 
-     {{block 'p-atyilianti'}}{{if data.atyilianti==1}} checked {{/if}}{{/block}};
-     {{block 'p-zhiwujintie'}}{{data.zhiwujintie}}{{/block}};
-     {{block 'p-jianzhi'}}{{data.jianzhi}}{{/block}}; 
-     {{block 'p-canhui'}}{{data.canhui}}{{/block}};
- 
+    <br /> {{/block}} {{block 'p-name'}}{{data.name}}{{/block}} {{block 'p-at'}}
+    <table>
+        <tr>
+            <td><label><input type="radio" style="zoom: 150%;" name="atwork" value='1' {{if data.atwork==1}} checked {{/if}}>上班
+                </label></td>
+            <td><label><input type="radio" style="zoom: 150%;" name="atwork" value='0' {{if data.atwork==0}} checked {{/if}}>不上班
+                </label></td>
+        </tr>
+        <tr>
+            <td><label><input type="radio" style="zoom: 150%;" name="canyufenpei" value="1" {{if data.canyufenpei==1}} checked {{/if}} >参与分配
+             </label></td>
+            <td><label><input type="radio" style="zoom: 150%;" name="canyufenpei" value="0"  {{if data.canyufenpei==0}} checked {{/if}}>不参与分配</label></td>
+        </tr>
+        <tr>
+            <td><label><input type="radio" style="zoom: 150%;" name="junfen" value="1" {{if data.junfen==1}} checked {{/if}}>均分
+             </label></td>
+            <td><label><input type="radio" style="zoom: 150%;" name="junfen" value="0"{{if data.junfen==0}} checked {{/if}}>不均分</label></td>
+        </tr>
+        <tr>
+            <td><label><input type="radio" style="zoom: 150%;" name="workloadfenpei" value="1" {{if data.workloadfenpei==1}} checked {{/if}}>工作量分配
+             </label></td>
+            <td><label><input type="radio" style="zoom: 150%;" name="workloadfenpei" value="0"  {{if data.workloadfenpei==0}} checked {{/if}}>非工作量分配</label></td>
+        </tr>
+        <tr>
+            <td><label><input type="radio" style="zoom: 150%;" name="atnight" value="1" {{if data.atnight>=1}} checked {{/if}}>上夜班
+             </label></td>
+            <td><label><input type="radio" style="zoom: 150%;" name="atnight" value="0" {{if data.atnight==0}} checked {{/if}} >不上夜班</label></td>
+        </tr>
+        <tr>
+            <td><label><input type="radio" style="zoom: 150%;" name="athealth" value="1"{{if data.athealth==1}} checked {{/if}}>参与体检
+             </label></td>
+            <td><label><input type="radio" style="zoom: 150%;" name="athealth" value="0"{{if data.athealth==0}} checked {{/if}}>不参与体检</label></td>
+        </tr>
+        <tr>
+            <td><label><input type="radio" style="zoom: 150%;" name="atmri" value="1"{{if data.atmri==1}} checked {{/if}} >核磁
+             </label></td>
+            <td><label><input type="radio" style="zoom: 150%;" name="atmri" value="0" {{if data.atmri==0}} checked {{/if}} >非核磁</label></td>
+        </tr>
+        <tr>
+            <td><label><input type="radio" style="zoom: 150%;" name="atyilianti" value="1"{{if data.atyilianti==1}} checked {{/if}}>医联体
+             </label></td>
+            <td><label><input type="radio" style="zoom: 150%;" name="atyilianti" value="0"{{if data.atyilianti==0}} checked {{/if}}>非医联体</label></td>
+        </tr>
+    </table>
+    {{/block}} {{block 'p-zhiwujintie'}}{{data.zhiwujintie}}{{/block}} {{block 'p-jianzhi'}}{{data.jianzhi}}{{/block}} {{block 'p-canhui'}}{{data.canhui}}{{/block}}

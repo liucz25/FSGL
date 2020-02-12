@@ -19,7 +19,7 @@ module.exports = {
             var db = new SQL.Database(fb);
             var res = db.exec(sqlstr);
             var data = db.export();
-            var buffer = new Buffer(data);
+            var buffer = Buffer.from(data);
             fs.writeFileSync(LocalDB, buffer);
 
 

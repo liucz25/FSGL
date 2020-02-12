@@ -45,11 +45,11 @@ module.exports = {
             var sqlstr = mansql.where("personID=" + urlobj.query.id).table("person").update(data_obj);
             // console.log(sqlstr);
             linkdb.runsql(sqlstr, function(datas) {
-                var backstr= "<script>alert('修改成功');window.location.href='/'</script>";
-                res.setHeader('content-type','text/html;charset=utf-8');
+                var backstr = "<script>alert('修改成功');window.location.href='/'</script>";
+                res.setHeader('content-type', 'text/html;charset=utf-8');
                 // console.log(backstr);
                 res.end(backstr);
-                })
+            })
         });
 
     },
@@ -85,7 +85,11 @@ module.exports = {
             // console.log(sqlstr);
 
             linkdb.runsql(sqlstr, function(datas) {
-                res.end(data);
+                var backstr = "<script>alert('添加成功');window.location.href='/'</script>";
+                res.setHeader('content-type', 'text/html;charset=utf-8');
+                // console.log(backstr);
+                res.end(backstr);
+
             })
             res.end();
         });
