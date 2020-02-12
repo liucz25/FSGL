@@ -2,9 +2,21 @@
 <form class="form-inline" role="form" action="editperson?id={{data.personID}}" method="POST">
 
     <div class="form-group">
-        <label for="PersonID">ID{{data}}</label>
+        <label for="PersonID">ID</label>
 
-        <input type="text" class="form-control" name="PersonID" value={{data.name}} disabled>
+        <input type="text" class="form-control" name="PersonID" value={{data.personID}} disabled>
     </div>
-    <br /> {{/block}} {{block 'p-atwork'}}{{if data.atwork==1}} checked {{/if}}{{/block}} {{block 'p-canyufenpei'}}{{if data.age==1}} checked {{/if}}{{/block}}
-    <p>//weiwancheng未完成
+    <br /> {{/block}};
+     {{block 'name'}}{{data.name}}{{/block}}; 
+     {{block 'p-atwork'}}{{if data.atwork==1}} checked {{/if}}{{/block}} ; 
+     {{block 'p-canyufenpei'}}{{if data.canyufenpei==1}} checked {{/if}}{{/block}};
+     {{block 'p-junfen'}}{{if data.junfen==1}} checked    {{/if}}{{/block}}; 
+     {{block 'p-workloadfenpei'}}{{if data.workloadfenpei==1}} checked {{/if}}{{/block}};
+     {{block 'p-atnight'}}{{if data.atnight>=1}} checked {{/if}}{{/block}}; 
+     {{block 'p-athealth'}}{{if data.athealth==1}} checked {{/if}}{{/block}}; 
+     {{block    'p-atmri'}}{{if data.atmri==1}} checked {{/if}}{{/block}}; 
+     {{block 'p-atyilianti'}}{{if data.atyilianti==1}} checked {{/if}}{{/block}};
+     {{block 'p-zhiwujintie'}}{{data.zhiwujintie}}{{/block}};
+     {{block 'p-jianzhi'}}{{data.jianzhi}}{{/block}}; 
+     {{block 'p-canhui'}}{{data.canhui}}{{/block}};
+ 

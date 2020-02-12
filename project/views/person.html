@@ -4,7 +4,7 @@
 
     <div class="form-group">
         <label for="name">姓名</label>
-        <input type="text" class="form-control" name="name" placeholder="请输入姓名">
+        <input type="text" class="form-control" name="name" placeholder="请输入姓名" value={{block 'name'}}{{/block}}>
     </div>
     <br>
     <div class="form-group">
@@ -22,7 +22,7 @@
         </div>
         <br>
         <div class="checkbox">
-            <label><input type="checkbox" style="zoom: 150%;" name="canyufenpei" value="1"  {{block "p-canyufenpai"}}{{/block}}>参与分配</label>
+            <label><input type="checkbox" style="zoom: 150%;" name="canyufenpei" value="1"  {{block "p-canyufenpei"}}{{/block}}>参与分配</label>
         </div>
         <!--
             <div class="radio">
@@ -33,38 +33,38 @@
             </div>
             -->
         <div class="radio">
-            <label><input type="checkbox" style="zoom: 150%;" name="junfen" value="1">均分</label>
+            <label><input type="checkbox" style="zoom: 150%;" name="junfen" value="1" {{block 'p-junfen'}}{{/block}}>均分</label>
         </div>
         <div class="radio">
-            <label><input type="checkbox" style="zoom: 150%;" name="workloadfenpei" value="1">工作量分配</label>
+            <label><input type="checkbox" style="zoom: 150%;" name="workloadfenpei" value="1" {{block 'p-workloadfenpei'}}{{/block}}>工作量分配</label>
         </div>
         <br>
         <div class="checkbox">
-            <label><input type="checkbox" style="zoom: 150%;" name="atnight" value="1">上夜班</label>
+            <label><input type="checkbox" style="zoom: 150%;" name="atnight" value="1" {{block 'p-atnight'}}{{/block}}>上夜班</label>
         </div>
         <div class="checkbox">
-            <label><input type="checkbox" style="zoom: 150%;" name="athealth" value="1">参与体检</label>
+            <label><input type="checkbox" style="zoom: 150%;" name="athealth" value="1"{{block 'p-athealth'}}{{/block}}>参与体检</label>
         </div>
         <div class="checkbox">
-            <label><input type="checkbox" style="zoom: 150%;" name="atmri" value="1">核磁</label>
+            <label><input type="checkbox" style="zoom: 150%;" name="atmri" value="1" {{block 'p-atmri'}}{{/block}}>核磁</label>
         </div>
         <div class="checkbox">
-            <label><input type="checkbox" style="zoom: 150%;" name="atyilianti" value="1">医联体</label>
+            <label><input type="checkbox" style="zoom: 150%;" name="atyilianti" value="1"{{block 'p-atyilianti'}}{{/block}}>医联体</label>
         </div>
         <br>
         <div class="form-group">
             <label for="zhiwujintie">职务津贴</label>
-            <input type="text" class="form-control" name="zhiwujintie" placeholder="请输入项目职务津贴">
+            <input type="text" class="form-control" name="zhiwujintie" placeholder="请输入项目职务津贴" value={{block 'p-zhiwujintie'}}{{/block}}>
         </div>
         <br>
         <div class="form-group">
             <label for="jianzhi">兼职津贴</label>
-            <input type="text" class="form-control" name="jianzhi" placeholder="请输入项兼职津贴">
+            <input type="text" class="form-control" name="jianzhi" placeholder="请输入项兼职津贴" value={{block 'p-jianzhi'}}{{/block}}>
         </div>
         <br>
         <div class="form-group">
             <label for="canhui">参会津贴</label>
-            <input type="text" class="form-control" name="canhui" placeholder="参会津贴注意负值 ">
+            <input type="text" class="form-control" name="canhui" placeholder="参会津贴注意负值 " value={{block 'p-canhui'}}{{/block}}>
         </div>
         <br>
 

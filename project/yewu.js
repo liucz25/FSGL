@@ -42,13 +42,14 @@ module.exports = {
         req.on('end', function() {
             var data_obj = qureystring.parse(data);
             var urlobj = url.parse(req.url, true);
-            var sqlstr = mansql.where("PersonID=" + urlobj.query.id).table("person").update(data_obj);
+            var sqlstr = mansql.where("personID=" + urlobj.query.id).table("person").update(data_obj);
+            // console.log(sqlstr);
             linkdb.runsql(sqlstr, function(datas) {
-                    res.end(data);
-                    //成功提醒
+                var backstr= "<script>alert('修改成功');window.location.href='/'</script>";
+                res.setHeader('content-type','text/html;charset=utf-8');
+                // console.log(backstr);
+                res.end(backstr);
                 })
-                //页面跳转
-            res.end();
         });
 
     },
