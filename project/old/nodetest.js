@@ -1,5 +1,5 @@
 var http = require('http');
-var route = require('./route');
+
 var server = http.createServer();
 server.on('request',function(req,res){
     res.write("<h1>node test<h1>");
