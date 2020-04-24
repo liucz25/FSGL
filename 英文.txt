@@ -1,0 +1,12 @@
+评估 	estimate
+医生         doctor
+护士	nurses
+技师	technician
+工作量	workload
+职称	rank
+附加	addition
+奖金	reward
+分配	allocation
+放射	radiolog
+财务	finance
+人事	human resource
