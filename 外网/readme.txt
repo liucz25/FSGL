@@ -31,4 +31,6 @@ ufw status查询状态
 https://blog.verkey.org/209.html  v2ray+BBR牛的一逼！
 https://tlanyan.me/v2ray-tutorial/?nsukey=Brsz6h7hEx0fE1V1fW46NW7bdkdcDs4TfVv3BO9nu3uKz0oTfOx7OCRMxW0v3a7Mny3mG3FaKg6xTof3nFcUrlS%2F5B5mX%2BlwbgFxJlFyFkXh%2Byc24Uduxm8jspUvgKA1sBvAC%2BgN97vC6ViV%2FYgmqw3sUUS5jq4B1qwJJCqim8j6ZH5LIAXUL7VNBU5VSpDi8%2Bbg2P%2ByzPXZ1XZhNLrFMg%3D%3D
 
+v2ray 客户端varayn比较好用，
 
+浏览器使用SwitchyOmega   proxy：socks5,127.0.0.1,10808
