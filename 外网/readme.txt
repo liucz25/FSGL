@@ -3,7 +3,7 @@
 账号liuchangzheng25@163.com
 密码VirMach-86
 以后可以考虑
-1、阿里云的香港服务器；
+1、阿里云的香港服务器；密码：6ZOKeN
 2、vultr.com/
 3、https://app.cloudcone.com.cn/compute/create
 后两个是外国的，可以按小时付费，有机器就收费，不开机也收，销毁机器才不收费

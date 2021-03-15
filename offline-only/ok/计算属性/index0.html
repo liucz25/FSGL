@@ -1,0 +1,159 @@
+<html>
+<head>
+
+<link rel="stylesheet" href="lib/element.css">
+
+
+</head>
+<body>
+<div id="app">
+  {{ message }}
+ <el-button @click="visible = true">Button</el-button>
+    <el-dialog :visible.sync="visible" title="Hello world">
+      <p>Try Element</p>
+    </el-dialog>
+
+<el-container>
+  <el-aside width="200px">Aside</el-aside>
+  <el-container>
+    <el-header>Header</el-header>
+    <el-main>Main</el-main>
+  </el-container>
+</el-container>
+
+<div>
+<hr />
+<table >
+<tr>
+<td>2.1</td>
+<td>3.2</td>
+<td>2.1</td>
+<td>3.2</td><td>2.1</td>
+<td>3.2</td><td>2.1</td>
+<td>3.2</td><td>2.1</td>
+<td>3.2</td><td>2.1</td>
+<td>3.2</td><td>2.1</td>
+<td>3.2</td><td>2.1</td>
+<td>3.2</td><td>2.1</td>
+<td>3.2</td><td>2.1</td>
+<td>3.2</td><td>2.1</td>
+<td>3.2</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+
+</tr>
+</table>
+
+
+
+
+</div>
+<div>
+<template>
+  <el-table
+    :data="tableData"
+    height="350"
+    border
+show-summary
+    style="width: 100%">
+    <el-table-column
+      prop="date"
+      label="日期"
+      width="180">
+    </el-table-column>
+    <el-table-column
+fixed
+      prop="name"
+      label="姓名"
+      width="180">
+    </el-table-column>
+    <el-table-column
+      prop="address"
+      label="地址">
+    </el-table-column>
+    <el-table-column
+      prop="fenpei"
+      label="分配">
+    </el-table-column>
+  </el-table>
+</template>
+</div>
+</div>
+
+<script src="lib/vue.js"></script>
+<script src="lib/element.js"></script>
+
+<script>
+var app = new Vue({
+  	el: '#app',
+
+
+	data(){
+ return {
+        tableData: [{
+          date: '2016-05-03',
+          name: '王小虎',
+          address: '2',
+        }, {
+          date: '2016-05-02',
+          name: '王小虎',
+          address: '5'
+        }, {
+          date: '2016-05-04',
+          name: '王小虎',
+          address: '8'
+        }, {
+          date: '2016-05-01',
+          name: '王小虎',
+          address: '8'
+        }, {
+          date: '2016-05-08',
+          name: '王小虎',
+          address: '7'
+        }, {
+          date: '2016-05-06',
+          name: '王小虎',
+          address: '7'
+        }, {
+          date: '2016-05-07',
+          name: '王小虎',
+          address: '8'
+        }]
+      }
+},
+
+  computed: {
+    // 计算属性的 getter
+    fenpei(){
+      // `this` 指向 vm 实例
+      return "4"
+    }
+  },
+
+	function() {
+        return { visible: false}
+      }
+  
+})
+
+
+</script>
+<style type="text/css">
+td {border-style: solid;
+border-width: 1px;}
+
+</body>
+</html>

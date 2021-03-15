@@ -1,0 +1,21 @@
+
+============== Check your input ==============
+You Server IP      : 107.172.137.150
+Bind port          : 5443
+kcp support        : true
+vhost http port    : 80
+vhost https port   : 443
+Dashboard port     : 6443
+Dashboard user     : admin
+Dashboard password : admin
+token              : token
+subdomain_host     : 107.172.137.150
+tcp_mux            : true
+Max Pool count     : 50
+Log level          : info
+Log max days       : 3
+Log file           : enable
+==============================================
+
+Press any key to start...or Press Ctrl+c to cancel
+

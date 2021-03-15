@@ -1,0 +1,65 @@
+<html>
+<head>
+
+<link rel="stylesheet" href="lib/element.css">
+
+
+</head>
+<body>
+<div id="app">
+  {{ message }}
+<br />
+{{ a }}<br />{{ b }}<br />{{ c }}<br />{{ t }}<br />
+{{ w}}<br />{{ message }}<br />
+
+
+
+
+
+
+
+</div>
+
+<script src="lib/vue.js"></script>
+<script src="lib/element.js"></script>
+
+<script>
+var app = new Vue({
+  	el: '#app',
+
+
+	data:{ 
+	message:"some text",
+        a:"2",
+        b:"3",
+        c:4,
+
+        
+
+},
+
+  computed: {
+	t:function(){
+		var t=parseFloat(this.a)+parseFloat(this.b);
+		return t;
+		},
+
+	w:function(){
+		return this.t*this.c;
+		},
+
+
+    
+
+  },
+
+	
+  
+})
+
+
+</script>
+
+
+</body>
+</html>

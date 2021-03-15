@@ -1,0 +1,95 @@
+<html>
+<head>
+
+<link rel="stylesheet" href="lib/element.css">
+
+
+</head>
+<body>
+<div id="app">
+  {{ message }}
+{{countmessage}}
+
+{{sump}}
+  <template>
+    <el-table
+      :data="tableData"
+      style="width: 100%">
+      <el-table-column
+        prop="date"
+        label="日期"
+        width="180">
+      </el-table-column>
+      <el-table-column
+        prop="name"
+        label="姓名"
+        width="180">
+      </el-table-column>
+      <el-table-column
+        prop="address"
+        label="地址">
+      </el-table-column>
+      <el-table-column
+        prop="sump"
+        label="地址3">
+      </el-table-column>
+
+    </el-table>
+
+
+  </template>
+</div>
+
+<script src="lib/vue.js"></script>
+<script src="lib/element.js"></script>
+
+<script>
+var app = new Vue({
+  	el: '#app',
+
+
+	data(){
+return{ 
+	message:"some text",
+
+        tableData: [{
+          date: '2016-05-03',
+          name: '王小虎',
+          address: '2',
+	 sump:"sump",
+        },{
+          date: '2016-05-03',
+          name: '王小虎',
+          address: '9',
+	 sump:"sump",
+        }],
+
+}
+
+},
+
+  computed: {
+    countmessage:function(){
+      // `this` 指向 vm 实例
+      return this.tableData[1].address
+    },
+	sump:function(){
+		let sum =0;
+		this.tableData.forEach((item)=>{
+			sum+=parseFloat(item.address);
+
+		});
+		return sum;//合计计算成功
+	}
+  },
+
+	
+  
+})
+
+
+</script>
+
+
+</body>
+</html>

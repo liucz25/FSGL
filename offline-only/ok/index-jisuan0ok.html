@@ -1,0 +1,41 @@
+<html>
+
+<head>
+    <script src="lib/vue.js"></script>
+    <!-- <script src="lib/element.js"></script> -->
+</head>
+
+<body>
+    <div id="app">
+        {{ message }} <br/>a:
+        <input v-model=a></input>
+        <br />a: {{ a }}<br />b:{{ b }}<br />c:{{ c }}<br />t:(a+b){{ t }}<br /> w:(t*c){{ w}}<br />
+    </div>
+
+    <script>
+        var app = new Vue({
+            el: '#app',
+
+            data: {
+                message: "some text",
+                a: "2",
+                b: "3",
+                c: 4,
+            },
+
+            computed: {
+                t: function() {
+                    var t = parseFloat(this.a) + parseFloat(this.b);
+                    return t;
+                },
+
+                w: function() {
+                    return this.t * this.c;
+                },
+
+            },
+        })
+    </script>
+</body>
+
+</html>

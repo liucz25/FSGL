@@ -1,0 +1,70 @@
+<html>
+<head>
+
+<link rel="stylesheet" href="lib/element.css">
+
+
+</head>
+<body>
+<div id="app">
+  {{ message }}
+{{countmessage}}
+
+{{sump}}
+ 
+</div>
+
+<script src="lib/vue.js"></script>
+<script src="lib/element.js"></script>
+
+<script>
+var app = new Vue({
+  	el: '#app',
+
+
+	data(){
+return{ 
+	message:"some text",
+
+        tableData: [{
+          date: '2016-05-03',
+          name: '王小虎',
+          address: '2',
+        }, {
+          date: '2016-05-02',
+          name: '王小虎',
+          address: '5'
+        } ,{
+         date: '2016-05-02',
+          name: '王小虎',
+          address: '5'
+        }]
+	
+      }
+},
+
+  computed: {
+    countmessage:function(){
+      // `this` 指向 vm 实例
+      return this.tableData[1].address
+    },
+	sump:function(){
+		let sum =0;
+		this.tableData.forEach((item)=>{
+			sum+=parseFloat(item.address);
+
+		});
+		return sum;//合计计算成功
+	}
+  },
+
+	
+  
+})
+
+
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,18 @@
+{
+    "config": {
+        "cGongZuoLiang": {
+            "xX": 0.8,
+            "xCT": 1.5,
+            "xCTC": 5,
+            "xCTA": 6,
+            "xMR": 1.5,
+            "sX": 0.2,
+            "sCT": 0.5
+        },
+        "cZhiCheng": { "yishi": 1.0, "zhuzhi": 1.2, },
+    },
+    "dataGongZuoLiang": [{ "id": 1, "name": "lcz", "xX": 230, "xCT": 23, "sX": 90, "total": 0 },
+        { "id": 2, "name": "bql", "xX": 210, "total": 0 }
+    ]
+
+}

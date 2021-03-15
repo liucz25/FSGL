@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class Vue {
+            constructor() {
+                console.log("lcz")
+            }
+            print(text) {
+                console.log(text)
+            }
+        }
+        class b extends Vue {
+
+        }
+        var a = new Vue()
+        a.print("eeee")
+
+
+        var c = new b()
+        c.print("bbb")
+    </script>
+</body>
+
+</html>

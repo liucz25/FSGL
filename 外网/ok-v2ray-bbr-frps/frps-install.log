@@ -1,0 +1,164 @@
+
++------------------------------------------------------------+
+|   frps for Linux Server, Author Clang ，Mender MvsCode     |
+|      A tool to auto-compile & install frps on Linux        |
++------------------------------------------------------------+
+
+Check your server setting, please wait...
+[3;J[H[2J
++------------------------------------------------------------+
+|   frps for Linux Server, Author Clang ，Mender MvsCode     |
+|      A tool to auto-compile & install frps on Linux        |
++------------------------------------------------------------+
+
+
+Please select frps download url:
+[1].aliyun 
+[2].github (default)
+Enter your choice (1, 2 or exit. default [github]): 2
+-----------------------------------
+       Your select: [1;33m2[0m    
+-----------------------------------
+Loading network version for frps, please wait...
+frps Latest release file [1;32mfrp_0.32.1_linux_amd64.tar.gz[0m
+Loading You Server IP, please wait...
+You Server IP:[1;32m107.172.137.150[0m
+————————————————————————————————————————————
+     [1;31mPlease input your server setting:[0m
+————————————————————————————————————————————
+
+Please input frps [1;32mbind_port[0m [1-65535](Default Server Port: 5443):
+frps bind_port: [1;33m5443[0m
+
+
+Please input frps [1;32mvhost_http_port[0m [1-65535](Default : 80):
+frps vhost_http_port: [1;33m80[0m
+
+
+Please input frps [1;32mvhost_https_port[0m [1-65535](Default : 443):
+frps vhost_https_port: [1;33m443[0m
+
+
+Please input frps [1;32mdashboard_port[0m [1-65535](Default : 6443):
+frps dashboard_port: [1;33m6443[0m
+
+
+Please input frps [1;32mdashboard_user[0m(Default : admin):
+frps dashboard_user: [1;33madmin[0m
+
+
+Please input frps [1;32mdashboard_pwd[0m(Default : O4BKZuqq):admin
+frps dashboard_pwd: [1;33madmin[0m
+
+
+Please input frps [1;32mtoken[0m(Default : fvpHvnc7oTbLHtuD):tokens[K
+frps token: [1;33mtoken[0m
+
+
+Please input frps [1;32msubdomain_host[0m(Default : 107.172.137.150):
+frps subdomain_host: [1;33m107.172.137.150[0m
+
+
+Please input frps [1;32mmax_pool_count[0m [1-200]
+(Default : 50):
+frps max_pool_count: [1;33m50[0m
+
+Please select [1;32mlog_level[0m
+1: info (default)
+2: warn
+3: error
+4: debug
+-------------------------
+Enter your choice (1, 2, 3, 4 or exit. default [1]): 
+log_level: [1;33minfo[0m
+
+
+Please input frps [1;32mlog_max_days[0m [1-30]
+(Default : 3 day):
+frps log_max_days: [1;33m3[0m
+
+Please select [1;32mlog_file[0m
+1: enable (default)
+2: disable
+-------------------------
+Enter your choice (1, 2 or exit. default [1]): 
+log_file: [1;33menable[0m
+
+Please select [1;32mtcp_mux[0m
+1: enable (default)
+2: disable
+-------------------------
+Enter your choice (1, 2 or exit. default [1]): 
+tcp_mux: [1;33mtrue[0m
+
+Please select [1;32mkcp support[0m
+1: enable (default)
+2: disable
+-------------------------
+Enter your choice (1, 2 or exit. default [1]): 
+kcp support: [1;33mtrue[0m
+
+============== Check your input ==============
+You Server IP      : [1;32m107.172.137.150[0m
+Bind port          : [1;32m5443[0m
+kcp support        : [1;32mtrue[0m
+vhost http port    : [1;32m80[0m
+vhost https port   : [1;32m443[0m
+Dashboard port     : [1;32m6443[0m
+Dashboard user     : [1;32madmin[0m
+Dashboard password : [1;32madmin[0m
+token              : [1;32mtoken[0m
+subdomain_host     : [1;32m107.172.137.150[0m
+tcp_mux            : [1;32mtrue[0m
+Max Pool count     : [1;32m50[0m
+Log level          : [1;32minfo[0m
+Log max days       : [1;32m3[0m
+Log file           : [1;32menable[0m
+==============================================
+
+Press any key to start...or Press Ctrl+c to cancel
+frps install path:/usr/local/frps
+config file for frps ... done
+download frps ... done
+download /etc/init.d/frps... done
+setting frps boot... done
+
++---------------------------------------------------------+
+|     Manager for Frps, Author Clang, Mender MvsCode      |
++---------------------------------------------------------+
+
+Starting Frps(0.32.1)... done
+Frps (pid 17064)is running.
+
++------------------------------------------------------------+
+|   frps for Linux Server, Author Clang ，Mender MvsCode     |
+|      A tool to auto-compile & install frps on Linux        |
++------------------------------------------------------------+
+
+
+Congratulations, frps install completed!
+================================================
+You Server IP      : [1;32m107.172.137.150[0m
+Bind port          : [1;32m5443[0m
+KCP support        : [1;32mtrue[0m
+vhost http port    : [1;32m80[0m
+vhost https port   : [1;32m443[0m
+Dashboard port     : [1;32m6443[0m
+token              : [1;32mtoken[0m
+subdomain_host     : [1;32m107.172.137.150[0m
+tcp_mux            : [1;32mtrue[0m
+Max Pool count     : [1;32m50[0m
+Log level          : [1;32minfo[0m
+Log max days       : [1;32m3[0m
+Log file           : [1;32menable[0m
+================================================
+frps Dashboard     : [1;32mhttp://107.172.137.150:6443/[0m
+Dashboard user     : [1;32madmin[0m
+Dashboard password : [1;32madmin[0m
+================================================
+
+frps status manage : [45;37mfrps[0m {[1;32mstart|stop|restart|status|config|version[0m}
+Example:
+  start: [1;35mfrps[0m [1;32mstart[0m
+   stop: [1;35mfrps[0m [1;32mstop[0m
+restart: [1;35mfrps[0m [1;32mrestart[0m

@@ -1,0 +1,477 @@
+个人需求element UI不能满足
+
+vue-easytable应该可以
+
+
+https://blog.csdn.net/yaojie5519/article/details/104773440
+
+
+Vue：表格组件vue-easytable的使用
+
+KWMax 2020-03-10 14:09:53  3494  收藏 8
+分类专栏： H5 文章标签： table vue
+版权
+需求背景
+在移动端页面开发上，有些场景需要使用表格。可能涉及表格的展示、编辑、单元格拆分、单元格合并、删除、行列冻结。和移动端相比，H5开发效率较快，本文也只讨论在移动端H5开发上表格组件的使用。
+
+?
+
+方案选择
+1、hansontable
+
+功能强大，但商业使用收费
+
+2、element
+
+功能强大，更适合网页端
+
+3、vue-easytable
+
+功能较强大，基本满足大部分场景需求
+
+基于以上，选择了vue-easytable方案
+
+?
+
+使用说明
+1、文档地址
+Github：https://github.com/huangshuwei/vue-easytable
+
+API：http://doc.huangsw.com/vue-easytable/app.html#/install
+
+2、安装
+npm install vue-easytable --save
+引入依赖：
+
+import 'vue-easytable/libs/themes-base/index.css'
+import {VTable, VPagination} from 'vue-easytable'
+?
+//组件中注册
+components: {
+ ? VTable, VPagination
+}
+3、单元格可编辑
+
+
+使用方式：
+
+通过给 columns 设置 isEdit:true 开启单元格编辑。
+
+cell-edit-done回调函数，回调参数为 newValue、oldValue、rowIndex、rowData、field，并给table-data当前编辑的列赋值
+
+示例代码：
+
+<template>
+    <v-table is-horizontal-resize style="width:100%" :columns="columns" :table-data="tableData" row-hover-color="#eee" row-click-color="#edf7ff" :cell-edit-done="cellEditDone"></v-table>
+</template>
+ 
+<style>
+    .cell-edit-color{
+        color:#2db7f5;
+        font-weight: bold;
+    }
+</style>
+<script>
+ 
+    export default{
+        data() {
+            return {
+                  tableData: [
+                        {"name":"赵伟","tel":"156*****1987","hobby":"钢琴、书法、唱歌","address":"上海市黄浦区金陵东路569号17楼"},
+                        {"name":"李伟","tel":"182*****1538","hobby":"钢琴、书法、唱歌","address":"上海市奉贤区南桥镇立新路12号2楼"},
+                        {"name":"孙伟","tel":"161*****0097","hobby":"钢琴、书法、唱歌","address":"上海市崇明县城桥镇八一路739号"},
+                        {"name":"周伟","tel":"197*****1123","hobby":"钢琴、书法、唱歌","address":"上海市青浦区青浦镇章浜路24号"},
+                        {"name":"吴伟","tel":"183*****6678","hobby":"钢琴、书法、唱歌","address":"上海市松江区乐都西路867-871号"}
+                     ],
+                    columns:  [
+                             {field: 'name', title:'姓名', width: 80, titleAlign: 'center',columnAlign:'center',isEdit:true,
+                              formatter: function (rowData,rowIndex,pagingIndex,field) {
+ 
+                                   return `<span class='cell-edit-color'>${rowData[field]}</span>`;
+                               },isResize:true},
+                             {field: 'tel', title: '手机号码', width: 150, titleAlign: 'center',columnAlign:'center',isEdit:true,isResize:true},
+                             {field: 'hobby', title: '爱好', width: 150, titleAlign: 'center',columnAlign:'center',isEdit:true,isResize:true},
+                             {field: 'address', title: '地址', width: 280, titleAlign: 'center',columnAlign:'left',isEdit:true,isResize:true}
+                     ]
+            }
+        },
+        methods:{
+ 
+            // 单元格编辑回调
+            cellEditDone(newValue,oldValue,rowIndex,rowData,field){
+ 
+                this.tableData[rowIndex][field] = newValue;
+ 
+                // 接下来处理你的业务逻辑，数据持久化等...
+            }
+        }
+    }
+</script>
+4、行列合并
+
+
+?使用方式：
+
+通过传入 cell-merge 回调函数设置要合并的单元格
+
+找到要合并的列使用colspan，找到要合并的行使用rowspan
+
+通过设置 content为合并后单元格内容（html），也可通过 componentName 将组件作为合并后单元格内容
+
+示例代码：
+
+<template>
+    <div>
+        <v-table :width="1100" :height="300" :columns="columns" :table-data="tableData" even-bg-color="#f4f4f4" row-hover-color="#eee" row-click-color="#edf7ff" :cell-merge="cellMerge"></v-table>
+    </div>
+</template>
+ 
+ 
+<script>
+    import Vue from 'vue'
+ 
+    export default{
+        name: 'frozen-title-columns',
+        data(){
+            return {
+                tableData: [{"name":"赵伟","gender":"男","birthday":'1963-7-9',"height":"183","email":"zhao@gmail.com","tel":"156*****1987","hobby":"钢琴、书法、唱歌","address":"上海市黄浦区金陵东路569号17楼"},
+                            {"name":"李伟","gender":"男","birthday":'2003-12-7',"height":"166","email":"li@gmail.com","tel":"182*****1538","hobby":"钢琴、书法、唱歌","address":"上海市奉贤区南桥镇立新路12号2楼"},
+                            {"name":"孙伟","gender":"女","birthday":'1993-12-7',"height":"186","email":"sun@gmail.com","tel":"161*****0097","hobby":"钢琴、书法、唱歌","address":"上海市崇明县城桥镇八一路739号"},
+                            {"name":"周伟","gender":"女","birthday":'1993-12-7',"height":"188","email":"zhou@gmail.com","tel":"197*****1123","hobby":"钢琴、书法、唱歌","address":"上海市青浦区青浦镇章浜路24号"},
+                            {"name":"吴伟","gender":"男","birthday":'1993-12-7',"height":"160","email":"wu@gmail.com","tel":"183*****6678","hobby":"钢琴、书法、唱歌","address":"上海市松江区乐都西路867-871号"},
+                            {"name":"冯伟","gender":"女","birthday":'1993-12-7',"height":"168","email":"feng@gmail.com","tel":"133*****3793","hobby":"钢琴、书法、唱歌","address":"上海市金山区龙胜路143号一层"},
+                            {"name":"褚伟","gender":"男","birthday":'1993-12-7',"height":"170","email":"zhu@gmail.com","tel":"189*****2345","hobby":"钢琴、书法、唱歌","address":"上海市闵行区都市路2988号2楼"},],
+                columns:[
+                       {field: 'name', title:'姓名', width: 150, titleAlign: 'center',columnAlign:'center', isFrozen: true},
+                       {field: 'gender', title:'性别', width: 150, titleAlign: 'center',columnAlign:'center', isFrozen: true},
+                       {field: 'tel', title: '手机号码', width: 180, titleAlign: 'center',columnAlign:'center', isFrozen: false},
+                       {field: 'birthday', title: '出生日期', width: 180, titleAlign: 'center',columnAlign:'center'},
+                       {field: 'hobby', title: '爱好', width: 380, titleAlign: 'center',columnAlign:'center'},
+                       {field: 'address', title: '地址', width: 430, titleAlign: 'center',columnAlign:'left'}
+                     ]
+            }
+        },
+        methods: {
+ 
+            cellMerge(rowIndex,rowData,field){
+                if (field === 'name' && rowData[field] === '李伟') {
+                    return {
+                        colSpan: 2,
+                        rowSpan: 1,
+                        content: '<span style="color:red">单元格 colSpan</span>',
+                        componentName: ''
+ 
+                    }
+                } else if (rowIndex === 3 && field === 'gender') {
+ 
+                    return {
+                        colSpan: 1,
+                        rowSpan: 3,
+                        content: '<span style="color:red">单元格 rowSpan</span>',
+                        componentName: ''
+                    }
+ 
+                }else if (rowIndex === 2 && field === 'birthday') {
+ 
+                        return {
+                            colSpan: 2,
+                            rowSpan: 3,
+                            content:'',
+                            componentName:'table-cell-merge',
+                        }
+                }
+            }
+        }
+    }
+ 
+        // 自定义列组件
+        Vue.component('table-cell-merge',{
+            template:`<span style="color:red">
+               单元格 rowSpan 和 colSpan 同时使用
+            </span>`,
+            props:{
+                rowData:{
+                    type:Object
+                },
+                field:{
+                    type:String
+                },
+                index:{
+                    type:Number
+                }
+            }
+        })
+</script>
+5、自定义列
+
+
+?使用方式：
+
+通过 formatter函数对当前数据进行简单的加工处理，这个方法接收rowData、rowIndex,pagingIndex,field作为回调数据；
+
+通过componentName传递一个vue组件，这个自定义组件会接收到rowData、field、index作为回调数据；
+
+通过传入事件on-custom-comp实现子组件与父组件通讯的目的；
+
+示例代码：
+
+<template>
+    <v-table is-horizontal-resize style="width:100%" :columns="columns" :table-data="tableData" row-hover-color="#eee" row-click-color="#edf7ff" @on-custom-comp="customCompFunc"></v-table>
+</template>
+ 
+<script>
+ 
+    import Vue from 'vue'
+ 
+    export default{
+        data() {
+            return {
+                tableData: [
+                        {"name":"赵伟","tel":"156*****1987","hobby":"钢琴、书法、唱歌","address":"上海市黄浦区金陵东路569号17楼"},
+                        {"name":"李伟","tel":"182*****1538","hobby":"钢琴、书法、唱歌","address":"上海市奉贤区南桥镇立新路12号2楼"},
+                        {"name":"孙伟","tel":"161*****0097","hobby":"钢琴、书法、唱歌","address":"上海市崇明县城桥镇八一路739号"},
+                        {"name":"周伟","tel":"197*****1123","hobby":"钢琴、书法、唱歌","address":"上海市青浦区青浦镇章浜路24号"},
+                        {"name":"吴伟","tel":"183*****6678","hobby":"钢琴、书法、唱歌","address":"上海市松江区乐都西路867-871号"}
+                     ],
+                    columns: [
+                        {
+                            field: 'custome', title:'序号', width: 50, titleAlign: 'center', columnAlign: 'center',
+                            formatter: function (rowData,rowIndex,pagingIndex,field) {
+                                return rowIndex < 3 ? '<span style="color:red;font-weight: bold;">' + (rowIndex + 1) + '</span>' : rowIndex + 1
+                            }, isFrozen: true,isResize:true
+                        },
+                        {field: 'name', title:'姓名', width: 80, titleAlign: 'center',columnAlign:'center',isResize:true},
+                        {field: 'tel', title: '手机号码', width: 150, titleAlign: 'center',columnAlign:'center',isResize:true},
+                        {field: 'hobby', title: '爱好', width: 150, titleAlign: 'center',columnAlign:'center',isResize:true},
+                        {field: 'address', title: '地址', width: 230, titleAlign: 'center',columnAlign:'left',isResize:true},
+                        {field: 'custome-adv', title: '操作',width: 200, titleAlign: 'center',columnAlign:'center',componentName:'table-operation',isResize:true}
+                    ]
+ 
+            }
+        },
+        methods:{
+            customCompFunc(params){
+ 
+                console.log(params);
+ 
+                if (params.type === 'delete'){ // do delete operation
+ 
+                    this.$delete(this.tableData,params.index);
+ 
+                }else if (params.type === 'edit'){ // do edit operation
+ 
+                    alert(`行号：${params.index} 姓名：${params.rowData['name']}`)
+                }
+ 
+            }
+        }
+    }
+ 
+    // 自定义列组件
+    Vue.component('table-operation',{
+        template:`<span>
+        <a href="" @click.stop.prevent="update(rowData,index)">编辑</a>&nbsp;
+        <a href="" @click.stop.prevent="deleteRow(rowData,index)">删除</a>
+        </span>`,
+        props:{
+            rowData:{
+                type:Object
+            },
+            field:{
+                type:String
+            },
+            index:{
+                type:Number
+            }
+        },
+        methods:{
+            update(){
+ 
+               // 参数根据业务场景随意构造
+               let params = {type:'edit',index:this.index,rowData:this.rowData};
+               this.$emit('on-custom-comp',params);
+            },
+ 
+            deleteRow(){
+ 
+                // 参数根据业务场景随意构造
+                let params = {type:'delete',index:this.index};
+                this.$emit('on-custom-comp',params);
+ 
+            }
+        }
+    })
+</script>
+6、固定表头固定列
+
+
+?使用方式：
+
+固定表头：只需要设置height属性即可，如果设置的高度大于实际表格的高度，将以实际表格高度为准
+
+固定列：通过给需要固定的列，设置 isFrozen: true 即可
+
+固定复杂表头和固定列：
+
+表头合并需要设置 titleRows对象；
+
+titleRows数组中的每一项代表表头的每一行，通过fields属性设置当前要合并的表头列，如果需要和并列则使用colspan,如果需要行合并则设置rowspan
+
+示例代码：
+
+<template>
+   <v-table :width="1100" :height="280" even-bg-color="#f2f2f2" :title-rows="titleRows" :columns="columns" :table-data="tableData" row-hover-color="#eee" row-click-color="#edf7ff"></v-table>
+</template>
+ 
+<style>
+    .title-cell-class-name-test1 {
+        background-color: #2db7f5;
+    }
+    .title-cell-class-name-test2 {
+        background-color: #f60;
+    }
+</style>
+<script>
+ 
+    export default{
+        data(){
+            return {
+                multipleSort: false,
+                tableData: [
+                        {"name":"赵伟","gender":"男","height":"183","email":"zhao@gmail.com","tel":"156*****1987","hobby":"钢琴、书法、唱歌","address":"上海市黄浦区金陵东路569号17楼"},
+                        {"name":"李伟","gender":"男","height":"166","email":"li@gmail.com","tel":"182*****1538","hobby":"钢琴、书法、唱歌","address":"上海市奉贤区南桥镇立新路12号2楼"},
+                        {"name":"孙伟","gender":"女","height":"186","email":"sun@gmail.com","tel":"161*****0097","hobby":"钢琴、书法、唱歌","address":"上海市崇明县城桥镇八一路739号"},
+                        {"name":"周伟","gender":"女","height":"188","email":"zhou@gmail.com","tel":"197*****1123","hobby":"钢琴、书法、唱歌","address":"上海市青浦区青浦镇章浜路24号"},
+                        {"name":"吴伟","gender":"男","height":"160","email":"wu@gmail.com","tel":"183*****6678","hobby":"钢琴、书法、唱歌","address":"上海市松江区乐都西路867-871号"},
+                        {"name":"冯伟","gender":"女","height":"168","email":"feng@gmail.com","tel":"133*****3793","hobby":"钢琴、书法、唱歌","address":"上海市金山区龙胜路143号一层"}
+                ],
+                columns: [
+                     {
+                        field: 'custome', width: 50, titleAlign: 'center', columnAlign: 'center',
+                        formatter: function (rowData, index) {
+                            return index < 3 ? '<span style="color:red;font-weight: bold;">' + (index + 1) + '</span>' : index + 1
+                        }, isFrozen: true
+                    },
+                    {field: 'name', width: 100, columnAlign: 'center', isFrozen: true},
+                    {field: 'gender', width: 150, columnAlign: 'center', isFrozen: true},
+                    {field: 'height', width: 150, columnAlign: 'center', isFrozen: true},
+                    {field: 'tel', width: 190, columnAlign: 'center'},
+                    {field: 'email', width: 230, columnAlign: 'center'},
+                    {field: 'hobby', width: 230, columnAlign: 'center'},
+                    {field: 'address', width: 330, columnAlign: 'left'}
+                ],
+ 
+                titleRows: [
+                             [{fields: ['custome'], title: '排序', titleAlign: 'center', rowspan: 2},
+                              {fields: ['name', 'gender', 'height'], title: '基础信息', titleAlign: 'center', colspan: 3},
+                              {fields: ['tel', 'email'], title: '联系方式', titleAlign: 'center', colspan: 2},
+                              {fields: ['hobby','address'], title: '爱好及地址', titleAlign: 'center', rowspan: 2,colspan: 2}],
+ 
+                             [{fields: ['name'], title: '姓名', titleAlign: 'center'},
+                              {fields: ['gender'], title: '性别', titleAlign: 'center', orderBy: 'asc'},
+                              {fields: ['height'], title: '身高', titleAlign: 'center', orderBy: 'desc'},
+                              {fields: ['tel'], title: '手机号码', titleAlign: 'center'},
+                              {fields: ['email'], title: '邮箱', titleAlign: 'center'}],
+ 
+                             [{fields: ['custome','name','gender','height'], title: '平均值', titleAlign: 'center', colspan: 4,titleCellClassName:'title-cell-class-name-test1'},
+                              {fields: ['tel'], title: '000', titleAlign: 'center',titleCellClassName:'title-cell-class-name-test2'},
+                              {fields: ['email'], title: '111', titleAlign: 'center',titleCellClassName:'title-cell-class-name-test2'},
+                              {fields: ['hobby'], title: '222', titleAlign: 'center',titleCellClassName:'title-cell-class-name-test2'},
+                              {fields: ['address'], title: '333', titleAlign: 'center',titleCellClassName:'title-cell-class-name-test2'}]
+                           ]
+            }
+        }
+    }
+</script>
+7、关于排序、分页等功能具体见API地址.
+————————————————
+版权声明：本文为CSDN博主「KWMax」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/yaojie5519/article/details/104773440
+
+
+<html>
+<head>
+
+<link rel="stylesheet" href=../lib/element.css">
+
+
+</head>
+<body>
+<div id="app">
+  {{ message }}
+ <el-button @click="visible = true">Button</el-button>
+    <el-dialog :visible.sync="visible" title="Hello world">
+      <p>Try Element</p>
+    </el-dialog>
+
+<el-container>
+  <el-aside width="200px">Aside</el-aside>
+  <el-container>
+    <el-header>Header</el-header>
+    <el-main>Main</el-main>
+  </el-container>
+</el-container>
+
+<div>
+<hr />
+<table>
+<tr>
+<td>2.1</td>
+<td>3.2</td>
+<td>2.1</td>
+<td>3.2</td><td>2.1</td>
+<td>3.2</td><td>2.1</td>
+<td>3.2</td><td>2.1</td>
+<td>3.2</td><td>2.1</td>
+<td>3.2</td><td>2.1</td>
+<td>3.2</td><td>2.1</td>
+<td>3.2</td><td>2.1</td>
+<td>3.2</td><td>2.1</td>
+<td>3.2</td><td>2.1</td>
+<td>3.2</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+
+</tr>
+</table>
+
+
+
+
+</div>
+
+</div>
+
+<script src="../lib/vue.js"></script>
+<script src="../lib/element.js"></script>
+
+<script>
+var app = new Vue({
+  el: '#app',
+
+
+	data: 
+
+	function() {
+        return { visible: false}
+      }
+  
+})
+
+
+</script>
+</body>
+</html>

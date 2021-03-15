@@ -1,0 +1,38 @@
+<html>
+<head>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"</script>
+
+<script src="https://unpkg.com/vue"></script>
+
+</head>
+<body>
+
+
+
+<div id="app"> {{ message }}<br />{{a}}
+
+<br />{{b}}
+
+<br />{{c}}
+<br />{{t}}
+<br />{{w}}
+
+ </div>
+
+
+
+<script>
+var app = new Vue({ 
+		el: '#app', 
+		data: { message: 'Hello Vue!' ,
+			a:3,b:4,c:5} 
+		},
+		computed:{
+		t:function(){return this.a+this.b},
+		w:function(){return this.c*this.t}
+		})
+
+</script>
+</body>
+
+</html>
