@@ -42,9 +42,17 @@
         :edit-render="{ name: 'input', attrs: { type: 'text' } }"
       >
       </vxe-table-column>
-      <vxe-table-column field="total" title="写平片分值"> </vxe-table-column>
-      <vxe-table-column field="total" title="写CT分值"> </vxe-table-column>
-      <vxe-table-column field="total" title="总分"> </vxe-table-column>
+            <vxe-table-column title="写平片分值">
+        <template v-slot="{ row }">
+          <span>{{ countAmount(row) }} 分</span>
+        </template>
+      </vxe-table-column>   
+         </vxe-table-column>
+            <vxe-table-column title="写CT分值">
+        <template v-slot="{ row }">
+          <span>{{ countAmountCT(row) }} 分</span>
+        </template>
+      </vxe-table-column>
     </vxe-table>
 
     <br />数据:{{ tableData }}<br /><br />{{ configData }}
@@ -63,6 +71,24 @@ export default {
       configData: config.config.cGongZuoLiang,
     };
   },
+  methods:{
+    countAmount (row) {
+    //   return Number(row.xX) * Number(2)
+      return Number(row.xX) * this.configData[0].xX
+    },
+    countAmountCT (row) {
+    //   return Number(row.xX) * Number(2)
+      return Number(row.xCT) * this.configData[0].xCT
+    },
+    countAllAmount (data) {
+      let count = 0
+      data.forEach(row => {
+        count += this.countAmount(row)
+      })
+      return count
+    }
+    }
+
 };
 </script>
 
