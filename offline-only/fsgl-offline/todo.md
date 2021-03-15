@@ -23,3 +23,10 @@ element UI也不变，可能的虚拟dom的原因
 
 
 目前考虑用 vxe-talbe
+
+
+
+github 问题：
+export https_proxy="http://127.0.0.1:10809"设置代理
+
+电脑软件需要打开http代理，端口见软件
