@@ -1,7 +1,8 @@
 <template>
   <div id="app">
-<h2>helloworld</h2>
+
 <gzl></gzl>
+<lczTable></lczTable>
 
   </div>
 </template>
@@ -9,12 +10,14 @@
 <script>
 import HelloWorld from './components/HelloWorld.vue'
 import gzl from './components/gzl.vue'
-
+import lcztable from './components/lcz-table.vue'
+import lczTable from './components/lcz-table.vue'
 export default {
   name: 'App',
   components: {
     HelloWorld,
-    gzl
+    gzl,
+    lczTable
   }
 }
 </script>
