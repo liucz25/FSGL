@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>digitalRain</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="digitalRain">
+
+</canvas>
+
+    <script>
+        //获取画布
+        const cvs = document.getElementById("digitalRain");
+        //获取宽高
+        const width = window.screen.width;
+        const height = window.screen.height;
+        const fontsize = 50
+
+        cvs.width = width;
+        cvs.height = height;
+
+        const ctx = cvs.getContext("2d");
+        //Math.ceil向上取整
+        var rows = Math.ceil(height / fontsize);
+        var colums = Math.ceil(width / fontsize);
+
+        const lines = new Array(colums).fill(0);
+
+        var row = 0;
+
+        setInterval(() => {
+
+            //多次画部分不透明的矩形，实现字体变淡
+            ctx.fillStyle = "rgba(0,0,0,0.2)";
+            ctx.fillRect(0, 0, width, height);
+
+            ctx.fillStyle = "#00ff00";
+            ctx.font = fontsize + "px 宋体";
+            for (let i = 0; i < colums; i++) {
+                //Math.floor向上取整
+                var num = Math.floor(Math.random() * 10);
+
+                //ctx.fillText(string,x,y)
+                ctx.fillText(num, i * fontsize, lines[i] * fontsize);
+                lines[i]++;
+                //如果当前行大于最大行，就把当前行数置为0
+                //Math.random() > 0.95,一定几率没到底部就回到顶部
+                if (lines[i] > rows || Math.random() > 0.95) {
+                    lines[i] = 0;
+                }
+            }
+        }, 100)
+    </script>
+</body>
+
+</html>
