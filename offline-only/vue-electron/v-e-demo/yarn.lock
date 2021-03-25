@@ -9782,6 +9782,11 @@ vue@^2.6.11:
   resolved "https://registry.npm.taobao.org/vue/download/vue-2.6.12.tgz?cache=0&sync_timestamp=1614614651009&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fvue%2Fdownload%2Fvue-2.6.12.tgz#f5ebd4fa6bd2869403e29a896aed4904456c9123"
   integrity sha1-9evU+mvShpQD4pqJau1JBEVskSM=
 
+vxe-table@^3.2.5:
+  version "3.2.5"
+  resolved "https://registry.npm.taobao.org/vxe-table/download/vxe-table-3.2.5.tgz?cache=0&sync_timestamp=1616590842886&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fvxe-table%2Fdownload%2Fvxe-table-3.2.5.tgz#40ed23a0a286fe213f68fd9db7c259a301ef5260"
+  integrity sha1-QO0joKKG/iE/aP2dt8JZowHvUmA=
+
 watchpack-chokidar2@^2.0.1:
   version "2.0.1"
   resolved "https://registry.npm.taobao.org/watchpack-chokidar2/download/watchpack-chokidar2-2.0.1.tgz?cache=0&sync_timestamp=1604989085906&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fwatchpack-chokidar2%2Fdownload%2Fwatchpack-chokidar2-2.0.1.tgz#38500072ee6ece66f3769936950ea1771be1c957"
@@ -10116,6 +10121,11 @@ xdg-basedir@^3.0.0:
   version "3.0.0"
   resolved "https://registry.npm.taobao.org/xdg-basedir/download/xdg-basedir-3.0.0.tgz#496b2cc109eca8dbacfe2dc72b603c17c5870ad4"
   integrity sha1-SWsswQnsqNus/i3HK2A8F8WHCtQ=
+
+xe-utils@^3.1.12:
+  version "3.1.12"
+  resolved "https://registry.npm.taobao.org/xe-utils/download/xe-utils-3.1.12.tgz#6137f11abbd226ed035cc0267d69191f0a4541a3"
+  integrity sha1-YTfxGrvSJu0DXMAmfWkZHwpFQaM=
 
 xtend@^4.0.0, xtend@~4.0.0, xtend@~4.0.1:
   version "4.0.2"

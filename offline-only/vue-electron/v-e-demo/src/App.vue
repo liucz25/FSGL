@@ -1,18 +1,26 @@
 <template>
   <div id="app">
-<LowdbTest></LowdbTest>
+    <LowdbTest></LowdbTest>
+    <!-- <vex-test></vex-test> -->
+    <vext></vext>
   </div>
 </template>
 
 <script>
 // import HelloWorld from './components/HelloWorld.vue'
 import LowdbTest from './components/LowdbTest'
+import Vext from './components/vext.vue'
+// import vexTest from './components/vexTest'
+
 
 export default {
   name: 'App',
   components: {
     // HelloWorld
-    LowdbTest
+    LowdbTest,
+    // vexTest,
+    Vext
+
   }
 }
 </script>
