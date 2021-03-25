@@ -1,0 +1,45 @@
+1、安装node
+2、安装cnpm
+npm install -g cnpm
+3、安装yarn
+cnpm install -g yarn
+4、安装vue-cli
+cnpm install -g @vue/cli
+5、安装成功检查
+vue -V  
+6、创建项目
+vue create xxx 
+出现命令行的页面，选择即可
+
+7、electron
+进入目录
+vue add electron-build
+
+8、安装环境
+yarn install
+
+9、启动
+yarn electron：serve
+
+10、打包：https://blog.csdn.net/fukaiit/article/details/90964319
+安装：cnpm install electron-packager -g
+最简单打包：electron-packager .
+
+error
+1、不能显示页面，更改项目src目录下的，background。js 的createWindow() {
+    // Create the browser window.
+    const win = new BrowserWindow({
+        width: 800,
+        height: 600,
+        webPreferences: {
+
+            // Use pluginOptions.nodeIntegration, leave this alone
+            // See nklayman.github.io/vue-cli-plugin-electron-builder/guide/security.html#node-integration for more info
+            // nodeIntegration: process.env.ELECTRON_NODE_INTEGRATION
+            nodeIntegration: true
+
+            nodeIntegration：true
+
+
+
+
