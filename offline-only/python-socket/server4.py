@@ -58,7 +58,7 @@ while True:
     method     = request.decode().split(' ')[0]
     
     src        = request.decode().split(' ')[1]
-    print(method)
+    print(src)
     # deal with GET method
     if method == 'GET':
         # ULR    
@@ -71,7 +71,7 @@ while True:
         else: content = text_content.encode()
  
         print ('Connected by', addr)
-        # print ('Request is:', request)
+        print ('Request is:', request)
         conn.sendall(content)
     # close connection
     conn.close()

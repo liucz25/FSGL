@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<!-- saved from url=(0043)https://blog.ggrarea.cn/archives/35839.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta http-equiv="X-UA-Compatible" content="IE=10,IE=9,IE=8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<title>关于V2ray+CDN，目前相对最安全的科学手段。-基本原理 – 徐自远的乱七八糟小站</title>
+<script>
+window._deel = {name: '徐自远的乱七八糟小站',url: 'https://blog.ggrarea.cn/wp-content/themes/yusi1.0', ajaxpager: '', commenton: 0, roll: [0,0]}
+</script>
+<link rel="dns-prefetch" href="https://cdn.bootcss.com/">
+<link rel="dns-prefetch" href="https://s.w.org/">
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/blog.ggrarea.cn\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.9.16"}};
+			!function(a,b,c){function d(a,b){var c=String.fromCharCode;l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,a),0,0);var d=k.toDataURL();l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,b),0,0);var e=k.toDataURL();return d===e}function e(a){var b;if(!l||!l.fillText)return!1;switch(l.textBaseline="top",l.font="600 32px Arial",a){case"flag":return!(b=d([55356,56826,55356,56819],[55356,56826,8203,55356,56819]))&&(b=d([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]),!b);case"emoji":return b=d([55358,56760,9792,65039],[55358,56760,8203,9792,65039]),!b}return!1}function f(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var g,h,i,j,k=b.createElement("canvas"),l=k.getContext&&k.getContext("2d");for(j=Array("flag","emoji"),c.supports={everything:!0,everythingExceptFlag:!0},i=0;i<j.length;i++)c.supports[j[i]]=e(j[i]),c.supports.everything=c.supports.everything&&c.supports[j[i]],"flag"!==j[i]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[j[i]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(h=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",h,!1),a.addEventListener("load",h,!1)):(a.attachEvent("onload",h),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),g=c.source||{},g.concatemoji?f(g.concatemoji):g.wpemoji&&g.twemoji&&(f(g.twemoji),f(g.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script><script src="./关于V2ray+CDN，目前相对最安全的科学手段。-基本原理 – 徐自远的乱七八糟小站_files/wp-emoji-release.min.js.下载" type="text/javascript" defer=""></script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel="stylesheet" id="crayon-css" href="./关于V2ray+CDN，目前相对最安全的科学手段。-基本原理 – 徐自远的乱七八糟小站_files/crayon.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="wp-syntax-css-css" href="./关于V2ray+CDN，目前相对最安全的科学手段。-基本原理 – 徐自远的乱七八糟小站_files/wp-syntax.css" type="text/css" media="all">
+<link rel="stylesheet" id="style-css" href="./关于V2ray+CDN，目前相对最安全的科学手段。-基本原理 – 徐自远的乱七八糟小站_files/style.css" type="text/css" media="all">
+<script type="text/javascript" src="./关于V2ray+CDN，目前相对最安全的科学手段。-基本原理 – 徐自远的乱七八糟小站_files/jquery.min.js.下载"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var CrayonSyntaxSettings = {"version":"_2.7.2_beta","is_admin":"0","ajaxurl":"https:\/\/blog.ggrarea.cn\/wp-admin\/admin-ajax.php","prefix":"crayon-","setting":"crayon-setting","selected":"crayon-setting-selected","changed":"crayon-setting-changed","special":"crayon-setting-special","orig_value":"data-orig-value","debug":""};
+var CrayonSyntaxStrings = {"copy":"Press %s to Copy, %s to Paste","minimize":"Click To Expand Code"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./关于V2ray+CDN，目前相对最安全的科学手段。-基本原理 – 徐自远的乱七八糟小站_files/crayon.min.js.下载"></script>
+<script type="text/javascript" src="./关于V2ray+CDN，目前相对最安全的科学手段。-基本原理 – 徐自远的乱七八糟小站_files/jquery.js.下载"></script>
+<link rel="https://api.w.org/" href="https://blog.ggrarea.cn/wp-json/">
+<link rel="prev" title="理解微积分真谛：积分——降维投影" href="https://blog.ggrarea.cn/archives/35837.html">
+<link rel="next" title="移动、联通电信无奈！这九大携号转网行为被工信部禁止" href="https://blog.ggrarea.cn/archives/35844.html">
+<link rel="canonical" href="https://blog.ggrarea.cn/archives/35839.html">
+<link rel="shortlink" href="https://blog.ggrarea.cn/?p=35839">
+<link rel="alternate" type="application/json+oembed" href="https://blog.ggrarea.cn/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fblog.ggrarea.cn%2Farchives%2F35839.html">
+<link rel="alternate" type="text/xml+oembed" href="https://blog.ggrarea.cn/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fblog.ggrarea.cn%2Farchives%2F35839.html&amp;format=xml">
+<meta name="keywords" content="网络配置">
+<meta name="description" content="关于科学上网，目前最安全的手段就是：  V2RAY_WS+TLS+CDN  如果你对以上几个单词，以及VPS, Nginx，https 的意义并不十分清楚，请自行百度或谷歌。因为你肯定进行不下去了。如果对以上词汇能做到基本的理解，就可以继续了。  先介绍基本原理  OK，实际上这个技术已经不是非常新鲜了，笔者已经使用超过半年时间，在笔者使用之前，这个技术也已经出现好几个月了。之所以比较晚采用，主要是等当时的几个小bug修复，整体方案稳定">
+<link rel="icon" href="https://blog.ggrarea.cn/wp-content/uploads/2016/04/cropped-040516_1500_1-32x32.jpg" sizes="32x32">
+<link rel="icon" href="https://blog.ggrarea.cn/wp-content/uploads/2016/04/cropped-040516_1500_1-192x192.jpg" sizes="192x192">
+<link rel="apple-touch-icon-precomposed" href="https://blog.ggrarea.cn/wp-content/uploads/2016/04/cropped-040516_1500_1-180x180.jpg">
+<meta name="msapplication-TileImage" content="https://blog.ggrarea.cn/wp-content/uploads/2016/04/cropped-040516_1500_1-270x270.jpg">
+<!--[if lt IE 9]><script src="https://blog.ggrarea.cn/wp-content/themes/yusi1.0/js/html5.js"></script><![endif]-->
+</head>
+<body class="post-template-default single single-post postid-35839 single-format-standard">
+
+<header id="header" class="header">
+<div class="container-inner">
+ <div class="yusi-logo">
+                    <a href="https://blog.ggrarea.cn/">
+                        <h1>
+                                                        <span class="yusi-mono">徐自远的乱七八糟小站</span>
+                                                        <span class="yusi-bloger">涉及电子，网络，编程，软件使用，机械结构等等方面。</span>
+                                                    </h1>
+                    </a>
+    </div>
+</div>
+
+	<div id="nav-header" class="navbar">
+		
+		<ul class="nav">
+			
+<li class="page_item page-item-10244"><a href="https://blog.ggrarea.cn/2017%e8%af%81%e4%b9%a6">2017证书</a></li>
+<li class="page_item page-item-31876"><a href="https://blog.ggrarea.cn/2018%e8%af%81%e4%b9%a6">2018证书</a></li>
+<li class="page_item page-item-15308"><a href="https://blog.ggrarea.cn/dpjjpkc">单片机精品课程</a></li>
+<li class="page_item page-item-31831"><a href="https://blog.ggrarea.cn/raspberrykc">树莓派PYTHON课程</a></li>
+
+<li style="float:right;">
+                    <div class="toggle-search"><i class="fa fa-search"></i></div>
+<div class="search-expand" style="display: none;"><div class="search-expand-inner"><form method="get" class="searchform themeform" onsubmit="location.href=&#39;https://blog.ggrarea.cn/search/&#39; + encodeURIComponent(this.s.value).replace(/%20/g, &#39;+&#39;); return false;" action="https://blog.ggrarea.cn/"><div> <input type="ext" class="search" name="s" onblur="if(this.value==&#39;&#39;)this.value=&#39;search...&#39;;" onfocus="if(this.value==&#39;search...&#39;)this.value=&#39;&#39;;" value="search..."></div></form></div></div>
+</li>
+		</ul><div class="screen-mini"><button data-type="screen-nav" class="btn btn-inverse screen-nav"><i class="fa fa-list"></i></button></div>
+	</div>
+	
+</header>
+<section class="container"><div class="speedbar">
+				<div class="toptip"><strong class="text-success"><i class="fa fa-volume-up"></i> </strong> </div>
+	</div>
+	<div class="content-wrap">
+	<div class="content">
+
+				<header class="article-header">
+			<h1 class="article-title"><a href="https://blog.ggrarea.cn/archives/35839.html">关于V2ray+CDN，目前相对最安全的科学手段。-基本原理</a></h1>
+			<div class="meta">
+				<span id="mute-category" class="muted"><i class="fa fa-list-alt"></i><a href="https://blog.ggrarea.cn/archives/category/%e7%bd%91%e7%bb%9c%e9%85%8d%e7%bd%ae"> 网络配置</a></span>				<span class="muted"><i class="fa fa-user"></i> <a href="https://blog.ggrarea.cn/archives/author/ggrarea">徐 自远</a></span>
+				<time class="muted"><i class="fa fa-clock-o"></i> 1年前 (2019-11-12)</time>
+				<span class="muted"><i class="fa fa-eye"></i> 1784℃</span>
+											</div>
+		</header>
+		<article class="article-content">
+			<h1 class="single-title"><img src="./关于V2ray+CDN，目前相对最安全的科学手段。-基本原理 – 徐自远的乱七八糟小站_files/ui34t3kwkasf34t874.jpg" alt="关于V2ray+CDN，目前相对最安全的科学手段。-基本原理"></h1>
+<div class="single-content">
+<div class="single-entry-summary">
+<p>关于科学上网，目前最安全的手段就是：&nbsp;<strong>&nbsp;V2RAY_WS+TLS+CDN</strong></p>
+<p>如果你对以上几个单词，以及<strong>VPS, Nginx，https</strong>&nbsp;的意义并不十分清楚，请自行百度或谷歌。因为你肯定进行不下去了。如果对以上词汇能做到基本的理解，就可以继续了。</p>
+<p>先介绍基本原理</p>
+<p>OK，实际上这个技术已经不是非常新鲜了，笔者已经使用超过半年时间，在笔者使用之前，这个技术也已经出现好几个月了。之所以比较晚采用，主要是等当时的几个小bug修复，整体方案稳定后才正式使用的。</p>
+<p>目前这个科学上网方案，GFW是很难封掉的（不是不能封，是很难，注意这里的区别。所以可以自己用，别开机场，不然一定可以给你封掉，然后请你本人去喝茶）。</p>
+<p>实现根本就是两要点，一个是v2ray支持的websocket协议模式（以后简称ws），其实它就是http协议，只是在http协议通过url的方式包装了一下。然后另一个要点是 CDN，内容分发服务。它就可以看作是基于http服务的一种中转代理。实际上在我们的科学方案里，CDN就是做一个代理。</p>
+<p>本质上，ws 自己就可以完成科学任务。but 直接http协议传输，虽然实际内容是vmess加密的，但是ws的http特征还是明文的，这就给监听和分析留下了把柄，所以还是很快会被GFW盯上。在国家级算力之下，如果真想破解你的加密内容其实也就是分分钟的事。其实一般人家根本不需要解密你的数据，只需要确定你的数据符合特征就行（即使是加密过的数据，也是有其模糊特征的）。而WS自身的特征又非常明显，所以这么干，你的主机基本活不过30分钟就会挂掉。</p>
+<p>那么为了解决这个ws的h特征问题，就要改用https，把你的流量完全包裹在真实的https数据之中，https是整体加密的，外界很难看出具体的请求内容、参数等等（https也是有特征的，但是这个特征看不出里边到底是什么，而互联网上https数据是海量的）。对于海量的正规的https传输，GFW是不会太认真检查的，除非它专门盯上你（再次提醒不要玩机场，那是引火自焚） 。https的根本意义在于给真实数据加密后的ws再套上一层看似完全合法正常的外衣。</p>
+<p>但是只靠ws和https也不是万无一失的，针对一个海外IP，持续的大流量点对点访问，还是会有那么一点点的骚气，假以时日，终究可能引起GFW的注意。当狐狸惦记上你，不管你怎么包装，它都是可以给你刨出肉来。</p>
+<p>那么，最后引入的就是CDN，国内外的CDN服务商很多，从技术上讲都可以用。但是实际上国内服务商都需要网站备案，域名备案，等等手续。有些国内服务商还拒绝对海外服务器提供CDN服务。这些基本上就可以扯淡了。 除非你确实有一些正规业务，这些网站在国内的手续完备，你才可以考虑把你的这个科学上网隐藏在正规服务之下。 一般来说没条件的，就只能考虑 cloudflare 或者Incapsula 这种。不过要告诉你们的是，从国内访问这种cdn服务商速度都不是很快，一般来说要比直连你的科学vps慢，但是这里讲的是安全，要是追求性能，cdn就不用了。&nbsp; 有了CDN，就保护了你VPS的真实地址，客户端访问CDN的服务器，而CDN的服务器再去访问你的VPS，一般而言是在cdn阶段出海，过了cdn就没啥问题了。</p>
+<p>所以最后的成果就是WS+TLS+CDN。</p>
+<p>先看一下ws + https原理图</p>
+<p><img class="alignnone size-full wp-image-442" src="./关于V2ray+CDN，目前相对最安全的科学手段。-基本原理 – 徐自远的乱七八糟小站_files/TIME59BBEE7898720180719135533.png" sizes="(max-width: 659px) 100vw, 659px" srcset="https://fbol.org/wp-content/uploads/2018/07/TIM图片20180719135533.png 659w, https://fbol.org/wp-content/uploads/2018/07/TIM图片20180719135533-300x81.png 300w" alt="" width="659" height="177"></p>
+<p>https在互联网阶段全程包裹着数据。 到达web服务器后，解开https内的数据交给 v2服务端处理。（上图有点错误，右侧v2ray server并不是包含在 nginx server之内，应该在右侧nginx，ws层通过nginx转交v2ray server处理。懒得改了，见谅）</p>
+<p>然后是有CDN的原理图</p>
+<p><img class="alignnone size-full wp-image-443" src="./关于V2ray+CDN，目前相对最安全的科学手段。-基本原理 – 徐自远的乱七八糟小站_files/ssasdasdasda3423412446.jpg" sizes="(max-width: 1000px) 100vw, 1000px" srcset="https://blog.ggrarea.cn/wp-content/uploads/2019/11/ssasdasdasda3423412446.jpg 1000w, https://fbol.org/wp-content/uploads/2018/07/ssasdasdasda3423412446-300x90.jpg 300w, https://fbol.org/wp-content/uploads/2018/07/ssasdasdasda3423412446-768x230.jpg 768w" alt="" width="1000" height="300"></p>
+<p>可以看到CDN SERVER在中间负责中转，而客户端到CDN， CDN到VPS之间有两次HTTPS打包过程。 这里两次打包使用的加密证书是不同的（可以使用相同的，但是建议使用边缘证书，就是那个cdn提供的前端证书）。正常情况下，你不去通过其他方式泄漏VPS真实地址，也不使用国内的CDN服务商，那么在国内没人能知道你的VPS真实地址。 无论这个IP地址是否已经被GFW封禁，国内都可以通过它来科学上网。（除非CDN服务商被GFW干掉了）</p>
+<p>&nbsp;</p>
+<p>有些技术基础的朋友通过以上的说明，应自己该就有能力自己搭建一个安全的 科学网了。</p>
+<p>至于安装脚本，配置代码， 站点证书，CDN配置等等内容，另写一篇吧。</p>
+<p>再啰嗦一句，WS模式比tcp模式速度稍差一点，tls需要握手时间，cdn有绕路问题，所以综合以上，这个方案是追求最大限度的安全，防封，解救已封ip，不是最优性能的方案。</p>
+<h2></h2>
+<h2><strong>祝各位读者，早日富可敌国！</strong></h2>
+</div>
+</div>
+<p>转载请注明：<a href="https://blog.ggrarea.cn/" data-original-title="" title="">徐自远的乱七八糟小站</a> » <a href="https://blog.ggrarea.cn/archives/35839.html" data-original-title="" title="">关于V2ray+CDN，目前相对最安全的科学手段。-基本原理</a></p>
+
+      
+<div class="article-social">
+			<a href="javascript:;" data-action="ding" data-id="35839" id="Addlike" class="action" data-original-title="" title=""><i class="fa fa-heart-o"></i>喜欢 (<span class="count">4</span>)</a>	
+</div>
+	</article>	
+				<footer class="article-footer">
+			</footer>
+	<nav class="article-nav">
+			<span class="article-nav-prev"><i class="fa fa-angle-double-left"></i> <a href="https://blog.ggrarea.cn/archives/35837.html" rel="prev">理解微积分真谛：积分——降维投影</a></span>
+			<span class="article-nav-next"><a href="https://blog.ggrarea.cn/archives/35844.html" rel="next">移动、联通电信无奈！这九大携号转网行为被工信部禁止</a>  <i class="fa fa-angle-double-right"></i></span>
+		</nav>
+
+		<div class="related_top">
+			<div class="related_posts"><ul class="related_img">
+
+	<li class="related_box">
+		<a href="https://blog.ggrarea.cn/archives/41007.html" title="入门docker笔记 从零搭一个轻论坛系统 基于Flarum" target="_blank">
+		<img src="./关于V2ray+CDN，目前相对最安全的科学手段。-基本原理 – 徐自远的乱七八糟小站_files/timthumb.php" alt="入门docker笔记 从零搭一个轻论坛系统 基于Flarum"><br><span class="r_title">入门docker笔记 从零搭一个轻论坛系统 基于Flarum</span></a>
+		</li>
+	
+	<li class="related_box">
+		<a href="https://blog.ggrarea.cn/archives/40945.html" title="Flarum 插件推荐、本站正在使用的插件清单" target="_blank">
+		<img src="./关于V2ray+CDN，目前相对最安全的科学手段。-基本原理 – 徐自远的乱七八糟小站_files/timthumb(1).php" alt="Flarum 插件推荐、本站正在使用的插件清单"><br><span class="r_title">Flarum 插件推荐、本站正在使用的插件清单</span></a>
+		</li>
+	
+	<li class="related_box">
+		<a href="https://blog.ggrarea.cn/archives/40814.html" title="IPv6系列-入门指南" target="_blank">
+		<img src="./关于V2ray+CDN，目前相对最安全的科学手段。-基本原理 – 徐自远的乱七八糟小站_files/timthumb(2).php" alt="IPv6系列-入门指南"><br><span class="r_title">IPv6系列-入门指南</span></a>
+		</li>
+	
+	<li class="related_box">
+		<a href="https://blog.ggrarea.cn/archives/40720.html" title="IPv6系列-入门指南" target="_blank">
+		<img src="./关于V2ray+CDN，目前相对最安全的科学手段。-基本原理 – 徐自远的乱七八糟小站_files/timthumb(3).php" alt="IPv6系列-入门指南"><br><span class="r_title">IPv6系列-入门指南</span></a>
+		</li>
+	</ul>
+
+<div class="relates">
+<ul>
+<li><i class="fa fa-minus"></i><a target="_blank" href="https://blog.ggrarea.cn/archives/41007.html">入门docker笔记 从零搭一个轻论坛系统 基于Flarum</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="https://blog.ggrarea.cn/archives/40945.html">Flarum 插件推荐、本站正在使用的插件清单</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="https://blog.ggrarea.cn/archives/40814.html">IPv6系列-入门指南</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="https://blog.ggrarea.cn/archives/40720.html">IPv6系列-入门指南</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="https://blog.ggrarea.cn/archives/40686.html">家用万兆网络指南 3 – 超静音MikroTik解决方案</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="https://blog.ggrarea.cn/archives/39334.html">网速终于提高了，原来是DNS搞的鬼！国内最快的DNS推荐</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="https://blog.ggrarea.cn/archives/39319.html">【综述】神经网络中不同类型的卷积层</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="https://blog.ggrarea.cn/archives/39303.html">一文看懂28个神经网络模型</a></li>
+</ul></div></div>		</div>
+									</div>
+</div>
+<aside class="sidebar">	
+<div class="widget widget_text"><div class="textwidget"><div class="social">
+</div></div></div>
+
+		<div class="widget widget_recent_entries">		<div class="title"><h2>近期文章</h2></div>		<ul>
+											<li>
+					<a href="https://blog.ggrarea.cn/archives/41437.html">【视频】【自制】你的下一个显示器，可能是个充电宝？？【硬核】</a>
+											<span class="post-date">2021年3月14日</span>
+									</li>
+											<li>
+					<a href="https://blog.ggrarea.cn/archives/41435.html">人民网科普: 能精确到10分钟内，这个日晷有点东西！ #科技  #科普  #3d打印  @抖音短视频</a>
+											<span class="post-date">2021年3月14日</span>
+									</li>
+											<li>
+					<a href="https://blog.ggrarea.cn/archives/41433.html">Notion – “杀手级”出色的全能型笔记软件 … – 异次元软件下载</a>
+											<span class="post-date">2021年3月13日</span>
+									</li>
+											<li>
+					<a href="https://blog.ggrarea.cn/archives/41428.html">关于md文件插入视频链接的方法。（亲测可用）</a>
+											<span class="post-date">2021年3月13日</span>
+									</li>
+											<li>
+					<a href="https://blog.ggrarea.cn/archives/41426.html">测试开发：Python Tutor 这个网站http://pythontutor.com/ 很不错，它能够帮助人们克服学习编程的一个基本障碍，理解计算机运行每一行代码时会发生什么。可以使用它在Web浏览器中编写Python、Java、C、C++、JavaScript和Ruby代码，并逐步查看其可视化执行。</a>
+											<span class="post-date">2021年3月11日</span>
+									</li>
+					</ul>
+		</div><div class="widget widget_archive"><div class="title"><h2>文章归档</h2></div>		<ul>
+			<li><a href="https://blog.ggrarea.cn/archives/date/2021/03">2021年三月</a>&nbsp;(17)</li>
+	<li><a href="https://blog.ggrarea.cn/archives/date/2021/02">2021年二月</a>&nbsp;(22)</li>
+	<li><a href="https://blog.ggrarea.cn/archives/date/2021/01">2021年一月</a>&nbsp;(18)</li>
+	<li><a href="https://blog.ggrarea.cn/archives/date/2020/12">2020年十二月</a>&nbsp;(12)</li>
+	<li><a href="https://blog.ggrarea.cn/archives/date/2020/11">2020年十一月</a>&nbsp;(10)</li>
+	<li><a href="https://blog.ggrarea.cn/archives/date/2020/10">2020年十月</a>&nbsp;(12)</li>
+	<li><a href="https://blog.ggrarea.cn/archives/date/2020/09">2020年九月</a>&nbsp;(23)</li>
+	<li><a href="https://blog.ggrarea.cn/archives/date/2020/08">2020年八月</a>&nbsp;(18)</li>
+	<li><a href="https://blog.ggrarea.cn/archives/date/2020/07">2020年七月</a>&nbsp;(20)</li>
+	<li><a href="https://blog.ggrarea.cn/archives/date/2020/06">2020年六月</a>&nbsp;(59)</li>
+	<li><a href="https://blog.ggrarea.cn/archives/date/2020/05">2020年五月</a>&nbsp;(20)</li>
+	<li><a href="https://blog.ggrarea.cn/archives/date/2020/04">2020年四月</a>&nbsp;(16)</li>
+	<li><a href="https://blog.ggrarea.cn/archives/date/2020/03">2020年三月</a>&nbsp;(28)</li>
+	<li><a href="https://blog.ggrarea.cn/archives/date/2020/02">2020年二月</a>&nbsp;(15)</li>
+	<li><a href="https://blog.ggrarea.cn/archives/date/2020/01">2020年一月</a>&nbsp;(19)</li>
+	<li><a href="https://blog.ggrarea.cn/archives/date/2019/12">2019年十二月</a>&nbsp;(38)</li>
+	<li><a href="https://blog.ggrarea.cn/archives/date/2019/11">2019年十一月</a>&nbsp;(66)</li>
+	<li><a href="https://blog.ggrarea.cn/archives/date/2019/10">2019年十月</a>&nbsp;(55)</li>
+	<li><a href="https://blog.ggrarea.cn/archives/date/2019/09">2019年九月</a>&nbsp;(71)</li>
+	<li><a href="https://blog.ggrarea.cn/archives/date/2019/08">2019年八月</a>&nbsp;(87)</li>
+	<li><a href="https://blog.ggrarea.cn/archives/date/2019/07">2019年七月</a>&nbsp;(59)</li>
+	<li><a href="https://blog.ggrarea.cn/archives/date/2019/06">2019年六月</a>&nbsp;(43)</li>
+	<li><a href="https://blog.ggrarea.cn/archives/date/2019/05">2019年五月</a>&nbsp;(47)</li>
+	<li><a href="https://blog.ggrarea.cn/archives/date/2019/04">2019年四月</a>&nbsp;(51)</li>
+	<li><a href="https://blog.ggrarea.cn/archives/date/2019/03">2019年三月</a>&nbsp;(44)</li>
+	<li><a href="https://blog.ggrarea.cn/archives/date/2019/02">2019年二月</a>&nbsp;(59)</li>
+	<li><a href="https://blog.ggrarea.cn/archives/date/2019/01">2019年一月</a>&nbsp;(65)</li>
+	<li><a href="https://blog.ggrarea.cn/archives/date/2018/12">2018年十二月</a>&nbsp;(51)</li>
+	<li><a href="https://blog.ggrarea.cn/archives/date/2018/11">2018年十一月</a>&nbsp;(83)</li>
+	<li><a href="https://blog.ggrarea.cn/archives/date/2018/10">2018年十月</a>&nbsp;(108)</li>
+	<li><a href="https://blog.ggrarea.cn/archives/date/2018/09">2018年九月</a>&nbsp;(143)</li>
+	<li><a href="https://blog.ggrarea.cn/archives/date/2018/08">2018年八月</a>&nbsp;(146)</li>
+	<li><a href="https://blog.ggrarea.cn/archives/date/2018/07">2018年七月</a>&nbsp;(103)</li>
+	<li><a href="https://blog.ggrarea.cn/archives/date/2018/06">2018年六月</a>&nbsp;(50)</li>
+	<li><a href="https://blog.ggrarea.cn/archives/date/2018/05">2018年五月</a>&nbsp;(66)</li>
+	<li><a href="https://blog.ggrarea.cn/archives/date/2018/04">2018年四月</a>&nbsp;(70)</li>
+	<li><a href="https://blog.ggrarea.cn/archives/date/2018/03">2018年三月</a>&nbsp;(94)</li>
+	<li><a href="https://blog.ggrarea.cn/archives/date/2018/02">2018年二月</a>&nbsp;(58)</li>
+	<li><a href="https://blog.ggrarea.cn/archives/date/2018/01">2018年一月</a>&nbsp;(58)</li>
+	<li><a href="https://blog.ggrarea.cn/archives/date/2017/12">2017年十二月</a>&nbsp;(108)</li>
+	<li><a href="https://blog.ggrarea.cn/archives/date/2017/11">2017年十一月</a>&nbsp;(141)</li>
+	<li><a href="https://blog.ggrarea.cn/archives/date/2017/10">2017年十月</a>&nbsp;(81)</li>
+	<li><a href="https://blog.ggrarea.cn/archives/date/2017/09">2017年九月</a>&nbsp;(85)</li>
+	<li><a href="https://blog.ggrarea.cn/archives/date/2017/08">2017年八月</a>&nbsp;(76)</li>
+	<li><a href="https://blog.ggrarea.cn/archives/date/2017/07">2017年七月</a>&nbsp;(150)</li>
+	<li><a href="https://blog.ggrarea.cn/archives/date/2017/06">2017年六月</a>&nbsp;(54)</li>
+	<li><a href="https://blog.ggrarea.cn/archives/date/2017/05">2017年五月</a>&nbsp;(76)</li>
+	<li><a href="https://blog.ggrarea.cn/archives/date/2017/04">2017年四月</a>&nbsp;(65)</li>
+	<li><a href="https://blog.ggrarea.cn/archives/date/2017/03">2017年三月</a>&nbsp;(65)</li>
+	<li><a href="https://blog.ggrarea.cn/archives/date/2017/02">2017年二月</a>&nbsp;(38)</li>
+	<li><a href="https://blog.ggrarea.cn/archives/date/2017/01">2017年一月</a>&nbsp;(74)</li>
+	<li><a href="https://blog.ggrarea.cn/archives/date/2016/12">2016年十二月</a>&nbsp;(57)</li>
+	<li><a href="https://blog.ggrarea.cn/archives/date/2016/11">2016年十一月</a>&nbsp;(79)</li>
+	<li><a href="https://blog.ggrarea.cn/archives/date/2016/10">2016年十月</a>&nbsp;(63)</li>
+	<li><a href="https://blog.ggrarea.cn/archives/date/2016/09">2016年九月</a>&nbsp;(55)</li>
+	<li><a href="https://blog.ggrarea.cn/archives/date/2016/08">2016年八月</a>&nbsp;(17)</li>
+	<li><a href="https://blog.ggrarea.cn/archives/date/2016/04">2016年四月</a>&nbsp;(38)</li>
+		</ul>
+		</div><div class="widget widget_categories"><div class="title"><h2>分类目录</h2></div><form action="https://blog.ggrarea.cn/" method="get"><label class="screen-reader-text" for="cat">分类目录</label><select name="cat" id="cat" class="postform">
+	<option value="-1">选择分类目录</option>
+	<option class="level-0" value="22">linux&nbsp;&nbsp;(230)</option>
+	<option class="level-0" value="14">office应用&nbsp;&nbsp;(172)</option>
+	<option class="level-0" value="23">Python与机器学习&nbsp;&nbsp;(538)</option>
+	<option class="level-1" value="34">&nbsp;&nbsp;&nbsp;TensorFlow与机器学习&nbsp;&nbsp;(196)</option>
+	<option class="level-1" value="32">&nbsp;&nbsp;&nbsp;树莓派Python课程&nbsp;&nbsp;(75)</option>
+	<option class="level-0" value="36">健康与医疗&nbsp;&nbsp;(12)</option>
+	<option class="level-0" value="26">军事&nbsp;&nbsp;(32)</option>
+	<option class="level-0" value="2">单片机相关&nbsp;&nbsp;(200)</option>
+	<option class="level-0" value="29">大大小小教育&nbsp;&nbsp;(114)</option>
+	<option class="level-0" value="7">大大小小生活日志&nbsp;&nbsp;(50)</option>
+	<option class="level-0" value="31">微课视频&nbsp;&nbsp;(53)</option>
+	<option class="level-0" value="1">未分类&nbsp;&nbsp;(83)</option>
+	<option class="level-0" value="15">机械结构，工业控制&nbsp;&nbsp;(281)</option>
+	<option class="level-0" value="20">树莓派&nbsp;&nbsp;(161)</option>
+	<option class="level-0" value="24">游戏&nbsp;&nbsp;(45)</option>
+	<option class="level-0" value="4">电子专业&nbsp;&nbsp;(612)</option>
+	<option class="level-0" value="10">竞赛相关信息&nbsp;&nbsp;(505)</option>
+	<option class="level-1" value="17">&nbsp;&nbsp;&nbsp;信息化大赛素材&nbsp;&nbsp;(359)</option>
+	<option class="level-1" value="13">&nbsp;&nbsp;&nbsp;信息化大赛获奖&nbsp;&nbsp;(4)</option>
+	<option class="level-1" value="11">&nbsp;&nbsp;&nbsp;创新大赛获奖&nbsp;&nbsp;(5)</option>
+	<option class="level-1" value="30">&nbsp;&nbsp;&nbsp;创新大赛资料&nbsp;&nbsp;(144)</option>
+	<option class="level-1" value="12">&nbsp;&nbsp;&nbsp;技能大赛获奖&nbsp;&nbsp;(8)</option>
+	<option class="level-0" value="3">算法相关&nbsp;&nbsp;(210)</option>
+	<option class="level-0" value="25">编程技巧&nbsp;&nbsp;(111)</option>
+	<option class="level-0" value="6">网络配置&nbsp;&nbsp;(270)</option>
+	<option class="level-0" value="33">装B&nbsp;&nbsp;(210)</option>
+	<option class="level-0" value="21">装机&nbsp;&nbsp;(296)</option>
+	<option class="level-0" value="19">视频&nbsp;&nbsp;(500)</option>
+	<option class="level-0" value="35">论文&nbsp;&nbsp;(167)</option>
+	<option class="level-0" value="27">设计&nbsp;&nbsp;(190)</option>
+	<option class="level-0" value="9">软件应用&nbsp;&nbsp;(127)</option>
+	<option class="level-0" value="16">软件开发&nbsp;&nbsp;(95)</option>
+</select>
+</form>
+<script type="text/javascript">
+/* <![CDATA[ */
+(function() {
+	var dropdown = document.getElementById( "cat" );
+	function onCatChange() {
+		if ( dropdown.options[ dropdown.selectedIndex ].value > 0 ) {
+			dropdown.parentNode.submit();
+		}
+	}
+	dropdown.onchange = onCatChange;
+})();
+/* ]]> */
+</script>
+
+</div><div class="widget widget_meta"><div class="title"><h2>功能</h2></div>			<ul>
+						<li><a href="https://blog.ggrarea.cn/wp-login.php">登录</a></li>
+			<li><a href="https://blog.ggrarea.cn/feed">文章<abbr title="Really Simple Syndication">RSS</abbr></a></li>
+			<li><a href="https://blog.ggrarea.cn/comments/feed">评论<abbr title="Really Simple Syndication">RSS</abbr></a></li>
+			<li><a href="https://cn.wordpress.org/" title="基于WordPress，一个优美、先进的个人信息发布平台。">WordPress.org</a></li>			</ul>
+			</div></aside></section>
+<footer class="footer">
+    <div class="footer-inner">
+        <div class="copyright pull-left">
+         <a href="http://yusi123.com/" title="欲思博客">欲思博客</a> 版权所有，保留一切权利 · <a href="http://yusi123.com/sitemap.xml" title="站点地图">站点地图</a>   ·   基于WordPress构建   © 2011-2014  ·   托管于 <a rel="nofollow" target="_blank" href="http://yusi123.com/go/aliyun">阿里云主机</a> &amp; <a rel="nofollow" target="_blank" href="http://yusi123.com/go/qiniu">七牛云存储</a>
+        </div>
+        <div class="trackcode pull-right">
+                    </div>
+    </div>
+</footer>
+
+<script type="text/javascript" src="./关于V2ray+CDN，目前相对最安全的科学手段。-基本原理 – 徐自远的乱七八糟小站_files/wp-syntax.js.下载"></script>
+<script type="text/javascript" src="./关于V2ray+CDN，目前相对最安全的科学手段。-基本原理 – 徐自远的乱七八糟小站_files/wp-embed.min.js.下载"></script>
+<h4 style="text-align: center">
+<a href="http://www.beian.miit.gov.cn/">苏ICP备18041234号-1</a>
+<img src="./关于V2ray+CDN，目前相对最安全的科学手段。-基本原理 – 徐自远的乱七八糟小站_files/170754a5049c275478.png" alt="bei_an" width="12">
+<a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=32021402001397">苏公网安备 32021402001397号</a>
+</h4>
+
+<!-- Dynamic page generated in 0.351 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2021-03-30 21:12:41 -->
+
+<!-- super cache --><div class="rollto"><button class="btn btn-inverse" data-type="totop" title="回顶部"><i class="fa fa-arrow-up"></i></button></div></body></html>
