@@ -1,0 +1,19 @@
+﻿生成启动时间为 2020/12/24 21:06:15。
+     1>项目“C:\Users\liuch\Desktop\cmake-cpack-test\build\Tutorial.vcxproj”在节点 2 上(build 个目标)。
+     1>InitializeBuildStatus:
+         正在创建“Tutorial.dir\Release\Tutorial.unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+       CustomBuild:
+         所有输出均为最新。
+       ClCompile:
+         所有输出均为最新。
+       Link:
+         所有输出均为最新。
+         Tutorial.vcxproj -> C:\Users\liuch\Desktop\cmake-cpack-test\build\Release\Tutorial.exe
+       FinalizeBuildStatus:
+         正在删除文件“Tutorial.dir\Release\Tutorial.unsuccessfulbuild”。
+         正在对“Tutorial.dir\Release\Tutorial.lastbuildstate”执行 Touch 任务。
+     1>已完成生成项目“C:\Users\liuch\Desktop\cmake-cpack-test\build\Tutorial.vcxproj”(build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:00.08

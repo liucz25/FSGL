@@ -1,0 +1,1 @@
+C:/Users/liuch/Desktop/cmake-cpack-test/build/_CPack_Packages/win32/NSIS/Tutorial-1.3.2-win32/distance/Tutorial.exe

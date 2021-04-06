@@ -1,0 +1,21 @@
+﻿生成启动时间为 2020/12/24 21:06:14。
+     1>项目“C:\Users\liuch\Desktop\cmake-cpack-test\build\ZERO_CHECK.vcxproj”在节点 2 上(build 个目标)。
+     1>InitializeBuildStatus:
+         正在创建“Win32\Release\ZERO_CHECK\ZERO_CHECK.unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+       CustomBuild:
+         Checking Build System
+         CMake is re-running because C:/Users/liuch/Desktop/cmake-cpack-test/build/CMakeFiles/generate.stamp is out-of-date.
+           the file 'C:/Users/liuch/Desktop/cmake-cpack-test/src/CMakeLists.txt'
+           is newer than 'C:/Users/liuch/Desktop/cmake-cpack-test/build/CMakeFiles/generate.stamp.depend'
+           result='-1'
+         -- Configuring done
+         -- Generating done
+         -- Build files have been written to: C:/Users/liuch/Desktop/cmake-cpack-test/build
+       FinalizeBuildStatus:
+         正在删除文件“Win32\Release\ZERO_CHECK\ZERO_CHECK.unsuccessfulbuild”。
+         正在对“Win32\Release\ZERO_CHECK\ZERO_CHECK.lastbuildstate”执行 Touch 任务。
+     1>已完成生成项目“C:\Users\liuch\Desktop\cmake-cpack-test\build\ZERO_CHECK.vcxproj”(build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:00.36

@@ -1,0 +1,5 @@
+C:/Users/liuch/Desktop/cmake-cpack-test/build/CMakeFiles/Tutorial.dir
+C:/Users/liuch/Desktop/cmake-cpack-test/build/CMakeFiles/PACKAGE.dir
+C:/Users/liuch/Desktop/cmake-cpack-test/build/CMakeFiles/INSTALL.dir
+C:/Users/liuch/Desktop/cmake-cpack-test/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/liuch/Desktop/cmake-cpack-test/build/CMakeFiles/ZERO_CHECK.dir

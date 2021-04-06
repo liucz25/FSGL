@@ -1,0 +1,84 @@
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler:  
+Build flags: 
+Id flags:  
+
+The output was:
+1
+Microsoft(R) 生成引擎版本 4.8.3752.0
+[Microsoft .NET Framework 版本 4.0.30319.42000]
+版权所有 (C) Microsoft Corporation。保留所有权利。
+
+生成启动时间为 2020/12/24 20:40:29。
+节点 1 上的项目“C:\Users\liuch\Desktop\cmake-cpack-test\build\CMakeFiles\3.17.3\CompilerIdC\CompilerIdC.vcxproj”(默认目标)。
+PrepareForBuild:
+  正在创建目录“Debug\”。
+InitializeBuildStatus:
+  正在创建“Debug\CompilerIdC.unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+ClCompile:
+  C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /nologo /W0 /WX- /Od /Oy- /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TC /analyze- /errorReport:queue CMakeCCompilerId.c
+  CMakeCCompilerId.c
+Link:
+  C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:".\CompilerIdC.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\CompilerIdC.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /PDB:"C:\Users\liuch\Desktop\cmake-cpack-test\build\CMakeFiles\3.17.3\CompilerIdC\CompilerIdC.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\CompilerIdC.lib" /MACHINE:X86 Debug\CMakeCCompilerId.obj
+  CompilerIdC.vcxproj -> C:\Users\liuch\Desktop\cmake-cpack-test\build\CMakeFiles\3.17.3\CompilerIdC\.\CompilerIdC.exe
+Manifest:
+  C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:".\CompilerIdC.exe;#1" /manifest Debug\CompilerIdC.exe.intermediate.manifest
+  
+mt.exe : general error c101008d: Failed to write the updated manifest to the resource of file ".\CompilerIdC.exe". f*c((dv[`U?n [C:\Users\liuch\Desktop\cmake-cpack-test\build\CMakeFiles\3.17.3\CompilerIdC\CompilerIdC.vcxproj]
+  
+已完成生成项目“C:\Users\liuch\Desktop\cmake-cpack-test\build\CMakeFiles\3.17.3\CompilerIdC\CompilerIdC.vcxproj”(默认目标)的操作 - 失败。
+
+生成失败。
+
+“C:\Users\liuch\Desktop\cmake-cpack-test\build\CMakeFiles\3.17.3\CompilerIdC\CompilerIdC.vcxproj”(默认目标) (1) ->
+(Manifest 目标) -> 
+  mt.exe : general error c101008d: Failed to write the updated manifest to the resource of file ".\CompilerIdC.exe". f*c((dv[`U?n [C:\Users\liuch\Desktop\cmake-cpack-test\build\CMakeFiles\3.17.3\CompilerIdC\CompilerIdC.vcxproj]
+
+    0 个警告
+    1 个错误
+
+已用时间 00:00:01.13
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler:  
+Build flags: 
+Id flags:  
+
+The output was:
+1
+Microsoft(R) 生成引擎版本 4.8.3752.0
+[Microsoft .NET Framework 版本 4.0.30319.42000]
+版权所有 (C) Microsoft Corporation。保留所有权利。
+
+生成启动时间为 2020/12/24 20:40:33。
+节点 1 上的项目“C:\Users\liuch\Desktop\cmake-cpack-test\build\CMakeFiles\3.17.3\CompilerIdCXX\CompilerIdCXX.vcxproj”(默认目标)。
+PrepareForBuild:
+  正在创建目录“Debug\”。
+InitializeBuildStatus:
+  正在创建“Debug\CompilerIdCXX.unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+ClCompile:
+  C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /nologo /W0 /WX- /Od /Oy- /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:queue CMakeCXXCompilerId.cpp
+  CMakeCXXCompilerId.cpp
+Link:
+  C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:".\CompilerIdCXX.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\CompilerIdCXX.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /PDB:"C:\Users\liuch\Desktop\cmake-cpack-test\build\CMakeFiles\3.17.3\CompilerIdCXX\CompilerIdCXX.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\CompilerIdCXX.lib" /MACHINE:X86 Debug\CMakeCXXCompilerId.obj
+  CompilerIdCXX.vcxproj -> C:\Users\liuch\Desktop\cmake-cpack-test\build\CMakeFiles\3.17.3\CompilerIdCXX\.\CompilerIdCXX.exe
+Manifest:
+  C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:".\CompilerIdCXX.exe;#1" /manifest Debug\CompilerIdCXX.exe.intermediate.manifest
+  
+mt.exe : general error c101008d: Failed to write the updated manifest to the resource of file ".\CompilerIdCXX.exe". f*c((dv[`U?n [C:\Users\liuch\Desktop\cmake-cpack-test\build\CMakeFiles\3.17.3\CompilerIdCXX\CompilerIdCXX.vcxproj]
+  
+已完成生成项目“C:\Users\liuch\Desktop\cmake-cpack-test\build\CMakeFiles\3.17.3\CompilerIdCXX\CompilerIdCXX.vcxproj”(默认目标)的操作 - 失败。
+
+生成失败。
+
+“C:\Users\liuch\Desktop\cmake-cpack-test\build\CMakeFiles\3.17.3\CompilerIdCXX\CompilerIdCXX.vcxproj”(默认目标) (1) ->
+(Manifest 目标) -> 
+  mt.exe : general error c101008d: Failed to write the updated manifest to the resource of file ".\CompilerIdCXX.exe". f*c((dv[`U?n [C:\Users\liuch\Desktop\cmake-cpack-test\build\CMakeFiles\3.17.3\CompilerIdCXX\CompilerIdCXX.vcxproj]
+
+    0 个警告
+    1 个错误
+
+已用时间 00:00:01.02
+
+
