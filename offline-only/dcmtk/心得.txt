@@ -1,0 +1,8 @@
+心得
+
+首先 vs 的编译的环境 debug 和release 都需要配置动态链接库等内容
+
+dcmtk 的附加库 Iphlpapi。lib  I 大写的i，ip help api
+
+
+dcmtk 好像不能用gcc编译，试验性用minwg编译，找不到cmake的选项

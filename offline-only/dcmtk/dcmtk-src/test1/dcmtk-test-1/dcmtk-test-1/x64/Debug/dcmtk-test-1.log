@@ -1,0 +1,21 @@
+﻿生成启动时间为 2021/4/14 21:30:11。
+日志记录详细程度设置为: Normal。     1>项目“D:\code\fsgl\offline-only\dcmtk\dcmtk-src\test1\dcmtk-test-1\dcmtk-test-1\dcmtk-test-1.vcxproj”在节点 2 上(Build 个目标)。
+     1>InitializeBuildStatus:
+         正在创建“x64\Debug\dcmtk-test-1.tlog\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.28.29910\bin\HostX86\x64\CL.exe /c /ZI /JMC /nologo /W3 /WX- /diagnostics:column /sdl /Od /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /permissive- /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"x64\Debug\\" /Fd"x64\Debug\vc142.pdb" /Gd /TP /FC /errorReport:prompt main.cpp
+         main.cpp
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.28.29910\bin\HostX86\x64\link.exe /ERRORREPORT:PROMPT /OUT:"D:\code\fsgl\offline-only\dcmtk\dcmtk-src\test1\dcmtk-test-1\x64\Debug\dcmtk-test-1.exe" /INCREMENTAL /NOLOGO Iphlpapi.lib ws2_32.lib wsock32.lib netapi32.lib ofstd.lib oflog.lib dcmdata.lib zlib.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG:FASTLINK /PDB:"D:\code\fsgl\offline-only\dcmtk\dcmtk-src\test1\dcmtk-test-1\x64\Debug\dcmtk-test-1.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\code\fsgl\offline-only\dcmtk\dcmtk-src\test1\dcmtk-test-1\x64\Debug\dcmtk-test-1.lib" /MACHINE:X64 x64\Debug\CppDCMTKSample.obj
+         x64\Debug\main.obj
+         dcmtk-test-1.vcxproj -> D:\code\fsgl\offline-only\dcmtk\dcmtk-src\test1\dcmtk-test-1\x64\Debug\dcmtk-test-1.exe
+       FinalizeBuildStatus:
+         正在删除文件“x64\Debug\dcmtk-test-1.tlog\unsuccessfulbuild”。
+         正在对“x64\Debug\dcmtk-test-1.tlog\dcmtk-test-1.lastbuildstate”执行 Touch 任务。
+     1>已完成生成项目“D:\code\fsgl\offline-only\dcmtk\dcmtk-src\test1\dcmtk-test-1\dcmtk-test-1\dcmtk-test-1.vcxproj”(Build 个目标)的操作。
+
+已成功生成。
+    0 个警告
+    0 个错误
+
+已用时间 00:00:01.46
