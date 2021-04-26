@@ -11,7 +11,9 @@
 """
 This shows a table editor which has a checkbox column in addition to normal
 data columns.
+
 """
+
 
 from random import randint
 
@@ -41,7 +43,7 @@ player_editor = TableEditor(
     sortable=False,
     configurable=False,
     auto_size=False,
-    selected_indices='selected_player_indices',
+    # selected_indices='selected_player_indices',
     columns=[
         CheckboxColumn(name='in_lineup', label='In Lineup', width=0.12),
         PlayerColumn(
@@ -102,8 +104,8 @@ class Team(HasStrictTraits):
     traits_view = View(
         Item('players', show_label=False, editor=player_editor),
         title='Baseball Team Roster Demo',
-        width=0.5,
-        height=0.5,
+        width=680,
+        height=375,
         resizable=True
     )
 
