@@ -23,8 +23,10 @@ def changevalue(self):
     # c=d.get()
     # my_entry3.delete(0,END)
     # my_entry3.insert(0,c)
-my_entry = Entry(frame, width=20,textvariable=int1)
-
+# my_entry = Entry(frame, width=20,textvariable=int1)
+my_entry=Entry(frame)
+my_entry["width"]=20
+my_entry["textvariable"]=int1
 
 my_entry2 = Entry(frame, width=15,textvariable=int2)
 my_entry3 = Entry(frame, width=15,textvariable=d)
