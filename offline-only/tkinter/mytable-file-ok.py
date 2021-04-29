@@ -1,11 +1,14 @@
 from tkinter import *
-
+from pickleTools import psave,pload
 
 class MyTable(Frame):
     def __init__(self,value,total):
         Frame.__init__(self)
         self.value = value
         self.total_lie=total
+        self.entryWidth=10
+
+        self.data=[]
 
         self.he_hang=[]
         self.he_lie=[0]*len(self.value[0])
@@ -48,7 +51,7 @@ class MyTable(Frame):
             var = []
             text = []
             for j in range(len(self.value[0]) + 1):
-                text.append(IntVar())
+                text.append(DoubleVar())
                 var.append(Entry(root))
             self.textvar.append(text)
             self.entry.append(var)
@@ -69,27 +72,31 @@ class MyTable(Frame):
             for j in range(colomn):
                 # print(i,j)
                 if i < (cow - 1) and j < (colomn - 1):
-                    self.textvar[i][j].set(self.value[i][j])
+                    self.textvar[i][j].set(format( self.value[i][j],'.0f'))
                     self.entry[i][j]["textvariable"] = self.textvar[i][j]
+                    self.entry[i][j]["width"]=self.entryWidth
                     self.entry[i][j].grid(row=i, column=j)
                     self.entry[i][j].bind("<KeyRelease>", self.reload)  # 需要把是哪个单元格传入，，，或者直接更新全局计算
 
                 elif i < (cow - 1) and j == (colomn - 1):
                     # pass
-                    self.var_total_one_hang[i].set(self.total_one_hang[i])
+                    self.var_total_one_hang[i].set(format( self.total_one_hang[i],'.2f'))
                     self.entry[i][j]["textvariable"] = self.var_total_one_hang[i]
+                    self.entry[i][j]["width"] = self.entryWidth
                     self.entry[i][j]["state"] = 'disabled'
                     self.entry[i][j].grid(row=i, column=j)
                 elif i == (cow - 1) and j < (colomn - 1):
-                    self.var_total_lie[j].set(self.total_lie[j])
+                    self.var_total_lie[j].set(format( self.total_lie[j],'.2f'))
                     # self.entry[i][j]["state"] = 'disabled'
 
                     self.entry[i][j]["textvariable"] = self.var_total_lie[j]
+                    self.entry[i][j]["width"] = self.entryWidth
                     self.entry[i][j].grid(row=i, column=j)
                     self.entry[i][j].bind("<KeyRelease>", self.reload)
                 elif i == (cow - 1) and j == (colomn - 1):
-                    self.var_total_toal.set(self.total_total)
+                    self.var_total_toal.set(format( self.total_total,'.2f'))
                     self.entry[i][j]["textvariable"] = self.var_total_toal
+                    self.entry[i][j]["width"] = self.entryWidth
                     self.entry[i][j]["state"] = 'disabled'
                     self.entry[i][j].grid(row=i, column=j)
 
@@ -134,6 +141,11 @@ class MyTable(Frame):
         self.total_add()
         self.entry_init()
         self.entry_add()
+    def reloadfromfile(self):
+        self.fenpei()
+        self.total_add()
+        self.entry_init()
+        self.entry_add()
     def t1(self):
         Label(root, text="用户名").grid(row=0)
         Label(root, text="密码").grid(row=1)
@@ -147,17 +159,42 @@ class MyTable(Frame):
         self.entry_add()
 
 
+    def csave(self):
+        self.data.clear()
+        self.data.append(self.value)
+        self.data.append(self.total_lie)
 
+        psave(self.data)
+        data=pload()
+        # print(data)
+
+    def cload(self):
+        data=pload()
+        # print(data)
+        self.value=[]
+        self.total_lie=[]
+        self.value=data[0]
+        self.total_lie=data[1]
+        # print(self.value)
+        self.reloadfromfile()
+
+    def test(self):
+        self.btnLoad=Button(root, text ="加载", command =self.cload)
+        self.btnLoad.grid()
+        self.btnSave = Button(root, text="保存", command=self.csave)
+        self.btnSave.grid()
+        # data=pload()
+        # print(data)
 
 if __name__ == "__main__":
     root = Tk()
     # column 默认值是 0
-    value = [[1, 2], [1, 1]]
-    total_lie = [888, 600,]
+    value = [[1, 2,2], [1, 1,2], [2, 3,1], [4, 0,3]]
+    total_lie = [888, 600,89]
     app = MyTable(value,total_lie)
     # app.t1()
     app.t2()
+    app.test()
     app.mainloop()
 
 
-#阶段胜利，下一步实现文件读取数据及保存

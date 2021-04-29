@@ -1,4 +1,5 @@
 from tkinter import *
+from jsonFile3 import Table
 
 
 class MyTable(Frame):
@@ -21,6 +22,20 @@ class MyTable(Frame):
         self.var_total_toal=DoubleVar()
         self.cow = len(self.value) + 1         #5   4人
         self.colomn = len(self.value[0]) + 1   #3   2项目
+    def save(self):
+        table=Table()
+        table.value=self.value
+        table.total_lie=self.total_lie
+        # print(table.__dict__)
+        table.save(table.__dict__)
+    def loadjson(self):
+        t=Table()
+        table=t.loadjson()
+        # print(table)
+        a=Table(table)
+        # print(a)
+        self.value=table.value
+        self.total_lie=table.total_lie
 
     def add_all_hang(self,value_in,value_out):#行相加
         value_out.clear()
@@ -76,7 +91,7 @@ class MyTable(Frame):
 
                 elif i < (cow - 1) and j == (colomn - 1):
                     # pass
-                    self.var_total_one_hang[i].set(self.total_one_hang[i])
+                    self.var_total_one_hang[i].set(format( self.total_one_hang[i],'.2f'))
                     self.entry[i][j]["textvariable"] = self.var_total_one_hang[i]
                     self.entry[i][j]["state"] = 'disabled'
                     self.entry[i][j].grid(row=i, column=j)
@@ -88,7 +103,7 @@ class MyTable(Frame):
                     self.entry[i][j].grid(row=i, column=j)
                     self.entry[i][j].bind("<KeyRelease>", self.reload)
                 elif i == (cow - 1) and j == (colomn - 1):
-                    self.var_total_toal.set(self.total_total)
+                    self.var_total_toal.set(format( self.total_total,'.2f'))
                     self.entry[i][j]["textvariable"] = self.var_total_toal
                     self.entry[i][j]["state"] = 'disabled'
                     self.entry[i][j].grid(row=i, column=j)
@@ -134,6 +149,8 @@ class MyTable(Frame):
         self.total_add()
         self.entry_init()
         self.entry_add()
+        self.save()
+
     def t1(self):
         Label(root, text="用户名").grid(row=0)
         Label(root, text="密码").grid(row=1)
@@ -152,9 +169,14 @@ if __name__ == "__main__":
     # column 默认值是 0
     value = [[1, 2,2], [1, 1,2], [2, 3,1], [4, 0,3]]
     total_lie = [888, 600,89]
+
     app = MyTable(value,total_lie)
     # app.t1()
+    # app.save()
+    app.loadjson()
     app.t2()
+    app.reload()
+    app.save()
     app.mainloop()
 
 
