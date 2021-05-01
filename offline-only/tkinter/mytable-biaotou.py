@@ -99,6 +99,12 @@ class MyTable(Frame):
                     self.entry[i][j]["width"] = self.entryWidth
                     self.entry[i][j]["state"] = 'disabled'
                     self.entry[i][j].grid(row=i, column=j)
+        # row = len(self.value)
+        # column=len(self.value[0])
+        self.btnLoad = Button( text="加载", command=self.cload)
+        self.btnLoad.grid(row=cow + 2, column=1)
+        self.btnSave = Button( text="保存", command=self.csave)
+        self.btnSave.grid(row=cow + 2, column=2)
 
     def fenpei(self):
 
@@ -179,10 +185,7 @@ class MyTable(Frame):
         self.reloadfromfile()
 
     def test(self):
-        self.btnLoad=Button(root, text ="加载", command =self.cload)
-        self.btnLoad.grid()
-        self.btnSave = Button(root, text="保存", command=self.csave)
-        self.btnSave.grid()
+        pass
         # data=pload()
         # print(data)
 
