@@ -86,7 +86,8 @@ class MyTable(Frame):
                     self.entry[i][j]["textvariable"]=self.var_head_lie[j]
                     self.entry[i][j]["width"]=self.entryWidth
                     self.entry[i][j].grid(row=i,column=j)
-                    self.entry[i][j]["state"] = 'disabled'
+                    # self.entry[i][j]["state"] = 'disabled'
+                    self.entry[i][j].bind("<KeyRelease>", self.reload)
 
                 elif j==0 and i>0 and i<cow:
                     # print(i,j)
@@ -94,10 +95,11 @@ class MyTable(Frame):
                     self.entry[i][j]["textvariable"]=self.var_head_hang[i-1]
                     self.entry[i][j]["width"]=self.entryWidth
                     self.entry[i][j].grid(row=i,column=j)
-                    self.entry[i][j]["state"] = 'disabled'
+                    # self.entry[i][j]["state"] = 'disabled'
+                    self.entry[i][j].bind("<KeyRelease>", self.reload)
 
                 elif i > 0 and i < (cow - 1) and j > 0 and j < (colomn - 1):
-                    print(i,j)
+
                     self.textvar[i-1][j-1].set(format( self.value[i-1][j-1],'.0f'))
                     self.entry[i][j]["textvariable"] = self.textvar[i-1][j-1]
                     self.entry[i][j]["width"]=self.entryWidth
@@ -152,7 +154,7 @@ class MyTable(Frame):
         self.add_all_hang(self.total_hang,self.total_one_hang)
         # print(self.total_one_hang)
 
-    def jisuan(self,event=0):
+    def updatevalue(self, event=0):
         #大致按照entry add的方式，更新self的value等的值，然后调用分配 应该就行
         # self.textvar[i][j].set(self.value[i][j])
         #        self.value[1][1]=self.textvar[1][1].get()
@@ -163,12 +165,16 @@ class MyTable(Frame):
                 self.value[i][j]=self.textvar[i][j].get()
         for i in range(len(self.total_lie)):
             self.total_lie[i]=self.var_total_lie[i].get()
+        for i in range(len(self.headhang)):
+            self.headhang[i]=self.var_head_hang[i].get()
+        for i in range(len(self.headlie)):
+            self.headlie[i]=self.var_head_lie[i].get()
 
         # print(self.total_lie)
         # print("jisuan")
     def reload(self,event=0):
         # print(event)
-        self.jisuan()
+        self.updatevalue()
         self.fenpei()
         self.total_add()
         self.entry_init()
@@ -178,11 +184,6 @@ class MyTable(Frame):
         self.total_add()
         self.entry_init()
         self.entry_add()
-    def t1(self):
-        Label(root, text="用户名").grid(row=0)
-        Label(root, text="密码").grid(row=1)
-        Entry(root).grid(row=0, column=1)
-        Entry(root, show="*").grid(row=1, column=1)
 
     def t2(self):
         self.fenpei()
@@ -195,18 +196,24 @@ class MyTable(Frame):
         self.data.clear()
         self.data.append(self.value)
         self.data.append(self.total_lie)
+        self.data.append(self.headhang)
+        self.data.append(self.headlie)
 
         psave(self.data)
         data=pload()
-        # print(data)
+        print(data)
 
     def cload(self):
         data=pload()
         # print(data)
         self.value=[]
         self.total_lie=[]
+        self.headhang=[]
+        self.headlie=[]
         self.value=data[0]
         self.total_lie=data[1]
+        self.headhang=data[2]
+        self.headlie=data[3]
         # print(self.value)
         self.reloadfromfile()
 
