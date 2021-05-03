@@ -29,6 +29,125 @@ class MyTable(Frame):
         self.cow = len(self.value) + 1         #5   4人
         self.colomn = len(self.value[0]) + 1   #3   2项目
 
+        self.table=Frame(root)
+
+
+
+
+    def table_build(self):
+        title="多项目比例分配汇总表"
+        table_title = Frame(self.table)
+        title_l=Label(table_title, text=title)
+        title_l.pack()
+        table_title.grid(row=0,columnspan=len(self.headlie))
+
+        table_head_lie = Frame(self.table)
+        thl_s=[]
+        thl_e=[]
+        for i in range(len(self.headlie)):
+            thl_s.append(StringVar())
+            thl_e.append(Entry(table_head_lie))
+        for i in range(len(self.headlie)):
+            thl_s[i].set(self.headlie[i])
+            thl_e[i]["textvariable"]=thl_s[i]
+            thl_e[i]["width"]=self.entryWidth
+            thl_e[i].grid(row=0,column=i)
+            thl_e[i].bind("<KeyRelease>", self.reload)
+        table_head_lie.grid(row=1,columnspan=len(self.headlie))
+
+        table_head_hang=Frame(self.table)
+        thh_s=[]
+        thh_e=[]
+        for i in range(len(self.headhang)):
+            thh_s.append(StringVar())
+            thh_e.append(Entry(table_head_hang))
+        for i in range(len(self.headhang)):
+            thh_s[i].set(self.headhang[i])
+            thh_e[i]["textvariable"]=thh_s[i]
+            thh_e[i]["width"]=self.entryWidth
+            thh_e[i].grid(row=i,column=0)
+            thh_e[i].bind("<KeyRelease>", self.reload)
+        table_head_hang.grid(row=2,column=0,rowspan=2)
+
+        table_core=Frame(self.table)
+        s = []
+        e = []
+        for i in range(len(self.value)):
+            ss=[]
+            ee=[]
+            for j in range(len(self.value[0])):
+                # print(i,j)
+                ss.append(DoubleVar())
+                ee.append(Entry(table_core))
+            s.append(ss)
+            e.append(ee)
+
+        # print("++++++++++++")
+        for i in range(len(self.value)):
+            for j in range(len(self.value[0])):
+                # print(i, j)
+                s[i][j].set(format( self.value[i][j],'.0f'))
+                e[i][j]["textvariable"]=s[i][j]
+                e[i][j]["width"]=self.entryWidth
+                e[i][j].grid(row=i,column=j)
+                e[i][j].bind("<KeyRelease>", self.reload)
+
+        # table_core.grid(row=2,column=1,columnspan=len(self.value))
+        table_core.grid(row=2, column=1)
+
+        table_total_lie=Frame(self.table)
+        ttl_s = []
+        ttl_e = []
+        for i in range(len(self.total_lie)):
+            ttl_s.append(DoubleVar())
+            ttl_e.append(Entry(table_total_lie))
+        for i in range(len(self.total_lie)):
+            ttl_s[i].set(self.total_lie[i])
+            ttl_e[i]["textvariable"] = ttl_s[i]
+            ttl_e[i]["width"] = self.entryWidth
+            ttl_e[i].grid(row=0, column=i)
+            # ttl_e[i].bind("<KeyRelease>", self.reload)
+        table_total_lie.grid(row=3, column=1,columnspan=len(self.total_lie))
+
+        table_total_hang = Frame(self.table)
+        tth_s = []
+        tth_e = []
+        for i in range(len(self.total_one_hang)):
+            tth_s.append(DoubleVar())
+            tth_e.append(Entry(table_total_hang))
+        for i in range(len(self.total_one_hang)):
+            tth_s[i].set(format( self.total_one_hang[i],'.2f'))
+            tth_e[i]["textvariable"] = tth_s[i]
+            tth_e[i]["width"] = self.entryWidth
+            tth_e[i].grid(row=i, column=0)
+            tth_e[i]["state"] = 'disabled'
+            # ttl_e[i].bind("<KeyRelease>", self.reload)
+        table_total_hang.grid(row=2, column=len(self.headlie)-1)
+
+        table_total=Frame(self.table)
+        tt_s=DoubleVar()
+        tt_e=Entry(table_total)
+        tt_s.set(format(self.total_total, '.2f'))
+        tt_e["textvariable"] = tt_s
+        tt_e["width"] = self.entryWidth
+        tt_e.grid()
+        tt_e["state"] = 'disabled'
+        table_total.grid(row=3,column=len(self.headlie)-1)
+
+
+
+
+
+        self.table.pack()
+
+
+
+    def test(self):
+        self.fenpei()
+        self.total_add()
+        self.table_build()
+
+
     def add_all_hang(self,value_in,value_out):#行相加
         value_out.clear()
         for i in range(len(value_in)):
@@ -70,8 +189,7 @@ class MyTable(Frame):
             self.var_head_hang.append(StringVar())
         for i in range(len(self.headlie)):
             self.var_head_lie.append(StringVar())
-        # print(textvar,entry)
-        # return entry, textvar
+
 
 
     def entry_add(self):
@@ -225,9 +343,9 @@ if __name__ == "__main__":
     headlie=["姓名","项目1","项目2","项目3","ff","总和"]
     headhang=["张三","李四","王五","赵柳","找齐","金额"]
     app = MyTable(value,total_lie,headlie,headhang)
-    # app.t1()
-    app.t2()
-    # app.test()
+    # # app.t1()
+    # app.t2()
+    app.test()
     app.mainloop()
 
 
