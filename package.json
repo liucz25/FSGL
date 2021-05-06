@@ -8,9 +8,9 @@
     "express": "^4.17.1",
     "express-art-template": "^1.0.1",
     "jquery": "^3.4.1",
-    "sql.js": "^1.1.0"
+    "sql.js": "^1.1.0",
+    "vue-cli": "^2.9.6"
   },
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
