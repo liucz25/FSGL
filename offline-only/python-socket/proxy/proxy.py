@@ -9,7 +9,7 @@ import threading
 def receive_from(connection):
     buffer = ""
     # 设置一个超时时间，如果超过2s没有接收到消息则进入异常处理（必须设置,如果不设置超时时间，则会阻塞，直到接收到消息为止，在本例中也许不会出现问题，但是如果客户端也需要发送请求时就会出现问题）
-    connection.settimeout(2)
+    connection.settimeout(0.1)
     try:
         # 将收到的消息拼接成buffer
         while True:
@@ -36,16 +36,8 @@ def response_handler(buffer):
     return buffer
 
 
-# 十六进制处理函数，无需深究，如果不需十六进制转换，可以省略
-def hexdump(src, length=16):
-    result = []
-    digits = 4 #if isinstance(src, 'unicode') else 2
-    for i in range(0, len(src), length):
-        s = src[i:i + length]
-        hexa = b''.join(["%0*X" % (digits, ord(x)) for x in s])
-        text = b''.join([x if 0x20 <= ord(x) < 0x7F else b'.' for x in s])
-        result.append(b"%04X %-*s %s" % (i, length * (digits + 1), hexa, text))
-    print(b'\n'.join(result))
+
+
 def proxy_handler(client_socket, remote_host, remote_port, receive_first):
     # 创建一个socket以连接服务端
     remote_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -76,6 +68,24 @@ def proxy_handler(client_socket, remote_host, remote_port, receive_first):
         if len(remote_buffer):
             client_socket.send(remote_buffer.encode())
             print( "[==>]Sending %d bytes to local hosts" % len(remote_buffer))
+
+
+
+
+
+
+        client_buffer = receive_from(client_socket)
+        print(client_buffer)
+        print("[<==]Receive %d bytes from client host receive " % len(client_buffer))
+
+        # 下面两行是对收到信息的处理，得到有用的信息（做十六进制处理和自定义的处理，如果不需要，可以省略）
+        # hexdump(remote_buffer)
+        # remote_buffer = response_handler(remote_buffer)
+        # 如果处理后仍有有用的信息，则发送给客户端
+        if len(client_buffer):
+            remote_socket.send(client_buffer.encode())
+            print( "[==>]Sending %d bytes to remote hosts" % len(client_buffer))
+
 
 
 # 定义上面的server_loop函数
