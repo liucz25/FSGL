@@ -1,0 +1,16 @@
+python proxy.py 127.0.0.1 5000 127.0.0.1 8000 True
+waiting for local client connection
+[*]Received connection from 127.0.0.1:11400
+waiting for local client connection
+[<==]Receive 0 bytes from remote host receive first
+[<==]Receive 0 bytes from remote host receive
+[<==]Receive 0 bytes from remote host receive
+b'asewe'
+[<==]Receive 0 bytes from remote host receive
+[<==]Receive 0 bytes from remote host receive
+[<==]Receive 0 bytes from remote host receive
+[<==]Receive 0 bytes from remote host receive
+[<==]Receive 0 bytes from remote host receive
+[<==]Receive 0 bytes from remote host receive
+[<==]Receive 0 bytes from remote host receive
+[<==]Receive 0 bytes from remote host receive
