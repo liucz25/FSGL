@@ -1,3 +1,11 @@
+代理设置ok
+
+主要问题，python 2-3  encode   decode
+已修复
+
+
+
+
 python proxy.py 127.0.0.1 5000 127.0.0.1 8000 True
 waiting for local client connection
 [*]Received connection from 127.0.0.1:11400
