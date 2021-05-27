@@ -1,0 +1,40 @@
+﻿生成启动时间为 2021/5/27 16:52:57。
+日志记录详细程度设置为: Normal。     1>项目“D:\code\fsgl\offline-only\c-callback\函数指针\xiancheng\xiancheng\xiancheng.vcxproj”在节点 2 上(Build 个目标)。
+     1>InitializeBuildStatus:
+         正在对“D:\code\fsgl\offline-only\c-callback\函数指针\xiancheng\xiancheng\obj\x64\Debug\xiancheng.tlog\unsuccessfulbuild”执行 Touch 任务。
+       _ValidateSources:
+         正在验证源
+       _CopySources:
+         正在将源远程复制到“192.168.2.106”
+         正在将文件“D:\code\fsgl\offline-only\c-callback\函数指针\xiancheng\xiancheng\main-01.cpp”复制到“/home/lcz/projects/xiancheng/main-01.cpp”
+         正在跳过“D:\code\fsgl\offline-only\c-callback\函数指针\xiancheng\xiancheng\main.cpp”，因为它已是最新版本。
+       _ValidateCompatibleRemoteArchitectures:
+         正在验证体系结构
+       _ValidateValidArchitecture:
+         正在验证体系结构
+         当前项目体系结构“x64”兼容远程系统体系结构“x64”(“x64”)。
+       ClCompile:
+         正在启动远程生成
+         正在编译源:
+         正在调用“g++”
+         g++ -c -x c++ "/home/lcz/projects/xiancheng/main-01.cpp" -g2 -gdwarf-2 -o "/home/lcz/projects/xiancheng/obj/x64/Debug/main-01.o" -Wall -Wswitch -W"no-deprecated-declarations" -W"empty-body" -Wconversion -W"return-type" -Wparentheses -W"no-format" -Wuninitialized -W"unreachable-code" -W"unused-function" -W"unused-value" -W"unused-variable" -O0 -fno-strict-aliasing -fno-omit-frame-pointer -fthreadsafe-statics -fexceptions -frtti -std=c++11
+         main-01.cpp
+         已完成编译“/home/lcz/projects/xiancheng/main-01.cpp”
+         正在跳过“D:\code\fsgl\offline-only\c-callback\函数指针\xiancheng\xiancheng\main.cpp”，因为它已是最新版本。
+       Link:
+         正在链接对象
+         正在调用“ld”
+         g++ -o "/home/lcz/projects/xiancheng/bin/x64/Debug/xiancheng.out" -Wl,--no-undefined -Wl,-z,relro -Wl,-z,now -Wl,-z,noexecstack "/home/lcz/projects/xiancheng/obj/x64/Debug/main-01.o" /home/lcz/projects/xiancheng/obj/x64/Debug/main.o -lpthread
+         已完成链接，输出文件名:“/home/lcz/projects/xiancheng/bin/x64/Debug/xiancheng.out”
+         正在将文件“/home/lcz/projects/xiancheng/bin/x64/Debug/xiancheng.out”复制到“D:\code\fsgl\offline-only\c-callback\函数指针\xiancheng\xiancheng\bin\x64\Debug\xiancheng.out”
+         xiancheng.vcxproj -> D:\code\fsgl\offline-only\c-callback\函数指针\xiancheng\xiancheng\bin\x64\Debug\xiancheng.out
+       FinalizeBuildStatus:
+         正在删除文件“D:\code\fsgl\offline-only\c-callback\函数指针\xiancheng\xiancheng\obj\x64\Debug\xiancheng.tlog\unsuccessfulbuild”。
+         正在对“D:\code\fsgl\offline-only\c-callback\函数指针\xiancheng\xiancheng\obj\x64\Debug\xiancheng.tlog\xiancheng.lastbuildstate”执行 Touch 任务。
+     1>已完成生成项目“D:\code\fsgl\offline-only\c-callback\函数指针\xiancheng\xiancheng\xiancheng.vcxproj”(Build 个目标)的操作。
+
+已成功生成。
+    0 个警告
+    0 个错误
+
+已用时间 00:00:01.40

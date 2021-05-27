@@ -1,0 +1,1 @@
+g++ -o "/home/lcz/projects/xiancheng/bin/x64/Debug/xiancheng.out" -Wl,--no-undefined -Wl,-z,relro -Wl,-z,now -Wl,-z,noexecstack "/home/lcz/projects/xiancheng/obj/x64/Debug/main-01.o" /home/lcz/projects/xiancheng/obj/x64/Debug/main.o -lpthread
