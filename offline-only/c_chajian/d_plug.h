@@ -1,8 +1,13 @@
-//
-// Created by liuch on 2021/5/16.
-//
+/*d_plug.h*/
+#ifndef __D_PLUG_H
 
-#ifndef C_CHAJIAN_D_PLUG_H
-#define C_CHAJIAN_D_PLUG_H
+#define __D_PLUG_H
 
-#endif //C_CHAJIAN_D_PLUG_H
+
+#ifdef SHARED
+int ( *d_plug )( int x, int y, int *res );
+#else
+int d_plug( int x, int y, int *res );
+#endif
+
+#endif
