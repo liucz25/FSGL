@@ -1,0 +1,3 @@
+chrome-distiller://b2ad4311-6014-4808-a0ba-cb573f894d8c_c4187b0cfe0eb01cd5ff5509e3a10677b6db1eb5a4bbb2e9a6a3abc44f9cefc9/?time=321675823&url=https%3A%2F%2Fwww.cnblogs.com%2Fmicrothink%2Fp%2F9281848.html
+
+可能是因为公开成员和私有成员造成的，不能单纯的继承，单纯继承只继承公有的，想改就要参照官方的，官方必然用私有，所以还要继承私有那支分支，用Q_Q解决（公开Q_D），没实验，可能能行，
