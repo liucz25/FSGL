@@ -78,6 +78,9 @@
     <ClCompile Include="main-01.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="文本.txt" />
+  </ItemGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Link>
       <AdditionalDependencies>-lpthread;%(AdditionalDependencies)</AdditionalDependencies>

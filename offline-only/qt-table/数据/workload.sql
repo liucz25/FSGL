@@ -1,0 +1,16 @@
+INSERT INTO "workload"("workId", "name", "score", "TEXT") VALUES (1, '写平片', 1.0, NULL);
+INSERT INTO "workload"("workId", "name", "score", "TEXT") VALUES (2, '写CT', 1.0, NULL);
+INSERT INTO "workload"("workId", "name", "score", "TEXT") VALUES (3, '写MRI', 1.0, NULL);
+INSERT INTO "workload"("workId", "name", "score", "TEXT") VALUES (4, '写CT增强', 1.0, NULL);
+INSERT INTO "workload"("workId", "name", "score", "TEXT") VALUES (5, '写核磁增强', 1.0, NULL);
+INSERT INTO "workload"("workId", "name", "score", "TEXT") VALUES (6, '写造影', 1.0, NULL);
+INSERT INTO "workload"("workId", "name", "score", "TEXT") VALUES (7, '审平片', 1.0, NULL);
+INSERT INTO "workload"("workId", "name", "score", "TEXT") VALUES (8, '审CT', 1.0, NULL);
+INSERT INTO "workload"("workId", "name", "score", "TEXT") VALUES (1, '写平片', 1.0, NULL);
+INSERT INTO "workload"("workId", "name", "score", "TEXT") VALUES (2, '写CT', 1.0, NULL);
+INSERT INTO "workload"("workId", "name", "score", "TEXT") VALUES (3, '写MRI', 1.0, NULL);
+INSERT INTO "workload"("workId", "name", "score", "TEXT") VALUES (4, '写CT增强', 1.0, NULL);
+INSERT INTO "workload"("workId", "name", "score", "TEXT") VALUES (5, '写核磁增强', 1.0, NULL);
+INSERT INTO "workload"("workId", "name", "score", "TEXT") VALUES (6, '写造影', 1.0, NULL);
+INSERT INTO "workload"("workId", "name", "score", "TEXT") VALUES (7, '审平片', 1.0, NULL);
+INSERT INTO "workload"("workId", "name", "score", "TEXT") VALUES (8, '审CT', 1.0, NULL);

@@ -1,0 +1,111 @@
+Qt QFile 将文件读入QVector & 将QVector写入文件 & 清空文件
+
+小张同学的编码日常 2021-01-21 11:50:16  302  收藏 2
+分类专栏： 笔记 Qt 文章标签： qt c++
+版权
+MyIOFile是我自己写的文件读写类的类名
+
+头文件中声明
+
+public:
+ 	QVector<QString> readFile();
+    QVector<QString> array;
+    bool clearFile();
+    bool writeFile(QVector<QString>);
+1
+2
+3
+4
+5
+//文件读取
+
+QVector<QString> MyIOFile::readFile(){
+    QFile file("文件地址");
+    if(file.open(QIODevice::ReadOnly|QIODevice::Text)){
+        QTextStream stream(&file);
+        
+        QString str;
+        while (!stream.atEnd()){
+            QString buf;
+            stream>>buf;
+            array.push_back(buf);
+         }
+        
+        file.close();
+        return  array;
+    }
+}
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+//文件写入
+
+bool MyIOFile::writeFile(QVector<QString> data){
+    QFile file("文件地址");
+    if(file.open(QIODevice::WriteOnly|QIODevice::Text)){
+       QTextStream out(&file);
+       for(int i=0;i<data.size();i++){
+        out<<data[i];
+       }
+       file.close();
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+//清空文件
+
+bool MyIOFile::clearFile(){
+     QFile file("文件地址");
+
+     if(file.open(QIODevice::WriteOnly|QIODevice::Truncate))
+     {
+         file.close();
+         return true;
+     }else{
+         return false;
+     }
+}
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+自己整理的笔记，对你有帮助的话记得点个赞呀！
+————————————————
+版权声明：本文为CSDN博主「小张同学的编码日常」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/weixin_49035356/article/details/112920239

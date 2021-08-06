@@ -1,0 +1,14 @@
+INSERT INTO "person"("personId", "name", "zhichengId", "groupId", "zhiwuId", "zhizescore", "workscore", "TEXT") VALUES (1, '白秋立', NULL, 1, NULL, NULL, NULL, NULL);
+INSERT INTO "person"("personId", "name", "zhichengId", "groupId", "zhiwuId", "zhizescore", "workscore", "TEXT") VALUES (2, '赵会军', NULL, 1, NULL, NULL, NULL, NULL);
+INSERT INTO "person"("personId", "name", "zhichengId", "groupId", "zhiwuId", "zhizescore", "workscore", "TEXT") VALUES (3, '诊断汇总', NULL, 4, NULL, NULL, NULL, NULL);
+INSERT INTO "person"("personId", "name", "zhichengId", "groupId", "zhiwuId", "zhizescore", "workscore", "TEXT") VALUES (4, '护士汇总', NULL, 4, NULL, NULL, NULL, NULL);
+INSERT INTO "person"("personId", "name", "zhichengId", "groupId", "zhiwuId", "zhizescore", "workscore", "TEXT") VALUES (5, '技术汇总', NULL, 4, NULL, NULL, NULL, NULL);
+INSERT INTO "person"("personId", "name", "zhichengId", "groupId", "zhiwuId", "zhizescore", "workscore", "TEXT") VALUES (6, '贾雪霞', NULL, 2, NULL, NULL, NULL, NULL);
+INSERT INTO "person"("personId", "name", "zhichengId", "groupId", "zhiwuId", "zhizescore", "workscore", "TEXT") VALUES (7, '宋志丽', NULL, 3, NULL, NULL, NULL, NULL);
+INSERT INTO "person"("personId", "name", "zhichengId", "groupId", "zhiwuId", "zhizescore", "workscore", "TEXT") VALUES (1, '白秋立', NULL, 1, NULL, NULL, NULL, NULL);
+INSERT INTO "person"("personId", "name", "zhichengId", "groupId", "zhiwuId", "zhizescore", "workscore", "TEXT") VALUES (2, '赵会军', NULL, 1, NULL, NULL, NULL, NULL);
+INSERT INTO "person"("personId", "name", "zhichengId", "groupId", "zhiwuId", "zhizescore", "workscore", "TEXT") VALUES (3, '诊断汇总', NULL, 4, NULL, NULL, NULL, NULL);
+INSERT INTO "person"("personId", "name", "zhichengId", "groupId", "zhiwuId", "zhizescore", "workscore", "TEXT") VALUES (4, '护士汇总', NULL, 4, NULL, NULL, NULL, NULL);
+INSERT INTO "person"("personId", "name", "zhichengId", "groupId", "zhiwuId", "zhizescore", "workscore", "TEXT") VALUES (5, '技术汇总', NULL, 4, NULL, NULL, NULL, NULL);
+INSERT INTO "person"("personId", "name", "zhichengId", "groupId", "zhiwuId", "zhizescore", "workscore", "TEXT") VALUES (6, '贾雪霞', NULL, 2, NULL, NULL, NULL, NULL);
+INSERT INTO "person"("personId", "name", "zhichengId", "groupId", "zhiwuId", "zhizescore", "workscore", "TEXT") VALUES (7, '宋志丽', NULL, 3, NULL, NULL, NULL, NULL);
