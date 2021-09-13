@@ -1,49 +1,14 @@
 <html>
-
 <head>
-    <script src="lib/vue.js"></script>
-    <!-- <script src="lib/element.js"></script> -->
+
+<link rel="stylesheet" href="index.css"
 </head>
 
 <body>
-    <div id="app">
-        {{ message }} <br/>a:
-        <input v-model=a></input>
-        <br />a: {{ a }}<br />b:{{ b }}<br />c:{{ c }}<br />t:(a+b){{ t }}<br /> w:(t*c){{ w}}<br />
-    </div>
 
-    <script>
-        // import config from './config.json'
+<h1>我的第一个标题</h1>
 
-        var app = new Vue({
-            el: '#app',
+<p>我的第一个段落。</p>
 
-            data() {
-                return {
-
-                    message: "some text",
-                    a: "2",
-                    b: "3",
-                    c: 4
-                        // dataset: config.dataGongZuoLiang
-
-                }
-            },
-
-
-            computed: {
-                t: function() {
-                    var t = parseFloat(this.a) + parseFloat(this.b);
-                    return t;
-                },
-
-                w: function() {
-                    return this.t * this.c;
-                },
-
-            },
-        })
-    </script>
 </body>
-
 </html>
